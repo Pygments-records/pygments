@@ -1,0 +1,25 @@
+.container {
+  @apply text-white font-pygments mb-20 last:mb-0;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 80px;
+  @screen xl {
+    display: grid;
+    grid-template-columns: 1fr 30%;
+  }
+}
+
+.reverse {
+  grid-template-columns: 30% 1fr;
+}
+
+.card {
+  width: 100%;
+  max-width: 850px;
+  @screen md {
+    width: 70%;
+  }
+  @screen xl {
+    width: inherit;
+  }
+}

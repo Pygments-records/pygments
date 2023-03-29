@@ -1,0 +1,16 @@
+{
+  "title": "Fabernovel starter project!",
+  "description": "Get started by editing <code>pages/index.ts</code>",
+  "documentation": {
+    "title": "Documentation →",
+    "description": "Find in-depth information about Next.js features and API."
+  },
+  "learn": {
+    "title": "Learn →",
+    "description": "Learn about Next.js in an interactive course with quizzes!"
+  },
+  "examples": {
+    "title": "Examples →",
+    "description": "Discover and deploy boilerplate example Next.js projects."
+  }
+}

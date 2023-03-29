@@ -1,0 +1,34 @@
+.section {
+  @apply w-11/12 md:w-9/12 h-20 flex shadow-lg rounded-sm items-center;
+  opacity: 0.5;
+  transition: all 200ms linear;
+}
+
+.section-right {
+  @apply ml-auto justify-start pl-6;
+  transform: translateX(20%);
+}
+
+.section-left {
+  @apply mr-auto justify-end pr-6;
+  transform: translateX(-20%);
+}
+
+.title {
+  @apply uppercase text-white;
+  opacity: 0;
+  transition: all 200ms linear 100ms;
+}
+
+.title-left {
+  transform: translateX(-20%);
+}
+
+.title-right {
+  transform: translateX(20%);
+}
+
+.animated {
+  opacity: 1;
+  transform: translateX(0%);
+}

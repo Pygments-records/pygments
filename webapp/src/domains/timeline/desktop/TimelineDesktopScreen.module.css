@@ -1,0 +1,7 @@
+.desktop-swiper {
+  @apply relative;
+  height: calc(100vh - var(--header-desktop-height));
+  & :global(.swiper-slide:last-child) {
+    height: auto;
+  }
+}

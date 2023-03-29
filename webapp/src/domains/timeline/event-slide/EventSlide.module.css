@@ -1,0 +1,15 @@
+.overlay {
+  @apply block absolute inset-0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 1) 50%
+  );
+}
+
+.event-title {
+  @apply absolute left-0 right-0 flex flex-col text-white px-4;
+  bottom: var(--h-slider-navigation);
+  text-shadow: 2px 2px 10px black;
+}

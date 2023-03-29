@@ -1,0 +1,11 @@
+.event-details-container {
+  @apply flex flex-col px-8 pt-12 overflow-auto;
+  padding-bottom: var(--h-slider-navigation);
+}
+
+.card-swiper {
+  @apply w-full;
+  & :global(.swiper-slide) {
+    width: auto;
+  }
+}

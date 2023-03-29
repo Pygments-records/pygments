@@ -1,0 +1,5 @@
+.card {
+  height: 500px;
+  max-width: 430px;
+  @apply flex-1 shadow-lg mb-12 flex;
+}

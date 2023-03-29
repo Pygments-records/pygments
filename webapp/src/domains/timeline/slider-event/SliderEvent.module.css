@@ -1,0 +1,16 @@
+.slider-mobile-event {
+  height: var(--h-slider-navigation);
+  @apply z-10 absolute flex items-center justify-between bottom-0
+    left-0 right-0 px-4 py-6;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.slider-desktop-event {
+  @apply z-10 absolute flex flex-col items-center justify-center top-0 bottom-0
+    right-12;
+}
