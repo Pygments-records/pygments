@@ -1,0 +1,10 @@
+.vercel/
+.cache/
+.caches/
+.yarn/
+build/
+coverage/
+storybook-static/
+.next/
+out/
+yarn.lock
