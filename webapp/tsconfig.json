@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["cypress"],
+    "baseUrl": "src",
+    "paths": {
+      "@ui-kit/*": ["ui-kit/*"],
+      "@lib/*": ["lib/*"],
+      "@core/*": ["core/*"],
+      "@domains/*": ["domains/*"],
+      "@public/*": ["public/*"]
+    },
+    "esModuleInterop": true
+  },
+  "include": ["next-env.d.ts", "src"],
+  "exclude": [
+    ".github",
+    ".next",
+    ".yarn",
+    "public",
+    "node_modules",
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.ts"
+  ]
+}

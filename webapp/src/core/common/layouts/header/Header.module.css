@@ -1,0 +1,22 @@
+.menu {
+  @apply z-10 fixed inset-0 bg-black flex items-center;
+  padding-top: var(--header-mobile-height);
+}
+
+.menu-link {
+  display: inline-block;
+  position: relative;
+}
+
+.menu-link:after {
+  content: "";
+  @apply bg-white h-[2px] w-full absolute left-0 -bottom-1;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.35s ease-out;
+}
+
+.menu-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

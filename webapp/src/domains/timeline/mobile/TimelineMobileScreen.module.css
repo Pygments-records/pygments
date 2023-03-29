@@ -1,0 +1,6 @@
+.mobile-swiper {
+  height: calc(100vh - var(--header-mobile-height));
+  & :global(.swiper-slide:last-child) {
+    height: auto;
+  }
+}
