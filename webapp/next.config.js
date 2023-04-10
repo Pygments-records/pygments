@@ -59,7 +59,7 @@ module.exports = {
    * @see https://nextjs.org/docs/basic-features/image-optimization#configuration
    */
   images: {
-    domains: ["storage.googleapis.com", "thumbs.dreamstime.com"],
+    domains: ["storage.googleapis.com", "cdn.sanity.io"],
   },
 
   /**

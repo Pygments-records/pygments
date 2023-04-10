@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import type { ImageProps } from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalImage } from "@core/common/components/external-image/ExternalImage";
+import type { EventPicture } from "@core/event/data/EventModel";
+import Image from "next/image";
 
 export type ImageGalleryProps = {
-  images: string[];
+  images: EventPicture[];
   slideDuration?: number;
   className?: string;
   paused?: boolean;
@@ -61,7 +62,7 @@ export const ImageGallery = ({
     <div className={cx("h-full w-full relative", className)}>
       <AnimatePresence initial={false}>
         <motion.div
-          key={`image-gallery-${images[currentImg] ?? -1}`}
+          key={`image-gallery-${images[currentImg]?.url ?? -1}`}
           variants={variants}
           initial="enter"
           animate="center"
@@ -69,19 +70,19 @@ export const ImageGallery = ({
           transition={{ opacity: { duration: 0.8 } }}
           className={cx("h-full w-full", { ["blur-sm"]: paused })}
         >
-          <ExternalImage
-            key={`img-${images[currentImg] ?? "default"}`}
-            src={images[currentImg] ?? ""}
-            alt={"image of gallery"}
+          <Image
+            key={`img-${images[currentImg]?.url ?? "default"}`}
+            src={images[currentImg]?.url ?? ""}
+            alt={images[currentImg]?.alt}
             layout={"fill"}
             objectFit={"contain"}
             {...imageConfig}
           />
           {images[currentImg + 1] !== undefined && (
-            <ExternalImage
-              key={`img-${images[currentImg + 1] ?? "default"}`}
-              src={images[currentImg + 1] ?? ""}
-              alt={"image of gallery"}
+            <Image
+              key={`img-${images[currentImg + 1]?.url ?? "default"}`}
+              src={images[currentImg + 1]?.url ?? ""}
+              alt={images[currentImg]?.alt}
               layout={"fill"}
               objectFit={"contain"}
               className="opacity-0"

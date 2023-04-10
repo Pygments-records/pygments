@@ -7,8 +7,13 @@ import { Footer } from "@core/common/layouts/RootLayout/Footer";
 import styles from "./TimelineMobileScreen.module.css";
 import { EventSlideDetails } from "../event-slide/EventSlideDetails";
 import type { TimelineEvent } from "../models/TimelineEvent";
+import type { Event } from "@core/event/data/EventModel";
 
-export const TimelineMobileScreen = () => {
+type TimelineMobileScreenProps = {
+  events: Event[];
+};
+
+export const TimelineMobileScreen = ({ events }: TimelineMobileScreenProps) => {
   const [showMore, setShowMore] = useState(false);
 
   return (

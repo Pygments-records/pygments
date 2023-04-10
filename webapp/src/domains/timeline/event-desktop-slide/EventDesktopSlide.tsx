@@ -13,12 +13,14 @@ import { timelineNamespaces } from "../timelineNamespaces";
 import { useTranslation } from "@core/i18n/useTranslation";
 import { ExternalImage } from "@core/common/components/external-image/ExternalImage";
 import { EventSlider } from "./EventSlider";
+import type { Event } from "@core/event/data/EventModel";
+import Image from "next/image";
 
 require("dayjs/locale/fr");
 require("dayjs/locale/en");
 
 type EventDesktopSlideProps = {
-  event: TimelineEvent;
+  event: Event;
 };
 
 export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
@@ -48,10 +50,10 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
         >
           <EventSlider key="event-slider" hideNavigation={!showDetails}>
             {event.pictures.map((picture, index) => (
-              <SwiperSlide key={`slider-img-${picture}-${index}`}>
-                <ExternalImage
-                  src={picture}
-                  alt={"image of gallery"}
+              <SwiperSlide key={`slider-img-${picture.url}-${index}`}>
+                <Image
+                  src={picture.url}
+                  alt={picture.alt}
                   layout={"fill"}
                   objectFit={"cover"}
                   priority={index === 0}
@@ -67,7 +69,7 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
           transition={{ duration: 0.2, type: "spring", damping: 30, stiffness: 80 }}
         >
           <EventSlideTitle
-            title={event.title}
+            title={event.name}
             date={event.date}
             actionLabel={showDetails ? t("timeline:showLess") : t("timeline:showMore")}
             onActionClick={() => setShowDetails((prevState) => !prevState)}
@@ -103,7 +105,7 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
                     />
                   ))}
                 </div>
-                {event.artists.length > 0 && (
+                {/* {event.artists.length > 0 && (
                   <>
                     <Heading as="p" size={7} className="mb-3">
                       {t("timeline:eventDetails.lineUp")}
@@ -129,7 +131,7 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
                       </Swiper>
                     </div>
                   </>
-                )}
+                )} */}
               </motion.div>
             )}
           </AnimatePresence>
