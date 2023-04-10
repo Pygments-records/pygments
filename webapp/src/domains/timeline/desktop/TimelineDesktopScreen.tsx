@@ -37,7 +37,7 @@ export const TimelineDesktopScreen = ({ events }: TimelineDesktopScreenProps) =>
       >
         <SliderEventNavigation isMobile={false} />
         {events.map((event, index) => (
-          <SwiperSlide key={`event-slide-${event.title}-${index}`}>
+          <SwiperSlide key={`event-slide-${event.name}-${index}`}>
             <EventDesktopSlide event={event} />
           </SwiperSlide>
         ))}
