@@ -1,20 +1,17 @@
 import { Heading } from "@ui-kit/components/heading/Heading";
 import React, { useEffect, useState } from "react";
-import type { TimelineEvent } from "../models/TimelineEvent";
 import styles from "./EventDesktopSlide.module.css";
 import dayjs from "dayjs";
 import { AnimatePresence, motion } from "framer-motion";
-import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
+import { SwiperSlide, useSwiperSlide } from "swiper/react";
 import { Badge } from "@ui-kit/components/badge/Badge";
 import { Text } from "@ui-kit/components/text/Text";
 import cx from "classnames";
-import { ImageCard } from "@ui-kit/components/cards/ImageCard";
 import { timelineNamespaces } from "../timelineNamespaces";
 import { useTranslation } from "@core/i18n/useTranslation";
-import { ExternalImage } from "@core/common/components/external-image/ExternalImage";
 import { EventSlider } from "./EventSlider";
 import type { Event } from "@core/event/data/EventModel";
-import Image from "next/image";
+import { NextImage } from "@core/common/components/image/Image";
 
 require("dayjs/locale/fr");
 require("dayjs/locale/en");
@@ -51,7 +48,7 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
           <EventSlider key="event-slider" hideNavigation={!showDetails}>
             {event.pictures.map((picture, index) => (
               <SwiperSlide key={`slider-img-${picture.url}-${index}`}>
-                <Image
+                <NextImage
                   src={picture.url}
                   alt={picture.alt}
                   layout={"fill"}

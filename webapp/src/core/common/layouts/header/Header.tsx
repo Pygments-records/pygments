@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import { InstaIcon } from "@ui-kit/icons/InstaIcon";
 import { MenuIcon } from "@ui-kit/icons/MenuIcon";
 import { AnimatePresence, motion } from "framer-motion";
@@ -118,12 +118,14 @@ type HeaderLinkProps = {
   onClick?: () => void;
 };
 
-const MenuLink = ({ href, label, onClick }: HeaderLinkProps) => (
-  <NextLink href={href} passHref={true}>
-    <Link href={href} className={styles["menu-link"]} onClick={onClick}>
-      <span className="font-text text-4xl lg:text-6xl font-light tracking-[0.2em]">{label}</span>
-    </Link>
-  </NextLink>
+const MenuLink = forwardRef<HTMLAnchorElement, HeaderLinkProps>(
+  ({ href, label, onClick }: HeaderLinkProps, ref) => (
+    <NextLink ref={ref} href={href} passHref={true}>
+      <Link href={href} className={styles["menu-link"]} onClick={onClick}>
+        <span className="font-text text-4xl lg:text-6xl font-light tracking-[0.2em]">{label}</span>
+      </Link>
+    </NextLink>
+  )
 );
 
 const menuVariants = {
