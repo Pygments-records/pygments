@@ -3,12 +3,15 @@ import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID!
+const dataset = process.env.SANITY_STUDIO_DATASET!
+
 export default defineConfig({
   name: 'default',
   title: 'pygments-studio',
 
-  projectId: 'tzmkz6i1',
-  dataset: 'production',
+  projectId,
+  dataset,
 
   plugins: [deskTool(), visionTool()],
 
