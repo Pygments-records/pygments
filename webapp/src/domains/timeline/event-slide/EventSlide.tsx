@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
-import type { TimelineEvent } from "../models/TimelineEvent";
-import cx from "classnames";
 import styles from "./EventSlide.module.css";
 import { EventSlideTitle } from "./EventSlideTitle";
 import { ImageGallery } from "@ui-kit/components/gallery/ImageGallery";
 import ReactDOM from "react-dom";
+import type { Event } from "@core/event/data/EventModel";
 
 type EventSlideProps = {
-  event: TimelineEvent;
+  event: Event;
 };
 
 export const EventSlide = ({ event }: EventSlideProps) => {
   return (
-    <div className={cx("h-full relative")}>
+    <div className={"h-full relative"}>
       <ImageGallery images={event.pictures} imageConfig={{ objectFit: "cover" }} />
       <div className={"hidden"} />
       <div className={styles["event-title"]}>
         <div className="flex flex-col items-end gap-y-2">
-          <EventSlideTitle title={event.title} date={event.date} />
+          <EventSlideTitle title={event.name} date={event.date} />
         </div>
       </div>
     </div>

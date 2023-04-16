@@ -3,12 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Lazy, Navigation } from "swiper";
 import styles from "./TimelineDesktopScreen.module.css";
 import { Footer } from "@core/common/layouts/RootLayout/Footer";
-import { events } from "../constants/events";
 import { EventDesktopSlide } from "../event-desktop-slide/EventDesktopSlide";
 import { SliderEventNavigation } from "../slider-event/SliderEvent";
 import arrowStyles from "../slider-arrow/SliderArrow.module.css";
+import type { Event } from "@core/event/data/EventModel";
 
-export const TimelineDesktopScreen = () => {
+type TimelineDesktopScreenProps = {
+  events: Event[];
+};
+
+export const TimelineDesktopScreen = ({ events }: TimelineDesktopScreenProps) => {
   return (
     <div className={styles["desktop-swiper"]}>
       <Swiper
@@ -33,7 +37,7 @@ export const TimelineDesktopScreen = () => {
       >
         <SliderEventNavigation isMobile={false} />
         {events.map((event, index) => (
-          <SwiperSlide key={`event-slide-${event.title}-${index}`}>
+          <SwiperSlide key={`event-slide-${event.name}-${index}`}>
             <EventDesktopSlide event={event} />
           </SwiperSlide>
         ))}

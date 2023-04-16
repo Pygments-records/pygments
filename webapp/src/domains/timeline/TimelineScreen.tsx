@@ -8,8 +8,13 @@ import { TimelineMobileScreen } from "./mobile/TimelineMobileScreen";
 import { TimelineDesktopScreen } from "./desktop/TimelineDesktopScreen";
 import { Header } from "@core/common/layouts/header/Header";
 import { useResponsive } from "@core/common/hooks/useResponsive";
+import type { Event } from "@core/event/data/EventModel";
 
-export const TimelineScreen = () => {
+type TimelineScreenProps = {
+  events: Event[];
+};
+
+export const TimelineScreen = ({ events }: TimelineScreenProps) => {
   const { isMobileSize } = useResponsive();
   if (isMobileSize === undefined) {
     return null;
@@ -19,10 +24,10 @@ export const TimelineScreen = () => {
       <Header />
       {isMobileSize ? (
         <div className="lg:hidden h-full">
-          <TimelineMobileScreen />
+          <TimelineMobileScreen events={events} />
         </div>
       ) : (
-        <TimelineDesktopScreen />
+        <TimelineDesktopScreen events={events} />
       )}
     </PageLayout>
   );

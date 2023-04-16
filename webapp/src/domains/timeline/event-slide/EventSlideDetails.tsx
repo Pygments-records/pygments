@@ -6,8 +6,6 @@ import { OutlinedButton } from "@ui-kit/components/buttons/OutlinedButton";
 import { Badge } from "@ui-kit/components/badge/Badge";
 import styles from "./EventSlideDetails.module.css";
 import dayjs from "dayjs";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { ImageCard } from "@ui-kit/components/cards/ImageCard";
 import { useTranslation } from "@core/i18n/useTranslation";
 import { timelineNamespaces } from "../timelineNamespaces";
 import { useLockBodyScroll } from "@core/common/hooks/useBlockScroll";
@@ -48,7 +46,7 @@ export const EventSlideDetails = ({ event, onClose }: EventSlideDetailsProps) =>
         <Text size="xl" className="mb-6">
           {event.description}
         </Text>
-        <Heading as="p" size={6} className="mb-3">
+        {/* <Heading as="p" size={6} className="mb-3">
           {t("timeline:eventDetails.lineUp")}
         </Heading>
         <div>
@@ -70,7 +68,7 @@ export const EventSlideDetails = ({ event, onClose }: EventSlideDetailsProps) =>
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </div> */}
       </div>
       {onClose !== undefined && (
         <div

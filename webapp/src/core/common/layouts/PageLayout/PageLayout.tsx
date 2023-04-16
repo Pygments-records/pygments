@@ -11,13 +11,13 @@ type PageLayoutProps = {
   children: ReactNode;
 };
 export const PageLayout = ({
-  className,
+  className = "bg-white",
   children,
   withHeader = true,
   withFooter = true,
 }: PageLayoutProps) => {
   return (
-    <main className={cx("bg-white", className)}>
+    <main className={className}>
       {withHeader && <Header />}
       <div className="min-h-screen">{children}</div>
       {withFooter && (

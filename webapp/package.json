@@ -2,9 +2,6 @@
   "name": "pygments-front",
   "version": "1.0.0",
   "private": true,
-  "engines": {
-    "node": ">=12.22.0"
-  },
   "license": "UNLICENSED",
   "author": "PYGMENTS",
   "scripts": {
@@ -31,6 +28,8 @@
     "defaults"
   ],
   "dependencies": {
+    "@sanity/client": "5.4.1",
+    "@sanity/image-url": "1.0.2",
     "classnames": "2.3.1",
     "cypress": "7.7.0",
     "framer-motion": "7.3.5",
