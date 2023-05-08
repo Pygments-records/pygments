@@ -10,7 +10,7 @@ export default {
     },
     {
       name: 'description',
-      type: 'string',
+      type: 'text',
       title: 'Description',
     },
     {
@@ -62,6 +62,17 @@ export default {
       options: {
         layout: 'grid',
       },
+    },
+    {
+      title: 'Artists',
+      name: 'artists',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'artist'}],
+        },
+      ],
     },
   ],
 }
