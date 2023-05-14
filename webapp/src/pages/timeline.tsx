@@ -7,8 +7,6 @@ import { timelineNamespaces } from "@domains/timeline/timelineNamespaces";
 import { getEvents } from "@core/event/data/EventRepository";
 import type { Event } from "@core/event/data/EventModel";
 
-const REVALIDATE_TIME_S = 300; // 60 * 5 (5 minutes)
-
 export const getStaticProps: GetStaticProps<TimelineProps> = async ({ locale, defaultLocale }) => {
   const events = await getEvents();
   return {
@@ -16,7 +14,7 @@ export const getStaticProps: GetStaticProps<TimelineProps> = async ({ locale, de
       events,
       ...(await serverSideTranslations(locale ?? defaultLocale, timelineNamespaces)),
     },
-    revalidate: REVALIDATE_TIME_S,
+    revalidate: process.env.NEXT_PUBLIC_SANITY_WEBHOOK_SECRET ? undefined : 60, // seconds,
   };
 };
 
