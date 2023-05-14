@@ -4,15 +4,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 const SANITY_WEBHOOK_SECRET = process.env.NEXT_PUBLIC_SANITY_WEBHOOK_SECRET ?? "";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (process.env.NODE_ENV !== "production") {
-    return;
-  }
   const signature = req.headers[SIGNATURE_HEADER_NAME];
   const isValid =
     typeof signature === "string"
       ? isValidSignature(JSON.stringify(req.body), signature, SANITY_WEBHOOK_SECRET)
       : false;
 
+  console.log(`signature: ${signature}`);
+  console.log(`secret: ${SANITY_WEBHOOK_SECRET}`);
   console.log(`===== Is the webhook request valid? ${isValid}`);
 
   // Validate signature
