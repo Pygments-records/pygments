@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps<TimelineProps> = async ({ locale, de
       events,
       ...(await serverSideTranslations(locale ?? defaultLocale, timelineNamespaces)),
     },
-    revalidate: process.env.NEXT_PUBLIC_SANITY_WEBHOOK_SECRET ? undefined : 60, // seconds,
+    revalidate: 60, // 1 minute,
   };
 };
 

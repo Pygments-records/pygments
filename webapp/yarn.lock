@@ -1552,12 +1552,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.17, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
   version: 7.21.0
   resolution: "@babel/runtime@npm:7.21.0"
   dependencies:
     regenerator-runtime: ^0.13.11
   checksum: ce6997d573eaf881606f2ef1ac174b70c727822f4841bf2ab438badc2c4b6ab77266922eeba2305df60715d6278d94723b8330df662c1125e7467fbbd1ae1707
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.18.9":
+  version: 7.21.5
+  resolution: "@babel/runtime@npm:7.21.5"
+  dependencies:
+    regenerator-runtime: ^0.13.11
+  checksum: 724e81d7c560d1a84fcf6c804e8daa05be42cdc1049943887ea160b5eff1199c6b56f6efc3afbd8841875abcb60d17e755eb02204fb9220009a010840921bcfb
   languageName: node
   linkType: hard
 
@@ -4136,15 +4145,6 @@ __metadata:
   version: 6.1.0
   resolution: "@types/html-minifier-terser@npm:6.1.0"
   checksum: 4906842795244e82f21b02aae68766ce4960ed6c2ff2af38f09586db83b15678d33eddabbe0d3b32c9ec2ce34ccf211cf23e965c3e241b39ad802f86c18fea76
-  languageName: node
-  linkType: hard
-
-"@types/i18next-fs-backend@npm:^1.0.0":
-  version: 1.1.2
-  resolution: "@types/i18next-fs-backend@npm:1.1.2"
-  dependencies:
-    i18next: ^21.0.1
-  checksum: de1b73a1b68e44f3ec844d4c21caea42cebb2337cc596adf4d6079d81e64f4231c90569b7385dd18f876a5b3f2f457ec8adf2acd97751ed0dfd60c4d28917f37
   languageName: node
   linkType: hard
 
@@ -10484,7 +10484,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.2.0, hoist-non-react-statics@npm:^3.3.0":
+"hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -10715,23 +10715,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"i18next-fs-backend@npm:^1.0.7":
+"i18next-fs-backend@npm:^1.1.5":
   version: 1.2.0
   resolution: "i18next-fs-backend@npm:1.2.0"
   checksum: e1739701645850136995ebef5cf4dfa81afb85c100d1c43e5b4bca471ba323f591eed97a8038fa5cc38d4281fdde3117eebee16f1c897d4408004806a6b3f0a0
   languageName: node
   linkType: hard
 
-"i18next@npm:^20.1.0":
-  version: 20.6.1
-  resolution: "i18next@npm:20.6.1"
-  dependencies:
-    "@babel/runtime": ^7.12.0
-  checksum: bda0e31294da052dbc04fec6c19c264c12a1f54faa7481775351265e1227f4ef9e0061660ce24d836000da0605aeddc633a840cbf0af70c7b468db889b60eaf5
-  languageName: node
-  linkType: hard
-
-"i18next@npm:^21.0.1":
+"i18next@npm:^21.9.1":
   version: 21.10.0
   resolution: "i18next@npm:21.10.0"
   dependencies:
@@ -13039,22 +13030,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"next-i18next@npm:8.5.5":
-  version: 8.5.5
-  resolution: "next-i18next@npm:8.5.5"
+"next-i18next@npm:12.1.0":
+  version: 12.1.0
+  resolution: "next-i18next@npm:12.1.0"
   dependencies:
-    "@babel/runtime": ^7.13.17
+    "@babel/runtime": ^7.18.9
     "@types/hoist-non-react-statics": ^3.3.1
-    "@types/i18next-fs-backend": ^1.0.0
     core-js: ^3
-    hoist-non-react-statics: ^3.2.0
-    i18next: ^20.1.0
-    i18next-fs-backend: ^1.0.7
-    react-i18next: ^11.8.13
+    hoist-non-react-statics: ^3.3.2
+    i18next: ^21.9.1
+    i18next-fs-backend: ^1.1.5
+    react-i18next: ^11.18.4
   peerDependencies:
     next: ">= 10.0.0"
     react: ">= 16.8.0"
-  checksum: dcd666f41162b3c229a888ff2ac1f59db56fa861863719cf4f3eee3d93a6bc9bfe2acf75a1a8705b3c34357aa5ad3c94964cc4c9a51df10acd32dd1ee9f15995
+  checksum: a176b3396ae4e88ecb57faadad54454c8f678d84874cfa523ff8842aa3fbed1925fff217a383caea265795c1b4f1a9f523f1f4be87e77527ecc7712f3ca291b1
   languageName: node
   linkType: hard
 
@@ -15077,7 +15067,7 @@ fsevents@^1.2.7:
     ky-universal: 0.8.2
     lint-staged: 11.0.1
     next: 12
-    next-i18next: 8.5.5
+    next-i18next: 12.1.0
     postcss: ^8.4.12
     postcss-flexbugs-fixes: 5.0.2
     postcss-preset-env: 7.5.0
@@ -15392,7 +15382,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^11.8.13":
+"react-i18next@npm:^11.18.4":
   version: 11.18.6
   resolution: "react-i18next@npm:11.18.6"
   dependencies:

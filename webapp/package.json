@@ -37,7 +37,7 @@
     "ky": "0.25.1",
     "ky-universal": "0.8.2",
     "next": "12",
-    "next-i18next": "8.5.5",
+    "next-i18next": "12.1.0",
     "postcss": "^8.4.12",
     "querystring": "0.2.1",
     "react": "latest",
