@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps<TimelineProps> = async ({ locale, de
       events,
       ...(await serverSideTranslations(locale ?? defaultLocale, timelineNamespaces)),
     },
-    revalidate: 60, // 1 minute,
+    revalidate: 3600, // 1 hour,
   };
 };
 
