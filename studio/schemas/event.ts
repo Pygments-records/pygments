@@ -1,6 +1,8 @@
 import {defineField} from 'sanity'
 import {validateUrl} from '../validation/validation'
 
+const now = new Date().toISOString()
+
 export default defineField({
   name: 'event',
   type: 'document',
@@ -19,9 +21,16 @@ export default defineField({
       validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
-      name: 'date',
-      type: 'date',
-      title: 'Date',
+      name: 'startDate',
+      type: 'datetime',
+      title: 'Start date',
+      validation: (Rule) => Rule.required().min(now),
+    }),
+    defineField({
+      name: 'endDate',
+      type: 'datetime',
+      title: 'End date',
+      validation: (Rule) => Rule.required().min(Rule.valueOfField('startDate')),
     }),
     {
       type: 'object',
@@ -89,7 +98,7 @@ export default defineField({
           to: [{type: 'music_genre'}],
         },
       ],
-      validation: (Rule) => Rule.required().length(1),
+      validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       title: 'Pictures',
@@ -115,7 +124,7 @@ export default defineField({
       options: {
         layout: 'grid',
       },
-      validation: (Rule) => Rule.required().length(1),
+      validation: (Rule) => Rule.required().min(1),
     }),
     {
       title: 'Artists',
