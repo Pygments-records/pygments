@@ -10,7 +10,7 @@ import cx from "classnames";
 
 export const HomeScreen = () => {
   return (
-    <PageLayout>
+    <PageLayout className="bg-darkPurple">
       <div className="h-[150vh] w-[100vw] absolute inset-0">
         <Image alt="pygments hero background" layout="fill" objectFit="cover" src={"/waves.svg"} />
       </div>
