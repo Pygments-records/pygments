@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
-import cx from "classnames";
 import { PreFooter } from "@core/common/layouts/RootLayout/PreFooter";
 import { Footer } from "@core/common/layouts/RootLayout/Footer";
-import { Header } from "../SectionHeader/Header";
+import { Header } from "@core/common/layouts/header/Header";
 
 type PageLayoutProps = {
   className?: string;

@@ -11,13 +11,20 @@ import { FacebookIcon } from "@ui-kit/icons/FbIcon";
 import { YoutubeIcon } from "@ui-kit/icons/YtIcon";
 import { useLockBodyScroll } from "@core/common/hooks/useBlockScroll";
 import { PygmentsIcon } from "@ui-kit/icons/PygmentsIcon";
+import cx from "classnames";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [shrinkMenu, setShrinkMenu] = useState(true);
 
   return (
     <>
-      <header className="z-40 relative">
+      <motion.header
+        className={cx("z-40 flex flex-col fixed top-0 left-0 right-0", {
+          ["bg-darkPurple"]: shrinkMenu && !showMenu,
+          ["bottom-0 bg-black"]: !shrinkMenu,
+        })}
+      >
         <div className="h-header relative z-10 h-full flex items-center justify-center mx-4 lg:mx-12">
           <div className="absolute left-0 flex items-center">
             <Link
@@ -49,6 +56,7 @@ export const Header = () => {
             <IconButton
               onClick={() => {
                 setShowMenu((prevState) => !prevState);
+                setShrinkMenu(false);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               label="Menu"
@@ -58,19 +66,20 @@ export const Header = () => {
             />
           </div>
         </div>
-      </header>
-      <AnimatePresence>
-        {showMenu && <HeaderMenu onClose={() => setShowMenu(false)} />}
-      </AnimatePresence>
+        <AnimatePresence onExitComplete={() => setShrinkMenu(true)}>
+          {showMenu && <HeaderMenu className="flex-1" onClose={() => setShowMenu(false)} />}
+        </AnimatePresence>
+      </motion.header>
     </>
   );
 };
 
 type HeaderMenuProps = {
+  className?: string;
   onClose: () => void;
 };
 
-const HeaderMenu = ({ onClose }: HeaderMenuProps) => {
+const HeaderMenu = ({ onClose, className }: HeaderMenuProps) => {
   useLockBodyScroll();
   return (
     <motion.div
@@ -78,7 +87,7 @@ const HeaderMenu = ({ onClose }: HeaderMenuProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { delay: 0.5 } }}
       transition={{ duration: 0.4, type: "spring" }}
-      className={styles.menu}
+      className={cx(styles.menu, className)}
     >
       <nav className="px-8 lg:ml-auto w-full lg:w-1/2 text-white">
         <motion.ul
