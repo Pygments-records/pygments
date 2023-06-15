@@ -5,6 +5,8 @@ import { ArtistListItem } from "./ArtistListItem";
 import { homeNamespaces } from "../homeNamespaces";
 import { useTranslation } from "@core/i18n/useTranslation";
 
+const MAX_LENGTH_DESCRIPTION = 250;
+
 type ArtistListProps = {
   artists: Artist[];
   className?: string;

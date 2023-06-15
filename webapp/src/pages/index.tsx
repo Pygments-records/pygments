@@ -8,13 +8,13 @@ import type { GetServerSideProps } from "@lib/next/getServerSideProps";
 import type { Artist } from "@core/artist/data/ArtistModel";
 import { getUpcomingEvents } from "@core/event/data/EventRepository";
 import type { Event } from "@core/event/data/EventModel";
-import type {Staff} from "@core/staff/data/StaffModel";
-import {getStaff} from "@core/staff/data/StaffRepository";
+import type { Staff } from "@core/staff/data/StaffModel";
+import { getStaff } from "@core/staff/data/StaffRepository";
 
 export const getServerSideProps: GetServerSideProps = async ({ locale, defaultLocale }) => {
   const artists = await getResidentArtists();
   const events = await getUpcomingEvents();
-  const staff = await getStaff()
+  const staff = await getStaff();
   return {
     props: {
       artists,
@@ -31,7 +31,7 @@ type HomeProps = {
   staff?: Staff[];
 };
 
-export default function Home({ artists, events, staff}: HomeProps) {
+export default function Home({ artists, events, staff }: HomeProps) {
   return (
     <RootLayout className={"overflow-x-hidden"}>
       <Head>
