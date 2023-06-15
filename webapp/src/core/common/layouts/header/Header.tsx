@@ -12,40 +12,38 @@ import { YoutubeIcon } from "@ui-kit/icons/YtIcon";
 import { useLockBodyScroll } from "@core/common/hooks/useBlockScroll";
 import { PygmentsIcon } from "@ui-kit/icons/PygmentsIcon";
 import cx from "classnames";
+import { Fade } from "@core/common/components/fade/Fade";
+import { AnimateGroup } from "@core/common/components/animate-group/AnimateGroup";
+import { headerMenuItemVariants } from "./Header.animation";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [shrinkMenu, setShrinkMenu] = useState(true);
+  const [menuBgColor, setMenuBgColor] = useState<"black" | "darkPurple">("darkPurple");
 
+  const externalLinkProps = {
+    target: "_blank",
+    rel: "noopener norefererrer",
+  };
   return (
     <>
       <motion.header
-        className={cx("z-40 flex flex-col fixed top-0 left-0 right-0", {
-          ["bg-darkPurple"]: shrinkMenu && !showMenu,
-          ["bottom-0 bg-black"]: !shrinkMenu,
-        })}
+        className={cx(`z-40 flex flex-col fixed top-0 left-0 right-0 shadow-lg bg-${menuBgColor}`)}
       >
         <div className="h-header relative z-10 h-full flex items-center justify-center mx-4 lg:mx-12">
           <div className="absolute left-0 flex items-center">
-            <Link
-              href="https://www.instagram.com/pygments.records/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="https://www.instagram.com/pygments.records/" {...externalLinkProps}>
               <IconButton icon={<InstaIcon />} className="w-14 h-14" />
             </Link>
             <Link
               href="https://www.facebook.com/profile.php?id=100076739332122"
-              target="_blank"
-              rel="noopener noreferrer"
+              {...externalLinkProps}
               className="hidden lg:block"
             >
               <IconButton icon={<FacebookIcon />} className="w-14 h-14" />
             </Link>
             <Link
               href="https://www.youtube.com/channel/UCHhBg2Ks8-q3eQ94u2T7zoQ"
-              target="_blank"
-              rel="noopener noreferrer"
+              {...externalLinkProps}
               className="hidden lg:block"
             >
               <IconButton icon={<YoutubeIcon />} className="w-14 h-14" />
@@ -56,8 +54,7 @@ export const Header = () => {
             <IconButton
               onClick={() => {
                 setShowMenu((prevState) => !prevState);
-                setShrinkMenu(false);
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                setMenuBgColor("black");
               }}
               label="Menu"
               labelClassName="text-white tracking-[0.5em] text-sm font-text"
@@ -66,8 +63,8 @@ export const Header = () => {
             />
           </div>
         </div>
-        <AnimatePresence onExitComplete={() => setShrinkMenu(true)}>
-          {showMenu && <HeaderMenu className="flex-1" onClose={() => setShowMenu(false)} />}
+        <AnimatePresence onExitComplete={() => setMenuBgColor("darkPurple")}>
+          {showMenu && <HeaderMenu className="h-menu" onClose={() => setShowMenu(false)} />}
         </AnimatePresence>
       </motion.header>
     </>
@@ -82,42 +79,32 @@ type HeaderMenuProps = {
 const HeaderMenu = ({ onClose, className }: HeaderMenuProps) => {
   useLockBodyScroll();
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { delay: 0.5 } }}
-      transition={{ duration: 0.4, type: "spring" }}
-      className={cx(styles.menu, className)}
-    >
+    <Fade transition={{ duration: 1, type: "spring" }} className={cx(styles.menu, className)}>
       <nav className="px-8 lg:ml-auto w-full lg:w-1/2 text-white">
-        <motion.ul
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={menuVariants}
-          className="flex flex-col gap-y-4 lg:gap-y-6"
-        >
-          <motion.li
-            variants={menuItemVariants}
+        <AnimateGroup as="ul" className="flex flex-col gap-y-4 lg:gap-y-6">
+          <AnimateGroup.Item
+            as="li"
+            variants={headerMenuItemVariants}
             className="font-text text-4xl lg:text-6xl font-light tracking-[0.2em]"
           >
             <MenuLink href="/" label="Home" onClick={onClose} />
-          </motion.li>
-          <motion.li
-            variants={menuItemVariants}
+          </AnimateGroup.Item>
+          <AnimateGroup.Item
+            as="li"
+            variants={headerMenuItemVariants}
             className="font-text text-4xl lg:text-6xl font-light tracking-[0.2em]"
           >
             <NextLink href="/timeline" passHref={true}>
               <MenuLink href="/timeline" label="Timeline" onClick={onClose} />
             </NextLink>
-          </motion.li>
-          <motion.div variants={menuItemVariants} className="grid grid-cols-2">
+          </AnimateGroup.Item>
+          <AnimateGroup.Item as="li" variants={headerMenuItemVariants} className="grid grid-cols-2">
             <p className="font-text text-xs lg:text-base">pygments@gmail.com</p>
             <p className="font-text text-xs lg:text-base">75000 Paris, France</p>
-          </motion.div>
-        </motion.ul>
+          </AnimateGroup.Item>
+        </AnimateGroup>
       </nav>
-    </motion.div>
+    </Fade>
   );
 };
 
@@ -136,40 +123,3 @@ const MenuLink = forwardRef<HTMLAnchorElement, HeaderLinkProps>(
     </NextLink>
   )
 );
-
-const menuVariants = {
-  hidden: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-  visible: {
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.1,
-    },
-  },
-  exit: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const menuItemVariants = {
-  hidden: {
-    opacity: 0,
-    transform: "translateY(35px)",
-    transition: { duration: 0.3, type: "spring", damping: 20, bounce: 0 },
-  },
-  visible: {
-    opacity: 1,
-    transform: "translateY(0px)",
-    transition: { duration: 0.3, type: "spring", damping: 20, bounce: 0 },
-  },
-  exit: {
-    opacity: 0,
-    transform: "translateY(-35px)",
-    transition: { duration: 0.3, type: "spring", damping: 20, bounce: 0 },
-  },
-};
