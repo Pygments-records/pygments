@@ -11,12 +11,20 @@ export const getArtists = async (): Promise<Artist[]> => {
 }
 
 export const getResidentArtists = async (): Promise<Artist[]> => {
-  return request(`*[_type == "artist" && resident == true] | order(name asc) {
+  return request(`
+  *[_type == "artist" && resident == true] | order(name asc) {
     ...,
     "categories": categories[]->.genre,
+<<<<<<< HEAD
     picture{"url": asset->url, alt}
   }`)
 }
+=======
+    picture{"url": asset->url, alt},
+    "slug": slug.current
+  }`);
+};
+>>>>>>> cb592a5 ((feature): Artist page)
 
 export const getStaff = async (): Promise<Staff[]> => {
   return request(`*[_type == "artist" && resident == true] | order(name asc) {

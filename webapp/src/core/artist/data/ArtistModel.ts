@@ -16,4 +16,10 @@ export type Artist = {
   social_media: SocialMedia
   picture: Picture
   categories: string[]
+  slug: {
+    current: string
+  }
+  email_book: string
+  url_presskit: string
+  videos: string[]
 }
