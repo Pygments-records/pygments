@@ -11,10 +11,12 @@ export const getArtists = async (): Promise<Artist[]> => {
 }
 
 export const getResidentArtists = async (): Promise<Artist[]> => {
-  return request(`*[_type == "artist" && resident == true] | order(name asc) {
+  return request(`
+  *[_type == "artist" && resident == true] | order(name asc) {
     ...,
     "categories": categories[]->.genre,
-    picture{"url": asset->url, alt}
+    picture{"url": asset->url, alt},
+    "slug": slug.current
   }`)
 }
 

@@ -11,6 +11,8 @@ import { ExternalLink } from '@ui-kit/components/external-link/ExternalLink'
 import { IconButton } from '@ui-kit/components/buttons/IconButton'
 import { useTranslation } from '@core/i18n/useTranslation'
 import { homeNamespaces } from '../homeNamespaces'
+import NextLink from 'next/link'
+import React from 'react'
 
 export type ArtistItemProps = {
   artist: Artist
@@ -117,6 +119,13 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
             ))}
           </div>
         )}
+        <div>
+          <NextLink href={`/artists/${artist._id}`} passHref={true}>
+            <button className="cursor-pointer" color="electricBlue">
+              See More
+            </button>
+          </NextLink>
+        </div>
       </div>
     </div>
   )
