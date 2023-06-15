@@ -68,6 +68,13 @@ a {
   }
 }
 
+.h-menu {
+  height: calc(100vh - var(--header-mobile-height));
+  @screen lg {
+    height: calc(100vh - var(--header-desktop-height));
+  }
+}
+
 .slider-navigation {
   height: var(--h-slider-navigation);
 }
