@@ -1,19 +1,28 @@
 import Head from "next/head";
-import type { GetStaticProps } from "@lib/next/getStaticProps";
 import { serverSideTranslations } from "@core/i18n/serverSideTranslations";
 import { RootLayout } from "@core/common/layouts/RootLayout/RootLayout";
 import { HomeScreen } from "@domains/home/HomeScreen";
 import { homeNamespaces } from "@domains/home/homeNamespaces";
+import { getArtists } from "@core/artist/data/ArtistRepository";
+import type { GetServerSideProps } from "@lib/next/getServerSideProps";
+import type { Artist } from "@core/artist/data/ArtistModel";
 
-export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale, defaultLocale }) => {
+  const artists = await getArtists();
   return {
     props: {
+      artists,
       ...(await serverSideTranslations(locale ?? defaultLocale, homeNamespaces)),
     },
   };
 };
 
-export default function Home() {
+type HomeProps = {
+  artists?: Artist[];
+};
+
+export default function Home({ artists }: HomeProps) {
+  console.log({ artists });
   return (
     <RootLayout className={"overflow-x-hidden"}>
       <Head>
