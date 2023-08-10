@@ -24,7 +24,7 @@ export default defineField({
       name: 'startDate',
       type: 'datetime',
       title: 'Start date',
-      validation: (Rule) => Rule.required().min(now),
+      // validation: (Rule) => Rule.required().min(now),
     }),
     defineField({
       name: 'endDate',
@@ -86,7 +86,7 @@ export default defineField({
           ],
         },
       ],
-      validation: (Rule) => Rule.required().length(1),
+      // validation: (Rule) => Rule.required().length(1),
     }),
     defineField({
       title: 'Categories',
