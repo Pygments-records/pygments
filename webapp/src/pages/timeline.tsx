@@ -4,11 +4,11 @@ import { serverSideTranslations } from "@core/i18n/serverSideTranslations";
 import { RootLayout } from "@core/common/layouts/RootLayout/RootLayout";
 import { TimelineScreen } from "@domains/timeline/TimelineScreen";
 import { timelineNamespaces } from "@domains/timeline/timelineNamespaces";
-import { getEvents } from "@core/event/data/EventRepository";
+import { getPastEvents } from "@core/event/data/EventRepository";
 import type { Event } from "@core/event/data/EventModel";
 
 export const getStaticProps: GetStaticProps<TimelineProps> = async ({ locale, defaultLocale }) => {
-  const events = await getEvents();
+  const events = await getPastEvents();
   return {
     props: {
       events,

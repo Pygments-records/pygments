@@ -22,6 +22,7 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   safelist: [
     { pattern: new RegExp(`^bg-${colorsListRegex}`), variants: ["hover", "hover:after"] },
+    { pattern: new RegExp(`^text-${colorsListRegex}`), variants: ["hover", "hover:after"] },
     { pattern: new RegExp(`^border-${colorsListRegex}`) },
   ],
   theme: {

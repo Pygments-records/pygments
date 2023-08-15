@@ -1,7 +1,7 @@
 import cx from "classnames";
 import type { ReactNode } from "react";
 
-export type TextSize = "xl" | "lg" | "base" | "sm" | "xs";
+export type TextSize = "2xl" | "xl" | "lg" | "base" | "sm" | "xs";
 export type TextWeight = "light" | "regular" | "bold";
 
 export type TextProps = {
@@ -19,14 +19,7 @@ export const Text = ({
   className,
   children,
 }: TextProps) => (
-  <Component
-    className={cx(
-      "font-text tracking-normal",
-      getTextStyles(size),
-      getTextWeight(weight),
-      className
-    )}
-  >
+  <Component className={cx("font-text", getTextStyles(size), getTextWeight(weight), className)}>
     {children}
   </Component>
 );
@@ -34,7 +27,7 @@ export const Text = ({
 function getTextWeight(weight: TextWeight): string {
   switch (weight) {
     case "light": {
-      return "font-extralight";
+      return "font-light";
     }
     case "regular": {
       return "font-normal";
@@ -47,6 +40,9 @@ function getTextWeight(weight: TextWeight): string {
 
 function getTextStyles(size: TextSize): string {
   switch (size) {
+    case "2xl": {
+      return "text-xl lg:text-2xl leading-10";
+    }
     case "xl": {
       return "text-lg lg:text-xl leading-9";
     }

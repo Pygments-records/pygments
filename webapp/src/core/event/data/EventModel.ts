@@ -9,7 +9,9 @@ export type EventPicture = {
 };
 
 export type Event = {
-  date: Date;
+  _id: string;
+  startDate: Date;
+  endDate: Date;
   name: string;
   description: string;
   location: EventLocation;
