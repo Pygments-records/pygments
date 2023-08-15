@@ -10,6 +10,7 @@ export type SocialMedia = {
 };
 
 export type Artist = {
+  _id: string;
   name: string;
   description: string;
   social_media: SocialMedia;

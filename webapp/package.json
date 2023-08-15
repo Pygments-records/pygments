@@ -33,6 +33,7 @@
     "@sanity/webhook": "2.0.0",
     "classnames": "2.3.1",
     "cypress": "7.7.0",
+    "dayjs": "1.11.9",
     "framer-motion": "7.3.5",
     "ky": "0.25.1",
     "ky-universal": "0.8.2",

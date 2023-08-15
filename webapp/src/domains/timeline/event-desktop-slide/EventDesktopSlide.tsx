@@ -67,7 +67,7 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
         >
           <EventSlideTitle
             title={event.name}
-            date={event.date}
+            date={event.startDate}
             actionLabel={showDetails ? t("timeline:showLess") : t("timeline:showMore")}
             onActionClick={() => setShowDetails((prevState) => !prevState)}
           />
@@ -80,7 +80,7 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
               >
                 <div className="flex flex-col my-4">
                   <Text size="lg">
-                    {dayjs(event.date).locale(i18n.language).format("dddd D MMMM YYYY")}
+                    {dayjs(event.startDate).locale(i18n.language).format("dddd D MMMM YYYY")}
                   </Text>
                   <Text size="lg">{event.location.label}</Text>
                   <Text size="lg">{event.location.address}</Text>
