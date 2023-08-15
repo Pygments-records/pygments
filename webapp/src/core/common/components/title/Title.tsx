@@ -37,7 +37,7 @@ export const Title = ({ children, className }: TitleProps) => {
             },
           }}
           transition={{ type: "spring", damping: 12, stiffness: 100 }}
-          className="font-text tracking-[0.3em] text-white text-4xl leading-11"
+          className="font-heading font-light tracking-[0.25em] text-white text-4xl leading-11"
         >
           {children}
         </motion.h3>
