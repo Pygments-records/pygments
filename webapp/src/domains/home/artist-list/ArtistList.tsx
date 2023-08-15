@@ -51,7 +51,7 @@ const ArtistItem = ({ index, artist, className, flip = false }: ArtistItemProps)
           ["text-right"]: flip,
         })}
       >
-        <Heading as="h3" size={3} className="text-white">
+        <Heading as="h3" size={3} className="text-white tracking-[0.05em]">
           {artist.name}
         </Heading>
         <ul
@@ -69,7 +69,7 @@ const ArtistItem = ({ index, artist, className, flip = false }: ArtistItemProps)
             />
           ))}
         </ul>
-        <Text as="p" size="lg" className="text-white">
+        <Text as="p" size="base" className="text-white tracking-[0.05em]" weight="light">
           {artist.description}
         </Text>
       </div>

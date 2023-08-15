@@ -29,7 +29,7 @@ module.exports = {
     colors,
     fontFamily: {
       pygments: ["Inter"],
-      heading: ["Syne"],
+      heading: ["Agrandir", "sans-serif"],
       text: ["Agrandir", "sans-serif"],
     },
     backgroundImage: {

@@ -1,0 +1,7 @@
+.page-body {
+  @apply min-h-screen relative;
+  margin-top: var(--header-mobile-height);
+  @screen lg {
+    margin-top: var(--header-desktop-height);
+  }
+}

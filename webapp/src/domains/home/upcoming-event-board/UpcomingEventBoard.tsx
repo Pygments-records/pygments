@@ -68,7 +68,7 @@ const UpcomingEvent = ({ name, description, date, onClick }: UpcomingEventProps)
         </Text>
       </div>
       <div className="ml-auto">
-        <button onClick={onClick}>
+        <button onClick={onClick} className="cursor-pointer">
           <Text size="base" className="text-white tracking-[0.25em]">
             Tickets
           </Text>
