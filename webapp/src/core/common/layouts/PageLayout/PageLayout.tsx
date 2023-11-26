@@ -20,12 +20,7 @@ export const PageLayout = ({
     <main className={className}>
       {withHeader && <Header />}
       <div className={styles["page-body"]}>{children}</div>
-      {withFooter && (
-        <>
-          <PreFooter />
-          <Footer />
-        </>
-      )}
+      {withFooter && <Footer />}
     </main>
   );
 };
