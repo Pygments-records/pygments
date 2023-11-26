@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { PreFooter } from "@core/common/layouts/RootLayout/PreFooter";
 import { Footer } from "@core/common/layouts/RootLayout/Footer";
 import { Header } from "@core/common/layouts/header/Header";
 import styles from "./PageLayout.module.css";
