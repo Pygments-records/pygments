@@ -15,15 +15,12 @@ import cx from "classnames";
 import { Fade } from "@core/common/components/fade/Fade";
 import { AnimateGroup } from "@core/common/components/animate-group/AnimateGroup";
 import { headerMenuItemVariants } from "./Header.animation";
+import { ExternalLink } from "@ui-kit/components/external-link/ExternalLink";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [menuBgColor, setMenuBgColor] = useState<"black" | "darkPurple">("darkPurple");
 
-  const externalLinkProps = {
-    target: "_blank",
-    rel: "noopener norefererrer",
-  };
   return (
     <>
       <motion.header
@@ -31,23 +28,21 @@ export const Header = () => {
       >
         <div className="h-header relative z-10 h-full flex items-center justify-center mx-4 lg:mx-12">
           <div className="absolute left-0 flex items-center">
-            <Link href="https://www.instagram.com/pygments.records/" {...externalLinkProps}>
+            <ExternalLink href="https://www.instagram.com/pygments.records/">
               <IconButton icon={<InstaIcon />} className="w-14 h-14" />
-            </Link>
-            <Link
+            </ExternalLink>
+            <ExternalLink
               href="https://www.facebook.com/profile.php?id=100076739332122"
-              {...externalLinkProps}
               className="hidden lg:block"
             >
               <IconButton icon={<FacebookIcon />} className="w-14 h-14" />
-            </Link>
-            <Link
+            </ExternalLink>
+            <ExternalLink
               href="https://www.youtube.com/channel/UCHhBg2Ks8-q3eQ94u2T7zoQ"
-              {...externalLinkProps}
               className="hidden lg:block"
             >
               <IconButton icon={<YoutubeIcon />} className="w-14 h-14" />
-            </Link>
+            </ExternalLink>
           </div>
           <PygmentsIcon className="w-[150px] lg:w-[200px]" />
           <div className="absolute right-0 flex items-center">
