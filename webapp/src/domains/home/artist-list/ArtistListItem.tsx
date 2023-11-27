@@ -5,11 +5,12 @@ import { Badge } from "@ui-kit/components/badge/Badge";
 import cx from "classnames";
 import type { Artist } from "@core/artist/data/ArtistModel";
 import { InstaIcon } from "@ui-kit/icons/InstaIcon";
-import { FacebookIcon } from "@ui-kit/icons/FacebookIcon";
-import { YoutubeIcon } from "@ui-kit/icons/YoutubeIcon";
-import type { SVGProps } from "react";
+import { FacebookIcon } from "@ui-kit/icons/FbIcon";
+import { YoutubeIcon } from "@ui-kit/icons/YtIcon";
 import { ExternalLink } from "@ui-kit/components/external-link/ExternalLink";
 import { IconButton } from "@ui-kit/components/buttons/IconButton";
+import { useTranslation } from "@core/i18n/useTranslation";
+import { homeNamespaces } from "../homeNamespaces";
 
 export type ArtistItemProps = {
   artist: Artist;
@@ -23,7 +24,10 @@ type SocialMediaWithIcon = {
   icon: JSX.Element;
 };
 
+const MAX_LENGTH_DESCRIPTION = 250;
+
 export const ArtistListItem = ({ index, artist, className, flip = false }: ArtistItemProps) => {
+  const { t } = useTranslation(homeNamespaces);
   const medias: SocialMediaWithIcon[] = Object.keys(artist.social_media).reduce((acc, media) => {
     switch (media) {
       case "instagram":
@@ -54,8 +58,6 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
     return acc;
   }, [] as SocialMediaWithIcon[]);
 
-  console.log({ medias });
-
   return (
     <div
       className={cx("flex justify-center items-center", className, {
@@ -63,7 +65,7 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
       })}
     >
       <ArtistImage
-        url={artist.picture.url}
+        url={artist.picture?.url ?? ""}
         index={index}
         className="lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]"
       />
@@ -76,7 +78,7 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
           {artist.name}
         </Heading>
         <ul
-          className={cx("flex flex-row items-center gap-2", {
+          className={cx("flex flex-row flex-wrap items-center gap-2", {
             ["justify-end"]: flip,
           })}
         >
@@ -91,14 +93,17 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
           ))}
         </ul>
         <Text as="p" size="base" className="text-white tracking-[0.05em]" weight="light">
-          {artist.description}
+          {truncate(artist.description, MAX_LENGTH_DESCRIPTION) + "..."}
         </Text>
         {medias.length > 0 && (
           <div
-            className={cx("flex items-center", className, {
-              ["flex-row-reverse"]: flip,
+            className={cx("flex items-center gap-4", className, {
+              ["justify-end"]: flip,
             })}
           >
+            <Text as="p" size="sm" className="text-white tracking-[0.05em]" weight="light">
+              {t("home:artists-section.follow-on")}
+            </Text>
             {medias.map((media) => (
               <ExternalLink key={media.url} href={media.url}>
                 <IconButton icon={media.icon} />
@@ -110,3 +115,8 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
     </div>
   );
 };
+
+function truncate(str: string, max = 10) {
+  const substring = str.substring(0, max);
+  return substring.substring(0, Math.min(substring.length, substring.lastIndexOf(" ")));
+}

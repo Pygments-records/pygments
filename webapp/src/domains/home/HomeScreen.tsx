@@ -12,6 +12,7 @@ type HomeScreenProps = {
 export const HomeScreen = ({ artists, events }: HomeScreenProps) => {
   return (
     <PageLayout className="bg-darkPurple">
+      <div className="min-h-screen"></div>
       <UpcomingEventBoard events={events} className="min-h-screen" />
       <ArtistList artists={artists} className="min-h-screen" />
     </PageLayout>

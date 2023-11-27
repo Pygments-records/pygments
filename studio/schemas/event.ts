@@ -1,8 +1,6 @@
 import {defineField} from 'sanity'
 import {validateUrl} from '../validation/validation'
 
-const now = new Date().toISOString()
-
 export default defineField({
   name: 'event',
   type: 'document',

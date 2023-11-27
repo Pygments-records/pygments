@@ -14,6 +14,7 @@
     "description": "Discover and deploy boilerplate example Next.js projects."
   },
   "artists-section": {
-    "title": "Artists"
+    "title": "Artists",
+    "follow-on": "Follow on"
   }
 }

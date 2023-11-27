@@ -3,14 +3,14 @@ import { serverSideTranslations } from "@core/i18n/serverSideTranslations";
 import { RootLayout } from "@core/common/layouts/RootLayout/RootLayout";
 import { HomeScreen } from "@domains/home/HomeScreen";
 import { homeNamespaces } from "@domains/home/homeNamespaces";
-import { getArtists } from "@core/artist/data/ArtistRepository";
+import { getResidentArtists } from "@core/artist/data/ArtistRepository";
 import type { GetServerSideProps } from "@lib/next/getServerSideProps";
 import type { Artist } from "@core/artist/data/ArtistModel";
 import { getUpcomingEvents } from "@core/event/data/EventRepository";
 import type { Event } from "@core/event/data/EventModel";
 
 export const getServerSideProps: GetServerSideProps = async ({ locale, defaultLocale }) => {
-  const artists = await getArtists();
+  const artists = await getResidentArtists();
   const events = await getUpcomingEvents();
   return {
     props: {
