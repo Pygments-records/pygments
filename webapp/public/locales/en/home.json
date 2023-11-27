@@ -16,5 +16,8 @@
   "artists-section": {
     "title": "Artists",
     "follow-on": "Follow on"
+  },
+  "project-section": {
+    "title": "Project"
   }
 }

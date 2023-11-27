@@ -5,6 +5,7 @@ const colors = {
   purple: "#9D63C6",
   darkPurple: "#1D1830",
   blue: "#65B8C4",
+  skyBlue: "#00E6FF",
   electricBlue: "#4F4FFF",
   orange: "#F3934F",
   yellow: "#FFBE0B",
