@@ -1,0 +1,52 @@
+import { Title } from "@core/common/components/title/Title";
+import { useTranslation } from "@core/i18n/useTranslation";
+import { Heading } from "@ui-kit/components/heading/Heading";
+import { Text } from "@ui-kit/components/text/Text";
+import React from "react";
+import cx from "classnames";
+import { homeNamespaces } from "../homeNamespaces";
+
+type ProjectDescriptionProps = {
+  className?: string;
+};
+
+export const ProjectDescription = ({ className }: ProjectDescriptionProps) => {
+  const { t } = useTranslation(homeNamespaces);
+  return (
+    <section className={cx("flex flex-col", className)}>
+      <Title className="mb-[120px]">{t("home:project-section.title")}</Title>
+      <section className="grid grid-flow-col	grid-cols-3 px-20 gap-12">
+        <article className="border border-white p-8 flex flex-col gap-6">
+          <Heading as="p" size={6} className="mb-20 text-skyBlue whitespace-nowrap	">
+            Label
+          </Heading>
+          <Text as="p" className="text-white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec elementum mauris, in
+            fermentum lacus. Nunc non risus facilisis augue condimentum dignissim vitae eu orci.
+            Donec neque libero, porta nec lectus vitae, venenatis faucibus dui. Fusce sed.
+          </Text>
+        </article>
+        <article className="border border-white p-8 flex flex-col gap-6">
+          <Heading as="p" size={6} className="mb-20 text-skyBlue whitespace-nowrap	">
+            Party Crew
+          </Heading>
+          <Text as="p" className="text-white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec elementum mauris, in
+            fermentum lacus. Nunc non risus facilisis augue condimentum dignissim vitae eu orci.
+            Donec neque libero, porta nec lectus vitae, venenatis faucibus dui. Fusce sed.
+          </Text>
+        </article>
+        <article className="border border-white p-8 flex flex-col gap-6">
+          <Heading as="p" size={6} className="mb-20 text-skyBlue whitespace-nowrap	">
+            Live Stream
+          </Heading>
+          <Text as="p" className="text-white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec elementum mauris, in
+            fermentum lacus. Nunc non risus facilisis augue condimentum dignissim vitae eu orci.
+            Donec neque libero, porta nec lectus vitae, venenatis faucibus dui. Fusce sed.
+          </Text>
+        </article>
+      </section>
+    </section>
+  );
+};
