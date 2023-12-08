@@ -17,8 +17,8 @@ export const ProjectDescription = ({ className }: ProjectDescriptionProps) => {
       <Title className="mb-[120px]">{t("home:project-section.title")}</Title>
       <section className="grid grid-flow-col	grid-cols-3 px-20 gap-12">
         <article className="border border-white p-8 flex flex-col gap-6">
-          <Heading as="p" size={6} className="mb-20 text-skyBlue whitespace-nowrap	">
-            Label
+          <Heading as="p" size={6} className="mb-20 text-orange whitespace-nowrap	">
+            (Lab)el
           </Heading>
           <Text as="p" className="text-white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec elementum mauris, in
@@ -37,7 +37,7 @@ export const ProjectDescription = ({ className }: ProjectDescriptionProps) => {
           </Text>
         </article>
         <article className="border border-white p-8 flex flex-col gap-6">
-          <Heading as="p" size={6} className="mb-20 text-skyBlue whitespace-nowrap	">
+          <Heading as="p" size={6} className="mb-20 text-purple whitespace-nowrap	">
             Live Stream
           </Heading>
           <Text as="p" className="text-white">
