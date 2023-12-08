@@ -16,6 +16,7 @@ import { Fade } from "@core/common/components/fade/Fade";
 import { AnimateGroup } from "@core/common/components/animate-group/AnimateGroup";
 import { headerMenuItemVariants } from "./Header.animation";
 import { ExternalLink } from "@ui-kit/components/external-link/ExternalLink";
+import { useTranslation } from "@core/i18n/useTranslation";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -72,6 +73,7 @@ type HeaderMenuProps = {
 };
 
 const HeaderMenu = ({ onClose, className }: HeaderMenuProps) => {
+  const { t } = useTranslation("common");
   useLockBodyScroll();
   return (
     <Fade transition={{ duration: 1, type: "spring" }} className={cx(styles.menu, className)}>
@@ -94,8 +96,8 @@ const HeaderMenu = ({ onClose, className }: HeaderMenuProps) => {
             </NextLink>
           </AnimateGroup.Item>
           <AnimateGroup.Item as="li" variants={headerMenuItemVariants} className="grid grid-cols-2">
-            <p className="font-text text-xs lg:text-base">pygments@gmail.com</p>
-            <p className="font-text text-xs lg:text-base">75000 Paris, France</p>
+            <p className="font-text text-xs lg:text-base">{t("contact.mail")}</p>
+            <p className="font-text text-xs lg:text-base">{t("contact.location")}</p>
           </AnimateGroup.Item>
         </AnimateGroup>
       </nav>
