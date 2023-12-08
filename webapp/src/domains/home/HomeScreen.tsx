@@ -4,7 +4,7 @@ import { UpcomingEventBoard } from "./upcoming-event-board/UpcomingEventBoard";
 import { ArtistList } from "./artist-list/ArtistList";
 import type { Artist } from "@core/artist/data/ArtistModel";
 import { ProjectDescription } from "./project-description/ProjectDescription";
-import {SectionTeam} from "@domains/home/SectionTeam/SectionTeam";
+import { SectionTeam } from "@domains/home/SectionTeam/SectionTeam";
 import type { Staff } from "@core/staff/data/StaffModel";
 
 type HomeScreenProps = {
@@ -17,10 +17,10 @@ export const HomeScreen = ({ artists, events, staff }: HomeScreenProps) => {
   return (
     <PageLayout className="bg-darkPurple">
       <div className="min-h-screen"></div>
-      <UpcomingEventBoard events={events} className="min-h-[80vh]" />
-      <ArtistList artists={artists} className="min-h-[80vh] mb-28" />
-      <ProjectDescription className="min-h-[80vh]" />
-      <SectionTeam staff={staff} className="min-h-[80vh]"></SectionTeam>
+      <UpcomingEventBoard events={events} className="min-h-[80vh] my-[48px]" />
+      <ArtistList artists={artists} className="min-h-[80vh] my-[48px]" />
+      <ProjectDescription className="min-h-[80vh] my-[48px]" />
+      <SectionTeam staff={staff} className="min-h-[80vh] my-[48px]"></SectionTeam>
     </PageLayout>
   );
 };
