@@ -5,6 +5,7 @@ const colors = {
   purple: "#9D63C6",
   darkPurple: "#1D1830",
   blue: "#65B8C4",
+  skyBlue: "#00E6FF",
   electricBlue: "#4F4FFF",
   orange: "#F3934F",
   yellow: "#FFBE0B",
@@ -22,13 +23,14 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   safelist: [
     { pattern: new RegExp(`^bg-${colorsListRegex}`), variants: ["hover", "hover:after"] },
+    { pattern: new RegExp(`^text-${colorsListRegex}`), variants: ["hover", "hover:after"] },
     { pattern: new RegExp(`^border-${colorsListRegex}`) },
   ],
   theme: {
     colors,
     fontFamily: {
       pygments: ["Inter"],
-      heading: ["Syne"],
+      heading: ["Agrandir", "sans-serif"],
       text: ["Agrandir", "sans-serif"],
     },
     backgroundImage: {

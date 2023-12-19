@@ -16,7 +16,7 @@ export const EventSlide = ({ event }: EventSlideProps) => {
       <div className={"hidden"} />
       <div className={styles["event-title"]}>
         <div className="flex flex-col items-end gap-y-2">
-          <EventSlideTitle title={event.name} date={event.date} />
+          <EventSlideTitle title={event.name} date={event.startDate} />
         </div>
       </div>
     </div>

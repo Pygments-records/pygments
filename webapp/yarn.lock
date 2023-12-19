@@ -7585,6 +7585,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dayjs@npm:1.11.9":
+  version: 1.11.9
+  resolution: "dayjs@npm:1.11.9"
+  checksum: c5680b889ffae637b9c65e7b1ecf97e18ec1fe8fec4599ab47836ba75e2b6f542b0e977de5397f0bf77bc78e6121037fca8ac8982c5c47658cbe34f6b1d2e66e
+  languageName: node
+  linkType: hard
+
 "dayjs@npm:^1.10.4":
   version: 1.11.7
   resolution: "dayjs@npm:1.11.7"
@@ -15050,6 +15057,7 @@ fsevents@^1.2.7:
     babel-loader: 8.2.2
     classnames: 2.3.1
     cypress: 7.7.0
+    dayjs: 1.11.9
     dependency-cruiser: 10.0.5
     eslint: 7.30.0
     eslint-config-next: 11.0.1

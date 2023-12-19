@@ -12,5 +12,12 @@
   "examples": {
     "title": "Examples →",
     "description": "Discover and deploy boilerplate example Next.js projects."
+  },
+  "artists-section": {
+    "title": "Artists",
+    "follow-on": "Follow on"
+  },
+  "project-section": {
+    "title": "Project"
   }
 }

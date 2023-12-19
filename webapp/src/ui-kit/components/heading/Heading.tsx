@@ -20,14 +20,7 @@ export const Heading = ({
 }: HeadingProps) => {
   return (
     <Component
-      className={cx(
-        "font-text font-extrabold",
-        // {
-        //   ["font-extra-bold"]: extraBold,
-        // },
-        getHeadingStyles(size),
-        className
-      )}
+      className={cx("font-heading font-extrabold", getHeadingStyles(size), className)}
       {...props}
     >
       {children}

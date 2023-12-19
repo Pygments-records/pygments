@@ -6,6 +6,12 @@ export default defineField({
   title: 'Artist',
   fields: [
     defineField({
+      name: 'resident',
+      type: 'boolean',
+      title: 'Resident Pygments',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'name',
       type: 'string',
       title: 'Name',
