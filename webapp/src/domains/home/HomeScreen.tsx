@@ -15,7 +15,7 @@ export const HomeScreen = ({ artists, events }: HomeScreenProps) => {
     <PageLayout className="bg-darkPurple">
       <div className="min-h-screen"></div>
       <UpcomingEventBoard events={events} className="min-h-[80vh]" />
-      <ArtistList artists={artists} className="min-h-[80vh]" />
+      <ArtistList artists={artists} className="min-h-[80vh] mb-28" />
       <ProjectDescription className="min-h-[80vh]" />
     </PageLayout>
   );
