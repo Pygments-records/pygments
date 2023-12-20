@@ -11,6 +11,8 @@ import { ExternalLink } from "@ui-kit/components/external-link/ExternalLink";
 import { IconButton } from "@ui-kit/components/buttons/IconButton";
 import { useTranslation } from "@core/i18n/useTranslation";
 import { homeNamespaces } from "../homeNamespaces";
+import NextLink from "next/link";
+import React from "react";
 
 export type ArtistItemProps = {
   artist: Artist;
@@ -26,7 +28,7 @@ type SocialMediaWithIcon = {
 
 const MAX_LENGTH_DESCRIPTION = 250;
 
-export const ArtistListItem = ({ index, artist, className, flip = false }: ArtistItemProps) => {
+export const ArtistListItem = ({ index, artist, className, flip = false, artistId }: ArtistItemProps & { artistId: string }) => {
   const { t } = useTranslation(homeNamespaces);
   const medias: SocialMediaWithIcon[] = Object.keys(artist.social_media).reduce((acc, media) => {
     switch (media) {
@@ -110,7 +112,13 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
               </ExternalLink>
             ))}
           </div>
+
         )}
+        <div>
+          <NextLink href={`/artists/${artistId}`} passHref={true}>
+            <button className="cursor-pointer" color="electricBlue">See More</button>
+          </NextLink>
+        </div>
       </div>
     </div>
   );
