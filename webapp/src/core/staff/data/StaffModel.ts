@@ -10,5 +10,6 @@ export type Staff = {
   name: string;
   description: string;
   picture: StaffPicture;
+  role: string;
   categories: string[];
 };
