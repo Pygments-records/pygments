@@ -13,6 +13,7 @@ import { useTranslation } from "@core/i18n/useTranslation";
 import { homeNamespaces } from "../homeNamespaces";
 import NextLink from "next/link";
 import React from "react";
+import Link from "next/link";
 
 export type ArtistItemProps = {
   artist: Artist;
@@ -115,9 +116,9 @@ export const ArtistListItem = ({ index, artist, className, flip = false, artistI
 
         )}
         <div>
-          <NextLink href={`/artists/${artistId}`} passHref={true}>
+          <Link href={`/artists/${artistId}`} passHref={true}>
             <button className="cursor-pointer" color="electricBlue">See More</button>
-          </NextLink>
+          </Link>
         </div>
       </div>
     </div>
