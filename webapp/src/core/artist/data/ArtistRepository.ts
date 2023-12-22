@@ -10,6 +10,17 @@ export const getArtists = async (): Promise<Artist[]> => {
   }`);
 };
 
+export const getResidentArtist = async (artistId: string): Promise<Artist | null> => {
+  return request(`
+    *[_type == "artist" && _id == $artistId][0] {
+      ...,
+      "categories": categories[]->.genre,
+      picture{"url": asset->url, alt},
+      "slug": slug.current
+    }
+  `);
+};
+
 export const getResidentArtists = async (): Promise<Artist[]> => {
   return request(`
   *[_type == "artist" && resident == true] | order(name asc) {

@@ -31,7 +31,7 @@ export const TimelineDesktopScreen = ({ events }: TimelineDesktopScreenProps) =>
           enabled: true,
           checkInView: true,
           loadPrevNext: true,
-          loadOnTransitionStart: true,
+          loadOnTransitionStar: true,
         }}
         className="h-full w-full bg-darkPurple"
       >
