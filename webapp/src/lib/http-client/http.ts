@@ -4,6 +4,8 @@ import { getAbsoluteUrl } from "./getAbsoluteUrl";
 import type { IncomingMessage } from "http";
 import type { HttpOptions } from "./http-utils";
 import type { NextApiRequest } from "next";
+import type { SSRConfig } from "next-i18next";
+import type { GetStaticProps } from "@lib/next/getStaticProps";
 
 const _http = ky.create({
   retry: 0,
@@ -148,3 +150,16 @@ export function is4xx(status: HttpStatus): boolean {
 export function is5xx(status: HttpStatus): boolean {
   return status >= 500 && status < 600;
 }
+
+export const handleClientError = async (
+  e: unknown,
+  translations: Promise<SSRConfig>
+): Promise<ReturnType<GetStaticProps>> => {
+  return {
+    revalidate: 5,
+    props: {
+      ...(await translations),
+      error: 500,
+    },
+  };
+};
