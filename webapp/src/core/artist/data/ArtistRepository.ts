@@ -31,5 +31,23 @@ export const getStaff = async (): Promise<Staff[]> => {
     ...,
     "categories": categories[]->.genre,
     picture{"url": asset->url, alt}
+<<<<<<< HEAD
   }`)
 }
+=======
+  }`);
+};
+
+export const getOneArtist = async (id: string): Promise<Artist> => {
+  console.log({ id });
+  return request(`*[_type == "artist" && _id == '${id}'][0] {
+    ...,
+    "categories": categories[]->.genre,
+    picture{"url": asset->url, alt}
+  }`);
+};
+
+export const getArtistIds = async (): Promise<string[]> => {
+  return request(`*[_type == "artist"]._id`);
+};
+>>>>>>> 65707e8 (setup getStaticProps and getStaticPaths)

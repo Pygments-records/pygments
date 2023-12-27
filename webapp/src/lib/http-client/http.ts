@@ -1,9 +1,19 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
+<<<<<<< HEAD
 import ky, { HTTPError, TimeoutError } from 'ky-universal'
 import { getAbsoluteUrl } from './getAbsoluteUrl'
 import type { IncomingMessage } from 'http'
 import type { HttpOptions } from './http-utils'
 import type { NextApiRequest } from 'next'
+=======
+import ky, { HTTPError, TimeoutError } from "ky-universal";
+import { getAbsoluteUrl } from "./getAbsoluteUrl";
+import type { IncomingMessage } from "http";
+import type { HttpOptions } from "./http-utils";
+import type { NextApiRequest } from "next";
+import type { SSRConfig } from "next-i18next";
+import type { GetStaticProps } from "@lib/next/getStaticProps";
+>>>>>>> 65707e8 (setup getStaticProps and getStaticPaths)
 
 const _http = ky.create({
   retry: 0,
@@ -148,3 +158,16 @@ export function is4xx(status: number): boolean {
 export function is5xx(status: number): boolean {
   return status >= 500 && status < 600
 }
+
+export const handleClientError = async (
+  e: unknown,
+  translations: Promise<SSRConfig>
+): Promise<ReturnType<GetStaticProps>> => {
+  return {
+    revalidate: 5,
+    props: {
+      ...(await translations),
+      error: 500,
+    },
+  };
+};
