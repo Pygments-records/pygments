@@ -17,4 +17,5 @@ export type Event = {
   location: EventLocation;
   pictures: EventPicture[];
   categories: string[];
+  ticket: string;
 };
