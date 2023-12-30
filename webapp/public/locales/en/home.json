@@ -22,5 +22,10 @@
   },
   "team-section": {
     "title": "Team"
+  },
+  "upcoming-event-section": {
+    "title": "Upcoming Events",
+    "notFound": "No upcoming events for now. Stay tuned!",
+    "tickets": "Ticket"
   }
 }

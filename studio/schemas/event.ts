@@ -22,7 +22,6 @@ export default defineField({
       name: 'startDate',
       type: 'datetime',
       title: 'Start date',
-      // validation: (Rule) => Rule.required().min(now),
     }),
     defineField({
       name: 'endDate',
@@ -51,40 +50,19 @@ export default defineField({
       validation: (Rule) => Rule.required(),
     },
     defineField({
-      title: 'Tickets',
-      name: 'tickets',
-      type: 'array',
-      of: [
-        {
-          title: 'Link',
-          name: 'link',
-          type: 'object',
-          fields: [
-            defineField({
-              title: 'Label',
-              name: 'label',
-              type: 'string',
-              validation: (Rule) => Rule.required().min(1),
-            }),
-            defineField({
-              title: 'Link',
-              name: 'link',
-              type: 'string',
-              validation: (Rule) =>
-                Rule.custom((link) => {
-                  if (link === undefined) {
-                    return 'This is a required field.'
-                  }
-                  if (!validateUrl(link)) {
-                    return 'This is not a valid link.'
-                  }
-                  return true
-                }),
-            }),
-          ],
-        },
-      ],
-      // validation: (Rule) => Rule.required().length(1),
+      title: 'Ticket',
+      name: 'ticket',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.custom((ticket) => {
+          if (ticket === undefined) {
+            return 'This is a required field.'
+          }
+          if (!validateUrl(ticket)) {
+            return 'This is not a valid link.'
+          }
+          return true
+        }),
     }),
     defineField({
       title: 'Categories',
