@@ -1,10 +1,11 @@
 import {defineField} from 'sanity'
 import {validateUrl} from '../validation/validation'
+import {documents} from './document'
 
 export default defineField({
-  name: 'event',
+  name: documents.event.name,
   type: 'document',
-  title: 'Event',
+  title: documents.event.title,
   fields: [
     defineField({
       name: 'name',

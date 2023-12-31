@@ -1,9 +1,10 @@
 import {defineField} from 'sanity'
+import {documents} from './document'
 
 export default defineField({
-  name: 'artist',
+  name: documents.artist.name,
   type: 'document',
-  title: 'Artist',
+  title: documents.artist.title,
   fields: [
     defineField({
       name: 'resident',
