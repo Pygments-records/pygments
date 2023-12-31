@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { InstaIcon } from "@ui-kit/icons/InstaIcon";
 import { MenuIcon } from "@ui-kit/icons/MenuIcon";
 import { AnimatePresence, motion } from "framer-motion";
@@ -18,14 +18,35 @@ import { headerMenuItemVariants } from "./Header.animation";
 import { ExternalLink } from "@ui-kit/components/external-link/ExternalLink";
 import { useTranslation } from "@core/i18n/useTranslation";
 
+const SWITCH_BACKGROUND_COLOR_Y_POS = 64;
+
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [menuBgColor, setMenuBgColor] = useState<"black" | "darkPurple">("darkPurple");
+  const [scrollY, setScrollY] = useState(0);
+  const [menuBgColor, setMenuBgColor] = useState<"black" | "darkPurple" | "none">("none");
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      if (window.scrollY > SWITCH_BACKGROUND_COLOR_Y_POS) {
+        setMenuBgColor("darkPurple");
+      } else {
+        setMenuBgColor("none");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  console.log({ scrollY, menuBgColor });
   return (
     <>
       <motion.header
-        className={cx(`z-40 flex flex-col fixed top-0 left-0 right-0 shadow-lg bg-${menuBgColor}`)}
+        className={cx(`z-40 flex flex-col fixed top-0 left-0 right-0 bg-${menuBgColor}`, {
+          ["shadow-2xl"]: menuBgColor === "darkPurple",
+        })}
       >
         <div className="h-header relative z-10 h-full flex items-center justify-center mx-4 lg:mx-12">
           <div className="absolute left-0 flex items-center">
