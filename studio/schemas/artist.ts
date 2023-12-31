@@ -62,5 +62,17 @@ export default defineField({
       ],
       validation: (Rule) => Rule.required(),
     }),
+    defineField(    {
+      name: 'url_presskit',
+      title: 'URL Press Kit',
+      type: 'url',
+      description: 'URL vers le press kit de l\'artiste',
+    }),
+    defineField(    {
+      name: 'email_book',
+      title: 'Email de Booking',
+      type: 'email',
+      description: 'Adresse e-mail pour le booking de l\'artiste',
+    }),
   ],
 })

@@ -10,6 +10,7 @@ import { getUpcomingEvents } from '@core/event/data/EventRepository'
 import type { Event } from '@core/event/data/EventModel'
 import type { Staff } from '@core/staff/data/StaffModel'
 import { getStaff } from '@core/staff/data/StaffRepository'
+import { IconButton } from '@ui-kit/components/buttons/IconButton'
 import { HomeContent, getHomeContent } from '@domains/home/data'
 
 export const getServerSideProps: GetServerSideProps = async () => {

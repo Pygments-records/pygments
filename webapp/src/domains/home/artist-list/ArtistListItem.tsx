@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { ArtistImage } from './ArtistImage'
 import { Heading } from '@ui-kit/components/heading/Heading'
 import { Text } from '@ui-kit/components/text/Text'
@@ -12,24 +11,8 @@ import { ExternalLink } from '@ui-kit/components/external-link/ExternalLink'
 import { IconButton } from '@ui-kit/components/buttons/IconButton'
 import { useTranslation } from '@core/i18n/useTranslation'
 import { homeNamespaces } from '../homeNamespaces'
-=======
-import { ArtistImage } from "./ArtistImage";
-import { Heading } from "@ui-kit/components/heading/Heading";
-import { Text } from "@ui-kit/components/text/Text";
-import { Badge } from "@ui-kit/components/badge/Badge";
-import cx from "classnames";
-import type { Artist } from "@core/artist/data/ArtistModel";
-import { InstaIcon } from "@ui-kit/icons/InstaIcon";
-import { FacebookIcon } from "@ui-kit/icons/FbIcon";
-import { YoutubeIcon } from "@ui-kit/icons/YtIcon";
-import { ExternalLink } from "@ui-kit/components/external-link/ExternalLink";
-import { IconButton } from "@ui-kit/components/buttons/IconButton";
-import { useTranslation } from "@core/i18n/useTranslation";
-import { homeNamespaces } from "../homeNamespaces";
-import NextLink from "next/link";
-import React from "react";
-import Link from "next/link";
->>>>>>> cb592a5 ((feature): Artist page)
+import NextLink from 'next/link'
+import React from 'react'
 
 export type ArtistItemProps = {
   artist: Artist
