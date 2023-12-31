@@ -1,7 +1,9 @@
+import {documents} from './document'
+
 export default {
-  title: 'Music genre',
+  name: documents['music_genre'].name,
   type: 'document',
-  name: 'music_genre',
+  title: documents['music_genre'].title,
   fields: [
     {
       name: 'genre',
