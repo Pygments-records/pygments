@@ -9,7 +9,7 @@
 }
 
 .menu-link:after {
-  content: "";
+  content: '';
   @apply bg-white h-[2px] w-full absolute left-0 -bottom-1;
   transform: scaleX(0);
   transform-origin: bottom right;

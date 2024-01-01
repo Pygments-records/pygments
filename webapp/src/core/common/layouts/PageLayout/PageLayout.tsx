@@ -1,16 +1,16 @@
-import type { ReactNode } from "react";
-import { Footer } from "@core/common/layouts/RootLayout/Footer";
-import { Header } from "@core/common/layouts/header/Header";
-import styles from "./PageLayout.module.css";
+import type { ReactNode } from 'react'
+import { Footer } from '@core/common/layouts/RootLayout/Footer'
+import { Header } from '@core/common/layouts/header/Header'
+import styles from './PageLayout.module.css'
 
 type PageLayoutProps = {
-  className?: string;
-  withHeader?: boolean;
-  withFooter?: boolean;
-  children: ReactNode;
-};
+  className?: string
+  withHeader?: boolean
+  withFooter?: boolean
+  children: ReactNode
+}
 export const PageLayout = ({
-  className = "bg-white",
+  className = 'bg-white',
   children,
   withHeader = true,
   withFooter = true,
@@ -18,8 +18,8 @@ export const PageLayout = ({
   return (
     <main className={className}>
       {withHeader && <Header />}
-      <div className={styles["page-body"]}>{children}</div>
+      <div className={styles['page-body']}>{children}</div>
       {withFooter && <Footer />}
     </main>
-  );
-};
+  )
+}

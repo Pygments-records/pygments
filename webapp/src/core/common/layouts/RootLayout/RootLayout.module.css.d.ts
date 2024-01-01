@@ -3,13 +3,13 @@
 
 declare namespace RootLayoutModuleCssNamespace {
   export interface IRootLayoutModuleCss {
-    container: string;
+    container: string
   }
 }
 
 declare const RootLayoutModuleCssModule: RootLayoutModuleCssNamespace.IRootLayoutModuleCss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: RootLayoutModuleCssNamespace.IRootLayoutModuleCss;
-};
+  locals: RootLayoutModuleCssNamespace.IRootLayoutModuleCss
+}
 
-export = RootLayoutModuleCssModule;
+export = RootLayoutModuleCssModule

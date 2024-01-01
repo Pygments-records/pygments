@@ -1,21 +1,21 @@
 type EventLocation = {
-  address: string;
-  label: string;
-};
+  address: string
+  label: string
+}
 
 export type EventPicture = {
-  url: string;
-  alt: string;
-};
+  url: string
+  alt: string
+}
 
 export type Event = {
-  _id: string;
-  startDate: Date;
-  endDate: Date;
-  name: string;
-  description: string;
-  location: EventLocation;
-  pictures: EventPicture[];
-  categories: string[];
-  ticket: string;
-};
+  _id: string
+  startDate: Date
+  endDate: Date
+  name: string
+  description: string
+  location: EventLocation
+  pictures: EventPicture[]
+  categories: string[]
+  ticket: string
+}

@@ -1,83 +1,83 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import ky, { HTTPError, TimeoutError } from "ky-universal";
-import { getAbsoluteUrl } from "./getAbsoluteUrl";
-import type { IncomingMessage } from "http";
-import type { HttpOptions } from "./http-utils";
-import type { NextApiRequest } from "next";
+import ky, { HTTPError, TimeoutError } from 'ky-universal'
+import { getAbsoluteUrl } from './getAbsoluteUrl'
+import type { IncomingMessage } from 'http'
+import type { HttpOptions } from './http-utils'
+import type { NextApiRequest } from 'next'
 
 const _http = ky.create({
   retry: 0,
-});
+})
 
 export interface HttpBase {
-  <T>(url: string, options?: HttpOptions): Promise<T>;
+  <T>(url: string, options?: HttpOptions): Promise<T>
 }
 
 interface HttpClient extends HttpBase {
-  readonly extend: (options: HttpOptions) => HttpClient;
+  readonly extend: (options: HttpOptions) => HttpClient
 }
 export function createHttpClient(defaults: HttpOptions = {}): HttpClient {
   const client = <T>(url: string, options: HttpOptions = {}): Promise<T> =>
-    request(url, { ...defaults, ...options });
-  client.create = (options: HttpOptions): HttpClient => createHttpClient(options);
+    request(url, { ...defaults, ...options })
+  client.create = (options: HttpOptions): HttpClient => createHttpClient(options)
   client.extend = (options: HttpOptions): HttpClient =>
-    createHttpClient({ ...defaults, ...options });
-  return client;
+    createHttpClient({ ...defaults, ...options })
+  return client
 }
 
 interface HttpServer extends HttpBase {
-  readonly extend: (req: IncomingMessage, options: HttpOptions) => HttpServer;
+  readonly extend: (req: IncomingMessage, options: HttpOptions) => HttpServer
 }
 export function createHttpServer(
   _req: NextApiRequest | IncomingMessage,
-  defaults: HttpOptions = {}
+  defaults: HttpOptions = {},
 ): HttpServer {
   if (process.env.PORT === undefined) {
-    throw new Error("PORT env variable must be defined.");
+    throw new Error('PORT env variable must be defined.')
   }
-  const req = _req as unknown as IncomingMessage;
-  const { origin } = getAbsoluteUrl(req, `localhost:${process.env.PORT}`);
-  const prefixUrl = origin;
+  const req = _req as unknown as IncomingMessage
+  const { origin } = getAbsoluteUrl(req, `localhost:${process.env.PORT}`)
+  const prefixUrl = origin
 
   const defaultOptions = {
     prefixUrl,
     ...defaults,
-  };
+  }
 
   const server = <T>(url: string, options: HttpOptions = {}): Promise<T> =>
-    request(url, { ...defaultOptions, ...options });
+    request(url, { ...defaultOptions, ...options })
   server.extend = (_req: IncomingMessage, options: HttpOptions): HttpServer =>
-    createHttpServer(_req, { ...defaultOptions, ...options });
-  return server;
+    createHttpServer(_req, { ...defaultOptions, ...options })
+  return server
 }
 
 async function request<T>(url: string, options: HttpOptions): Promise<T> {
   try {
-    const data = await _http(url, options).json<T>();
+    const data = await _http(url, options).json<T>()
 
-    return data;
+    return data
   } catch (error) {
     if (error instanceof HTTPError) {
-      let response: undefined | unknown = undefined;
-      const contentType = error.response.headers.get("content-type")?.split(";")[0];
+      let response: unknown = undefined
+      const contentType = error.response.headers.get('content-type')?.split(';')[0]
 
-      if (contentType === "application/json") {
+      if (contentType === 'application/json') {
         try {
-          response = await error.response.json();
+          response = await error.response.json()
         } catch (e) {
           if (e instanceof SyntaxError) {
-            response = undefined;
+            response = undefined
           } else {
-            throw e;
+            throw e
           }
         }
       }
 
-      throw new HttpClientFetchError(error.message, response, error.response.status);
+      throw new HttpClientFetchError(error.message, response, error.response.status)
     } else if (error instanceof TimeoutError) {
-      throw new HttpClientTimeoutError(error.message);
+      throw new HttpClientTimeoutError(error.message)
     } else {
-      throw error;
+      throw error
     }
   }
 }
@@ -109,42 +109,42 @@ export enum HttpStatus {
 
 export class HttpClientError extends Error {
   public constructor(message?: string) {
-    super(message);
-    this.name = "HttpClientError";
-    Object.setPrototypeOf(this, HttpClientError.prototype);
+    super(message)
+    this.name = 'HttpClientError'
+    Object.setPrototypeOf(this, HttpClientError.prototype)
   }
 }
 
 export class HttpClientFetchError extends HttpClientError {
-  public readonly responseType: "json" = "json";
+  public readonly responseType: 'json' = 'json'
 
   public constructor(
     message: string,
     public readonly response: unknown,
-    public readonly status: HttpStatus
+    public readonly status: HttpStatus,
   ) {
-    super(message);
-    this.name = "HttpClientFetchError";
-    Object.setPrototypeOf(this, HttpClientFetchError.prototype);
+    super(message)
+    this.name = 'HttpClientFetchError'
+    Object.setPrototypeOf(this, HttpClientFetchError.prototype)
   }
 }
 
 export class HttpClientTimeoutError extends HttpClientError {
   public constructor(message: string) {
-    super(message);
-    this.name = "HttpClientTimeoutError";
-    Object.setPrototypeOf(this, HttpClientTimeoutError.prototype);
+    super(message)
+    this.name = 'HttpClientTimeoutError'
+    Object.setPrototypeOf(this, HttpClientTimeoutError.prototype)
   }
 }
 
 export function is2xx(status: HttpStatus): boolean {
-  return status >= 200 && status < 300;
+  return status >= 200 && status < 300
 }
 
 export function is4xx(status: HttpStatus): boolean {
-  return status >= 400 && status < 500;
+  return status >= 400 && status < 500
 }
 
 export function is5xx(status: HttpStatus): boolean {
-  return status >= 500 && status < 600;
+  return status >= 500 && status < 600
 }

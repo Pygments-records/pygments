@@ -11,14 +11,14 @@
 }
 
 .img-gallery:before {
-  content: "";
+  content: '';
   transform: rotate(-4deg);
   z-index: -2;
   @apply absolute inset-0 bg-purple;
 }
 
 .img-gallery:after {
-  content: "";
+  content: '';
   transform: rotate(-2deg);
   z-index: -1;
   @apply absolute inset-0 bg-yellow;

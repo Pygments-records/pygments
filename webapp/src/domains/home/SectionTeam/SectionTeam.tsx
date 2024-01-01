@@ -1,28 +1,28 @@
-import React from "react";
-import cx from "classnames";
-import { Title } from "@core/common/components/title/Title";
-import { useTranslation } from "@core/i18n/useTranslation";
-import { homeNamespaces } from "@domains/home/homeNamespaces";
-import { Text } from "@ui-kit/components/text/Text";
-import type { Staff } from "@core/staff/data/StaffModel";
-import { NextImage } from "@core/common/components/image/Image";
-import { Heading } from "@ui-kit/components/heading/Heading";
-import styles from "./SectionTeam.module.css";
+import React from 'react'
+import cx from 'classnames'
+import { Title } from '@core/common/components/title/Title'
+import { useTranslation } from '@core/i18n/useTranslation'
+import { homeNamespaces } from '@domains/home/homeNamespaces'
+import { Text } from '@ui-kit/components/text/Text'
+import type { Staff } from '@core/staff/data/StaffModel'
+import { NextImage } from '@core/common/components/image/Image'
+import { Heading } from '@ui-kit/components/heading/Heading'
+import styles from './SectionTeam.module.css'
 
 type SectionTeamProps = {
-  className?: string;
-  staff: Staff[];
-};
+  className?: string
+  staff: Staff[]
+}
 
 export const SectionTeam = ({ staff, className }: SectionTeamProps) => {
-  const { t } = useTranslation(homeNamespaces);
+  const { t } = useTranslation(homeNamespaces)
   return (
-    <section className={cx("flex flex-col", className)}>
-      <Title className="mb-[120px]">{t("home:team-section.title")}</Title>
-      <ul className={styles["team-container"]}>
+    <section className={cx('flex flex-col', className)}>
+      <Title className="mb-[120px]">{t('home:team-section.title')}</Title>
+      <ul className={styles['team-container']}>
         {staff.map((staff) => (
           <li key={staff._id} className="w-[280px]">
-            <article className={cx("flex-col h-[400px] relative rounded-sm overflow-hidden")}>
+            <article className={cx('flex-col h-[400px] relative rounded-sm overflow-hidden')}>
               <NextImage layout="fill" objectFit="cover" src={staff.picture?.url} />
             </article>
             <footer className="py-4 px-2">
@@ -37,5 +37,5 @@ export const SectionTeam = ({ staff, className }: SectionTeamProps) => {
         ))}
       </ul>
     </section>
-  );
-};
+  )
+}

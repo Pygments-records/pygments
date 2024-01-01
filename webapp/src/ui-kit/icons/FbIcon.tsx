@@ -1,5 +1,5 @@
 export const FacebookIcon = ({
-  color = "white",
+  color = 'white',
   ...props
 }: React.SVGProps<SVGSVGElement> & { color?: string }) => (
   <svg
@@ -17,4 +17,4 @@ export const FacebookIcon = ({
       strokeLinejoin="round"
     />
   </svg>
-);
+)

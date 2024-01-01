@@ -1,13 +1,13 @@
-import { Heading } from "@ui-kit/components/heading/Heading";
-import dayjs from "dayjs";
+import { Heading } from '@ui-kit/components/heading/Heading'
+import dayjs from 'dayjs'
 
 export type EventSlideTitleProps = {
-  title: string;
-  date: Date;
-};
+  title: string
+  date: Date
+}
 
 export const EventSlideTitle = ({ title, date }: EventSlideTitleProps) => {
-  const heading = dayjs(date).format("DD/MM/YYYY");
+  const heading = dayjs(date).format('DD/MM/YYYY')
   return (
     <>
       <Heading as="h2" size={3} extraBold={false}>
@@ -17,5 +17,5 @@ export const EventSlideTitle = ({ title, date }: EventSlideTitleProps) => {
         {title}
       </Heading>
     </>
-  );
-};
+  )
+}

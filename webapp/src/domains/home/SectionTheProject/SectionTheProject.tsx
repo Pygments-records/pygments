@@ -1,15 +1,15 @@
-import { Heading } from "@ui-kit/components/heading/Heading";
-import { Text } from "@ui-kit/components/text/Text";
-import cx from "classnames";
-import styles from "./SectionTheProject.module.css";
+import { Heading } from '@ui-kit/components/heading/Heading'
+import { Text } from '@ui-kit/components/text/Text'
+import cx from 'classnames'
+import styles from './SectionTheProject.module.css'
 
 type SectionTheProjectProps = {
-  className?: string;
-  placement?: "left" | "right";
-};
+  className?: string
+  placement?: 'left' | 'right'
+}
 
 export const SectionTheProject = ({ className }: SectionTheProjectProps) => (
-  <div className={cx("flex flex-col lg:flex-row justify-center items-center px-4", className)}>
+  <div className={cx('flex flex-col lg:flex-row justify-center items-center px-4', className)}>
     <div className={cx(styles.card)}>
       <div className="w-6 flex-shrink-0 bg-purple" />
       <div className="bg-orange text-left px-6 py-8 md:py-12 text-white">
@@ -24,7 +24,7 @@ export const SectionTheProject = ({ className }: SectionTheProjectProps) => (
         </Text>
       </div>
     </div>
-    <div className={cx(styles.card, "flex-col lg:mt-52 lg:mx-4 xl:mx-12")}>
+    <div className={cx(styles.card, 'flex-col lg:mt-52 lg:mx-4 xl:mx-12')}>
       <div className="bg-purple flex-1 px-6 py-8 text-white text-center">
         <Heading as="h4" size={6} extraBold={false} className="mb-8">
           DJ set & LIVE AMBITION
@@ -52,4 +52,4 @@ export const SectionTheProject = ({ className }: SectionTheProjectProps) => (
       <div className="w-6 flex-shrink-0 bg-yellow"></div>
     </div>
   </div>
-);
+)

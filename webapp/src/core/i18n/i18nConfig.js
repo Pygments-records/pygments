@@ -3,12 +3,12 @@
  *     It should only contain commonjs code.
  */
 
-const defaultLocale = "en";
+const defaultLocale = 'en'
 
-const supportedLocale = ["en", "fr"];
+const supportedLocale = ['en', 'fr']
 
 module.exports = {
   serializeConfig: false,
   defaultLocale,
   supportedLocale,
-};
+}
