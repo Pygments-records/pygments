@@ -14,9 +14,12 @@ export const Title = ({ children, className }: TitleProps) => {
   const isInView = useInView(ref, { once: true })
 
   useEffect(() => {
-    if (isInView) {
-      lineControls.start('visible')
+    async function animateUnderline() {
+      if (isInView) {
+        await lineControls.start('visible')
+      }
     }
+    void animateUnderline()
   }, [lineControls, isInView])
 
   return (
@@ -55,7 +58,7 @@ export const Title = ({ children, className }: TitleProps) => {
           }}
           transition={{ duration: 0.5 }}
           initial="hidden"
-          onAnimationComplete={() => textControls.start('visible')}
+          onAnimationComplete={() => void textControls.start('visible')}
           className="mt-4 h-[0.5px] opacity-50 bg-white"
         />
       </div>

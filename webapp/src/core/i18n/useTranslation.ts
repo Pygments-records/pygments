@@ -1,6 +1,5 @@
-// eslint-disable-next-line no-restricted-imports
 import { useTranslation as _useTranslation } from 'next-i18next'
-import type { Namespace as AppNamespace } from './i18n'
+import type { Namespace as AppNamespace } from './i18nConfig'
 
 // Copied from i18next
 type Resources = Record<string, never>

@@ -19,7 +19,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const contentType: string = req.body._type
+    const body = req.body as unknown as { _type: string }
+    const contentType = body._type
 
     console.log(`===== Revalidating: ${contentType}`)
 

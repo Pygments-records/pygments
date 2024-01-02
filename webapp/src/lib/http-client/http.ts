@@ -116,7 +116,7 @@ export class HttpClientError extends Error {
 }
 
 export class HttpClientFetchError extends HttpClientError {
-  public readonly responseType: 'json' = 'json'
+  public readonly responseType = 'json'
 
   public constructor(
     message: string,
@@ -137,14 +137,14 @@ export class HttpClientTimeoutError extends HttpClientError {
   }
 }
 
-export function is2xx(status: HttpStatus): boolean {
+export function is2xx(status: number): boolean {
   return status >= 200 && status < 300
 }
 
-export function is4xx(status: HttpStatus): boolean {
+export function is4xx(status: number): boolean {
   return status >= 400 && status < 500
 }
 
-export function is5xx(status: HttpStatus): boolean {
+export function is5xx(status: number): boolean {
   return status >= 500 && status < 600
 }

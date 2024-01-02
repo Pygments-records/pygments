@@ -1,4 +1,4 @@
-import type { defaultLocale, SupportedLocale } from '@core/i18n/i18n'
+import type { defaultLocale, SupportedLocale } from '@core/i18n/i18nConfig'
 import type {
   // Should not restrict import as it's the source
   // eslint-disable-next-line no-restricted-imports

@@ -12,7 +12,7 @@ import type { Staff } from '@core/staff/data/StaffModel'
 import { getStaff } from '@core/staff/data/StaffRepository'
 import { HomeContent, getHomeContent } from '@domains/home/data'
 
-export const getServerSideProps: GetServerSideProps = async ({ locale, defaultLocale }) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const artists = await getResidentArtists()
   const events = await getUpcomingEvents()
   const staff = await getStaff()
@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale, defaultLo
       events,
       staff,
       homeContent,
-      ...(await serverSideTranslations(locale ?? defaultLocale, homeNamespaces)),
+      ...(await serverSideTranslations(homeNamespaces)),
     },
   }
 }
