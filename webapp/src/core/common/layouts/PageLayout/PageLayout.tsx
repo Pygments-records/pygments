@@ -8,16 +8,18 @@ type PageLayoutProps = {
   withHeader?: boolean;
   withFooter?: boolean;
   children: ReactNode;
+  transparentHeader: boolean;
 };
 export const PageLayout = ({
   className = "bg-white",
   children,
+  transparentHeader,
   withHeader = true,
   withFooter = true,
 }: PageLayoutProps) => {
   return (
     <main className={className}>
-      {withHeader && <Header />}
+      {withHeader && <Header/>}
       <div className={styles["page-body"]}>{children}</div>
       {withFooter && <Footer />}
     </main>

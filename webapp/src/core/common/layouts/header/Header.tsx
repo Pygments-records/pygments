@@ -20,7 +20,7 @@ import { useTranslation } from "@core/i18n/useTranslation";
 
 const SWITCH_BACKGROUND_COLOR_Y_POS = 64;
 
-export const Header = () => {
+export const Header = ({ transparentHeader = false }: { transparentHeader?: boolean }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [menuBgColor, setMenuBgColor] = useState<"black" | "darkPurple" | "none">("none");
@@ -44,7 +44,11 @@ export const Header = () => {
   return (
     <>
       <motion.header
-        className={cx(`z-40 flex flex-col fixed top-0 left-0 right-0 bg-${menuBgColor}`, {
+        className={cx(`z-40 flex flex-col fixed top-0 left-0 right-0`,
+          {
+            [`bg-transparent`]: transparentHeader, // Apply transparent background if true
+            [`bg-${menuBgColor}`]: !transparentHeader, // Use the default darkPurple background if false
+          }, {
           ["shadow-2xl"]: menuBgColor === "darkPurple",
         })}
       >
