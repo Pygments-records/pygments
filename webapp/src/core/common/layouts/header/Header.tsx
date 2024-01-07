@@ -20,10 +20,17 @@ import { useTranslation } from '@core/i18n/useTranslation'
 
 const SWITCH_BACKGROUND_COLOR_Y_POS = 64
 
+<<<<<<< HEAD
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [menuBgColor, setMenuBgColor] = useState<'black' | 'darkPurple' | 'none'>('none')
+=======
+export const Header = ({ transparentHeader = false }: { transparentHeader?: boolean }) => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [menuBgColor, setMenuBgColor] = useState<"black" | "darkPurple" | "none">("none");
+>>>>>>> a3cd0c3 (add image on artists page)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,8 +51,17 @@ export const Header = () => {
   return (
     <>
       <motion.header
+<<<<<<< HEAD
         className={cx(`z-40 flex flex-col fixed top-0 left-0 right-0 bg-${menuBgColor}`, {
           ['shadow-2xl']: menuBgColor === 'darkPurple',
+=======
+        className={cx(`z-40 flex flex-col fixed top-0 left-0 right-0`,
+          {
+            [`bg-transparent`]: transparentHeader, // Apply transparent background if true
+            [`bg-${menuBgColor}`]: !transparentHeader, // Use the default darkPurple background if false
+          }, {
+          ["shadow-2xl"]: menuBgColor === "darkPurple",
+>>>>>>> a3cd0c3 (add image on artists page)
         })}
       >
         <div className="h-header relative z-10 h-full flex items-center justify-center mx-4 lg:mx-12">
