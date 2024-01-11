@@ -149,12 +149,12 @@ const EventSlideTitle = ({ title, date, actionLabel, onActionClick }: EventSlide
   const heading = dayjs(date).format('DD/MM/YYYY')
   return (
     <div className="relative">
-      <Heading as="p" size={3} extraBold={false} className="absolute -translate-x-[110%]">
+      <Heading as="p" size={3} className="absolute -translate-x-[110%]">
         #
       </Heading>
       <div>
         <div className="flex items-center gap-x-4">
-          <Heading as="h2" size={3} extraBold={false}>
+          <Heading as="h2" size={3}>
             {heading}
           </Heading>
           <button
@@ -164,7 +164,7 @@ const EventSlideTitle = ({ title, date, actionLabel, onActionClick }: EventSlide
             {actionLabel}
           </button>
         </div>
-        <Heading as="h3" size={6} extraBold={false}>
+        <Heading as="h3" size={6}>
           {title}
         </Heading>
       </div>

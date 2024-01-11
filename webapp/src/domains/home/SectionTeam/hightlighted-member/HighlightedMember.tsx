@@ -34,7 +34,7 @@ export const HighlightedMember = ({
           delay={0.05}
           className="text-4xl font-pygments font-bold"
         >
-          <Heading as="p" extraBold={false} size={4}>
+          <Heading as="p" size={4}>
             {username}
           </Heading>
         </Fade>

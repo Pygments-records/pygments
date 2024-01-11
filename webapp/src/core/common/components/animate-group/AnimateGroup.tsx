@@ -13,7 +13,7 @@ type AnimateGroupComposition = {
   Item: typeof Item
 }
 
-export const AnimateGroup: React.VFC<AnimateGroupProps> & AnimateGroupComposition = ({
+export const AnimateGroup: React.FC<AnimateGroupProps> & AnimateGroupComposition = ({
   as = 'div',
   className,
   children,
@@ -51,8 +51,8 @@ export const AnimateGroup: React.VFC<AnimateGroupProps> & AnimateGroupCompositio
         if (
           React.isValidElement(child) &&
           typeof child !== 'string' &&
-          // @ts-expect-ignore
-          child.type._name === INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER
+          // cheat to avoid ts error
+          (child.type as { _name?: string })?._name === INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER
         ) {
           return child
         } else if (child === null) {

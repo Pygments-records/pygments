@@ -7,12 +7,12 @@ import { timelineNamespaces } from '@domains/timeline/timelineNamespaces'
 import { getPastEvents } from '@core/event/data/EventRepository'
 import type { Event } from '@core/event/data/EventModel'
 
-export const getStaticProps: GetStaticProps<TimelineProps> = async ({ locale, defaultLocale }) => {
+export const getStaticProps: GetStaticProps<TimelineProps> = async () => {
   const events = await getPastEvents()
   return {
     props: {
       events,
-      ...(await serverSideTranslations(locale ?? defaultLocale, timelineNamespaces)),
+      ...(await serverSideTranslations(timelineNamespaces)),
     },
     revalidate: 3600, // 1 hour,
   }

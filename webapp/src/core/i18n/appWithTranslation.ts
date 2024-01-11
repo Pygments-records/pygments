@@ -1,5 +1,4 @@
 import { appWithTranslation as _appWithTranslation } from 'next-i18next'
-// @ts-expect-ignore
 import i18nConfig from './i18nConfig'
 
 export function appWithTranslation(WrappedComponent: Parameters<typeof _appWithTranslation>[0]) {
