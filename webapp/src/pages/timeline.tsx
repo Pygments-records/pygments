@@ -1,30 +1,30 @@
-import Head from "next/head";
-import type { GetStaticProps } from "@lib/next/getStaticProps";
-import { serverSideTranslations } from "@core/i18n/serverSideTranslations";
-import { RootLayout } from "@core/common/layouts/RootLayout/RootLayout";
-import { TimelineScreen } from "@domains/timeline/TimelineScreen";
-import { timelineNamespaces } from "@domains/timeline/timelineNamespaces";
-import { getPastEvents } from "@core/event/data/EventRepository";
-import type { Event } from "@core/event/data/EventModel";
+import Head from 'next/head'
+import type { GetStaticProps } from '@lib/next/getStaticProps'
+import { serverSideTranslations } from '@core/i18n/serverSideTranslations'
+import { RootLayout } from '@core/common/layouts/RootLayout/RootLayout'
+import { TimelineScreen } from '@domains/timeline/TimelineScreen'
+import { timelineNamespaces } from '@domains/timeline/timelineNamespaces'
+import { getPastEvents } from '@core/event/data/EventRepository'
+import type { Event } from '@core/event/data/EventModel'
 
-export const getStaticProps: GetStaticProps<TimelineProps> = async ({ locale, defaultLocale }) => {
-  const events = await getPastEvents();
+export const getStaticProps: GetStaticProps<TimelineProps> = async () => {
+  const events = await getPastEvents()
   return {
     props: {
       events,
-      ...(await serverSideTranslations(locale ?? defaultLocale, timelineNamespaces)),
+      ...(await serverSideTranslations(timelineNamespaces)),
     },
     revalidate: 3600, // 1 hour,
-  };
-};
+  }
+}
 
 type TimelineProps = {
-  events?: Event[];
-};
+  events?: Event[]
+}
 
 export default function Timeline({ events }: TimelineProps) {
   if (events === undefined) {
-    return <p>loading...</p>;
+    return <p>loading...</p>
   }
   return (
     <RootLayout>
@@ -35,5 +35,5 @@ export default function Timeline({ events }: TimelineProps) {
       </Head>
       <TimelineScreen events={events} />
     </RootLayout>
-  );
+  )
 }

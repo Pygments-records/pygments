@@ -1,15 +1,15 @@
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, Story } from '@storybook/react'
 
-import { Link, LinkProps } from "./Link";
+import { Link, LinkProps } from './Link'
 
 export default {
-  title: "UI Kit/Link",
-} as Meta;
+  title: 'UI Kit/Link',
+} as Meta
 
-const Template: Story<LinkProps> = (args) => <Link {...args} />;
+const Template: Story<LinkProps> = (args) => <Link {...args} />
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
-  href: "#",
-  children: "Link",
-};
+  href: '#',
+  children: 'Link',
+}

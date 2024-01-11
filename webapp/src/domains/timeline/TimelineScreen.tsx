@@ -1,23 +1,22 @@
-import { PageLayout } from "@core/common/layouts/PageLayout/PageLayout";
-import React from "react";
+import { PageLayout } from '@core/common/layouts/PageLayout/PageLayout'
+import React from 'react'
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import { TimelineMobileScreen } from "./mobile/TimelineMobileScreen";
-import { TimelineDesktopScreen } from "./desktop/TimelineDesktopScreen";
-import { Header } from "@core/common/layouts/header/Header";
-import { useResponsive } from "@core/common/hooks/useResponsive";
-import type { Event } from "@core/event/data/EventModel";
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { TimelineMobileScreen } from './mobile/TimelineMobileScreen'
+import { TimelineDesktopScreen } from './desktop/TimelineDesktopScreen'
+import { useResponsive } from '@core/common/hooks/useResponsive'
+import type { Event } from '@core/event/data/EventModel'
 
 type TimelineScreenProps = {
-  events: Event[];
-};
+  events: Event[]
+}
 
 export const TimelineScreen = ({ events }: TimelineScreenProps) => {
-  const { isMobileSize } = useResponsive();
+  const { isMobileSize } = useResponsive()
   if (isMobileSize === undefined) {
-    return null;
+    return null
   }
   return (
     <PageLayout withFooter={false} className="bg-darkPurple">
@@ -29,5 +28,5 @@ export const TimelineScreen = ({ events }: TimelineScreenProps) => {
         <TimelineDesktopScreen events={events} />
       )}
     </PageLayout>
-  );
-};
+  )
+}

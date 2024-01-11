@@ -12,4 +12,4 @@ export const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
       fill="#FCF6F2"
     />
   </svg>
-);
+)

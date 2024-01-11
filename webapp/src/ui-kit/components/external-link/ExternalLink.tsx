@@ -1,9 +1,9 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
-export type ExternalLinkProps = Omit<ComponentPropsWithoutRef<"a">, "target" | "ref">;
+export type ExternalLinkProps = Omit<ComponentPropsWithoutRef<'a'>, 'target' | 'ref'>
 export const ExternalLink = forwardRef<HTMLAnchorElement, ExternalLinkProps>(function (
   { href, children, className, ...props },
-  ref
+  ref,
 ) {
   return (
     <a
@@ -16,5 +16,5 @@ export const ExternalLink = forwardRef<HTMLAnchorElement, ExternalLinkProps>(fun
     >
       {children}
     </a>
-  );
-});
+  )
+})

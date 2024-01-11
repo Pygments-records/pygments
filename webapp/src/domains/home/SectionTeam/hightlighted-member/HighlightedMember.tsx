@@ -1,27 +1,27 @@
-import { CloseIcon } from "@ui-kit/icons/CloseIcon";
-import { motion } from "framer-motion";
-import { useState, useRef, useMemo } from "react";
-import type { MemberCard } from "./model";
-import { useClickOutside } from "@core/common/hooks/useClickOutside";
-import { useLockBodyScroll } from "@core/common/hooks/useBlockScroll";
-import { Fade } from "@core/common/components/fade/Fade";
-import { Heading } from "@ui-kit/components/heading/Heading";
-import { Text } from "@ui-kit/components/text/Text";
-import { ExternalImage } from "@core/common/components/external-image/ExternalImage";
+import { CloseIcon } from '@ui-kit/icons/CloseIcon'
+import { motion } from 'framer-motion'
+import { useState, useRef, useMemo } from 'react'
+import type { MemberCard } from './model'
+import { useClickOutside } from '@core/common/hooks/useClickOutside'
+import { useLockBodyScroll } from '@core/common/hooks/useBlockScroll'
+import { Fade } from '@core/common/components/fade/Fade'
+import { Heading } from '@ui-kit/components/heading/Heading'
+import { Text } from '@ui-kit/components/text/Text'
+import { ExternalImage } from '@core/common/components/external-image/ExternalImage'
 
 export type HighlightedMemberProps = {
-  member: MemberCard;
-  onClose: () => void;
-};
+  member: MemberCard
+  onClose: () => void
+}
 
 export const HighlightedMember = ({
   member: { username, imgUrl, color, role, description },
   onClose,
 }: HighlightedMemberProps) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [showContent, setShowContent] = useState(false);
-  useClickOutside(cardRef, onClose);
-  useLockBodyScroll();
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [showContent, setShowContent] = useState(false)
+  useClickOutside(cardRef, onClose)
+  useLockBodyScroll()
 
   const memberInformation = useMemo(
     () => (
@@ -34,7 +34,7 @@ export const HighlightedMember = ({
           delay={0.05}
           className="text-4xl font-pygments font-bold"
         >
-          <Heading as="p" extraBold={false} size={4}>
+          <Heading as="p" size={4}>
             {username}
           </Heading>
         </Fade>
@@ -64,8 +64,8 @@ export const HighlightedMember = ({
         </Fade>
       </>
     ),
-    [username, role, description]
-  );
+    [username, role, description],
+  )
 
   const memberPicture = useMemo(
     () => (
@@ -73,8 +73,8 @@ export const HighlightedMember = ({
         <ExternalImage src={imgUrl} layout="fill" objectFit="cover" alt={`${username} picture`} />
       </div>
     ),
-    [imgUrl, username]
-  );
+    [imgUrl, username],
+  )
 
   return (
     <>
@@ -89,7 +89,7 @@ export const HighlightedMember = ({
             <div className="p-6 pb-24">{memberInformation}</div>
             <div
               className="fixed bottom-0 left-0 right-0 flex justify-center items-center p-4"
-              style={{ background: "linear-gradient(0deg, white, transparent)" }}
+              style={{ background: 'linear-gradient(0deg, white, transparent)' }}
             >
               <button
                 onClick={onClose}
@@ -132,5 +132,5 @@ export const HighlightedMember = ({
         </motion.div>
       </div>
     </>
-  );
-};
+  )
+}

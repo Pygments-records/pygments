@@ -1,5 +1,5 @@
 export const CloseIcon = ({
-  color = "white",
+  color = 'white',
   ...props
 }: React.SVGProps<SVGSVGElement> & { color?: string }) => (
   <svg width="36" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -10,4 +10,4 @@ export const CloseIcon = ({
       strokeLinejoin="round"
     />
   </svg>
-);
+)

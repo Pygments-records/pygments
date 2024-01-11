@@ -1,18 +1,18 @@
-import React from "react";
-import styles from "./ArtistImage.module.css";
-import cx from "classnames";
+import React from 'react'
+import styles from './ArtistImage.module.css'
+import cx from 'classnames'
 
 type ArtistImageProps = {
-  url: string;
-  index: number;
-  className?: string;
-};
+  url: string
+  index: number
+  className?: string
+}
 
-export const ArtistImage = ({ className, index, url }: ArtistImageProps) => {
+export const ArtistImage = ({ className, url }: ArtistImageProps) => {
   return (
-    <svg viewBox="0 0 100 100" className={cx("h-[450px] w-[450px]", className)}>
+    <svg viewBox="0 0 100 100" className={cx('h-[450px] w-[450px]', className)}>
       <clipPath id="clip">
-        <path className={styles["shape-anim"]} transform="translate(50 50)"></path>
+        <path className={styles['shape-anim']} transform="translate(50 50)"></path>
       </clipPath>
       <image
         height="100%"
@@ -22,5 +22,5 @@ export const ArtistImage = ({ className, index, url }: ArtistImageProps) => {
         clipPath="url(#clip)"
       />
     </svg>
-  );
-};
+  )
+}

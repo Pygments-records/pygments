@@ -1,5 +1,5 @@
 export const MenuIcon = ({
-  color = "white",
+  color = 'white',
   ...props
 }: React.SVGProps<SVGSVGElement> & { color?: string }) => (
   <svg
@@ -17,4 +17,4 @@ export const MenuIcon = ({
       strokeLinejoin="round"
     />
   </svg>
-);
+)

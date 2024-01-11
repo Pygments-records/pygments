@@ -13,4 +13,4 @@ export const PygmentsIcon = ({ ...props }: React.SVGProps<SVGSVGElement> & { col
       />
     </defs>
   </svg>
-);
+)

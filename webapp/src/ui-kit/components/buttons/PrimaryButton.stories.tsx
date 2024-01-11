@@ -1,14 +1,14 @@
-import type { Meta, Story } from "@storybook/react";
+import type { Meta, Story } from '@storybook/react'
 
-import { PrimaryButton, PrimaryButtonProps } from "./PrimaryButton";
+import { PrimaryButton, PrimaryButtonProps } from './PrimaryButton'
 
 export default {
-  title: "UI Kit/Buttons",
-} as Meta;
+  title: 'UI Kit/Buttons',
+} as Meta
 
-const Template: Story<PrimaryButtonProps> = (args) => <PrimaryButton {...args} />;
+const Template: Story<PrimaryButtonProps> = (args) => <PrimaryButton {...args} />
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
-  children: "Primary Button",
-};
+  children: 'Primary Button',
+}

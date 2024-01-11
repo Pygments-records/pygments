@@ -1,24 +1,24 @@
-import React, { ReactNode } from "react";
-import { motion, Variant } from "framer-motion";
+import React, { ReactNode } from 'react'
+import { motion, Variant } from 'framer-motion'
 
-const INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER = "__AnimateGroup.Item__";
+const INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER = '__AnimateGroup.Item__'
 
 type AnimateGroupProps = {
-  as?: "div" | "ul" | "li" | "section";
-  className?: string;
-  children: ReactNode;
-};
+  as?: 'div' | 'ul' | 'li' | 'section'
+  className?: string
+  children: ReactNode
+}
 
 type AnimateGroupComposition = {
-  Item: typeof Item;
-};
+  Item: typeof Item
+}
 
-export const AnimateGroup: React.VFC<AnimateGroupProps> & AnimateGroupComposition = ({
-  as = "div",
+export const AnimateGroup: React.FC<AnimateGroupProps> & AnimateGroupComposition = ({
+  as = 'div',
   className,
   children,
 }) => {
-  const Component = motion[as];
+  const Component = motion[as]
 
   const variants = {
     hidden: {
@@ -37,7 +37,7 @@ export const AnimateGroup: React.VFC<AnimateGroupProps> & AnimateGroupCompositio
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
   return (
     <Component
@@ -50,42 +50,42 @@ export const AnimateGroup: React.VFC<AnimateGroupProps> & AnimateGroupCompositio
       {React.Children.map(children, (child) => {
         if (
           React.isValidElement(child) &&
-          typeof child !== "string" &&
-          //@ts-ignore
-          child.type._name === INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER
+          typeof child !== 'string' &&
+          // cheat to avoid ts error
+          (child.type as { _name?: string })?._name === INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER
         ) {
-          return child;
+          return child
         } else if (child === null) {
-          return null;
+          return null
         } else {
-          throw new Error("You must pass a AnimateGroup.Item as a child of AnimateGroup.");
+          throw new Error('You must pass a AnimateGroup.Item as a child of AnimateGroup.')
         }
       })}
     </Component>
-  );
-};
+  )
+}
 
-type ItemVariantKey = "hidden" | "visible" | "exit";
+type ItemVariantKey = 'hidden' | 'visible' | 'exit'
 
 type ItemVariants = {
-  [key in ItemVariantKey]: Variant;
-};
+  [key in ItemVariantKey]: Variant
+}
 
 type ItemProps = {
-  as?: "div" | "ul" | "li" | "section";
-  children: ReactNode;
-  variants: ItemVariants;
-  className?: string;
-};
+  as?: 'div' | 'ul' | 'li' | 'section'
+  children: ReactNode
+  variants: ItemVariants
+  className?: string
+}
 
-export const Item = ({ as = "div", children, variants, className }: ItemProps) => {
-  const Component = motion[as];
+export const Item = ({ as = 'div', children, variants, className }: ItemProps) => {
+  const Component = motion[as]
   return (
     <Component variants={variants} className={className}>
       {children}
     </Component>
-  );
-};
+  )
+}
 
-Item._name = INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER;
-AnimateGroup.Item = Item;
+Item._name = INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER
+AnimateGroup.Item = Item
