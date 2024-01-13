@@ -10,6 +10,8 @@ import Head from "next/head";
 import {Text} from "@ui-kit/components/text/Text";
 import {useResponsive} from "@core/common/hooks/useResponsive";
 import {PageLayout} from "@core/common/layouts/PageLayout/PageLayout";
+import Link from "next/link";
+import ReactPlayer from "react-player";
 
 type ArtistPageProps = {
   artist?: Artist;
@@ -47,6 +49,32 @@ export default function ArtistPage({ artist, error }: ArtistPageProps) {
             </div>
           )}
         </div>
+      </div>
+      <div>
+        <Link href={artist.url_presskit} passHref>
+          <a style={{ textDecoration: 'none', padding: '10px', backgroundColor: 'blue', color: 'white', borderRadius: '5px', cursor: 'pointer' }}>
+            PressKit
+          </a>
+        </Link>
+        <Link href={artist.email_book} passHref>
+          <a style={{ textDecoration: 'none', padding: '10px', backgroundColor: 'blue', color: 'white', borderRadius: '5px', cursor: 'pointer' }}>
+            PressKit
+          </a>
+        </Link>
+        <ReactPlayer
+          url={artist.last_poadcast.last_poadcast_1}
+          playing
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            objectFit: "cover",
+            zIndex: 0,
+            opacity: 1,
+          }}
+        />
+
       </div>
     </PageLayout>
   );

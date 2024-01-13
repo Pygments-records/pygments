@@ -19,4 +19,11 @@ export type Artist = {
   slug: {
     current: string
   }
+  email_book: string
+  url_presskit: string
+  last_poadcast: {
+    last_poadcast_1: string
+    last_poadcast_2: string
+    last_poadcast_3: string
+  }
 }
