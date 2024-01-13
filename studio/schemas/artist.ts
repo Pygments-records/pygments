@@ -18,6 +18,7 @@ export default defineField({
       title: 'Name',
       validation: (Rule) => Rule.required().min(1),
     }),
+
     defineField({
       name: 'description',
       type: 'text',
@@ -68,11 +69,21 @@ export default defineField({
       type: 'url',
       description: 'URL vers le press kit de l\'artiste',
     }),
-    defineField(    {
+    defineField({
       name: 'email_book',
       title: 'Email de Booking',
       type: 'email',
       description: 'Adresse e-mail pour le booking de l\'artiste',
+    }),
+    defineField({
+      type: 'object',
+      name: 'last_poadcast',
+      title: 'Last Poadcast',
+      fields: [
+        {name: 'last_poadcast_1', type: 'string', title: 'Last Poadcast 1'},
+        {name: 'last_poadcast_2', type: 'string', title: 'Last Poadcast 2'},
+        {name: 'last_poadcast_3', type: 'string', title: 'Last Poadcast 3'},
+      ]
     }),
   ],
 })
