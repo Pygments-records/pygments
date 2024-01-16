@@ -19,7 +19,7 @@ export const TimelineScreen = ({ events }: TimelineScreenProps) => {
     return null
   }
   return (
-    <PageLayout withFooter={false} className="bg-darkPurple" transparentHeader={false}>
+    <PageLayout className="bg-darkPurple">
       {isMobileSize ? (
         <div className="lg:hidden h-full">
           <TimelineMobileScreen events={events} />

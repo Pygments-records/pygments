@@ -64,24 +64,27 @@ export default defineField({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      type: 'object',
-      name: 'last_poadcast',
-      title: 'Last Poadcast',
-      fields: [
-        {name: 'last_poadcast_1', type: 'string', title: 'Last Poadcast 1'},
-        {name: 'last_poadcast_2', type: 'string', title: 'Last Poadcast 2'},
-        {name: 'last_poadcast_3', type: 'string', title: 'Last Poadcast 3'},
+      title: 'Videos',
+      name: 'videos',
+      type: 'array',
+      of: [
+        {
+          type: 'url',
+          title: 'Video URL',
+          description: 'Enter the URL of a video',
+        },
       ],
+      validation: (Rule) => Rule.max(3),
     }),
     defineField({
       type: 'string',
       name: 'email_book',
-      title: 'Email booker'
+      title: 'Email booker',
     }),
     defineField({
       type: 'url',
       name: 'url_presskit',
-      title: 'Url PressKit'
+      title: 'Url PressKit',
     }),
   ],
 })
