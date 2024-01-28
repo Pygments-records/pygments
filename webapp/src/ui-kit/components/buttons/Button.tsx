@@ -1,8 +1,8 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
-export type PrimaryButtonProps = {
+export type ButtonProps = {
   children?: ReactNode
 } & ComponentPropsWithoutRef<'button'>
-export const PrimaryButton = ({ children, ...props }: PrimaryButtonProps) => (
+export const Button = ({ children, ...props }: ButtonProps) => (
   <button {...props}>{children}</button>
 )

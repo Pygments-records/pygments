@@ -152,7 +152,7 @@ export function is5xx(status: number): boolean {
 }
 
 export const handleClientError = async (
-  e: unknown,
+  _: unknown,
   translations: Promise<SSRConfig>,
 ): Promise<ReturnType<GetStaticProps>> => {
   return {

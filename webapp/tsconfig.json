@@ -10,6 +10,16 @@
       "@domains/*": ["domains/*"],
       "@public/*": ["public/*"]
     },
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "declaration": false,
+    "inlineSourceMap": false,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
+    "importHelpers": false,
+    "isolatedModules": true,
+    "noEmit": true,
     "esModuleInterop": true
   },
   "include": ["next-env.d.ts", "src"],

@@ -21,7 +21,7 @@ export const ImageCard = ({
   imageConfig,
 }: ImageCardProps) => {
   return (
-    <div className="flex flex-col" onClick={onClick}>
+    <div role="button" tabIndex={0} className="flex flex-col" onKeyDown={onClick} onClick={onClick}>
       <div className={cx('relative rounded overflow-hidden', className)}>
         <Image src={imgSrc} layout="fill" alt={`${label} image`} {...imageConfig} />
       </div>
