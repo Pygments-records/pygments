@@ -69,7 +69,7 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
       })}
     >
       <ArtistImage
-        url={artist.picture.url}
+        url={artist.picture.url ?? ''}
         index={index}
         className="h-[400px] w-[400px] lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]"
       />

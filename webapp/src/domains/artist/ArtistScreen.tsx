@@ -23,7 +23,7 @@ export const ArtistScreen = ({ artist }: ArtistScreenProps) => {
     <PageLayout className="bg-darkPurple">
       <article className="h-screen w-screen relative">
         <Image
-          src={artist.picture.url}
+          src={artist.picture.url ?? ''}
           height="100%"
           width="100%"
           layout="fill"

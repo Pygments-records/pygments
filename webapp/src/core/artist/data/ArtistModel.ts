@@ -1,5 +1,5 @@
 export type Picture = {
-  url: string
+  url: string | null
   alt: string
 }
 

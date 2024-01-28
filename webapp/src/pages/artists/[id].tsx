@@ -1,5 +1,5 @@
 import type { Artist } from '@core/artist/data/ArtistModel'
-import { getArtistIds, getOneArtist } from '@core/artist/data/ArtistRepository'
+import { getOneArtist, getResidentArtistIds } from '@core/artist/data/ArtistRepository'
 import { serverSideTranslations } from '@core/i18n/serverSideTranslations'
 import { homeNamespaces } from '@domains/home/homeNamespaces'
 import { handleClientError } from '@lib/http-client/http'
@@ -31,7 +31,7 @@ type PathParameters = {
 
 export const getStaticPaths: GetStaticPaths<PathParameters> = async () => {
   try {
-    const artistsIds = await getArtistIds()
+    const artistsIds = await getResidentArtistIds()
     const paths = artistsIds.map((_id) => ({
       params: { id: _id },
     }))

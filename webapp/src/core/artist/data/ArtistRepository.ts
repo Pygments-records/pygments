@@ -33,10 +33,10 @@ export const getOneArtist = async (id: string): Promise<Artist> => {
     ...,
     "categories": categories[]->.genre,
     "videos": coalesce(videos, []),
-    picture{"url": asset->url, alt}
+    picture{"url": coalesce(asset->url, ''), alt}
   }`)
 }
 
-export const getArtistIds = async (): Promise<string[]> => {
-  return request(`*[_type == "artist"]._id`)
+export const getResidentArtistIds = async (): Promise<string[]> => {
+  return request(`*[_type == "artist" && resident == true]._id`)
 }
