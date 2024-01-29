@@ -18,6 +18,7 @@ export default defineField({
       title: 'Name',
       validation: (Rule) => Rule.required().min(1),
     }),
+
     defineField({
       name: 'description',
       type: 'text',
@@ -61,6 +62,29 @@ export default defineField({
         },
       ],
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Videos',
+      name: 'videos',
+      type: 'array',
+      of: [
+        {
+          type: 'url',
+          title: 'Video URL',
+          description: 'Enter the URL of a video',
+        },
+      ],
+      validation: (Rule) => Rule.max(3),
+    }),
+    defineField({
+      type: 'string',
+      name: 'email_book',
+      title: 'Email booker',
+    }),
+    defineField({
+      type: 'url',
+      name: 'url_presskit',
+      title: 'Url PressKit',
     }),
   ],
 })

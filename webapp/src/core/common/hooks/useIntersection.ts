@@ -19,9 +19,9 @@ export function useIntersection(
       },
       { rootMargin, threshold },
     )
-    element.current != null && observer.observe(element.current)
+    element.current !== null && observer.observe(element.current)
     return () => {
-      if (element.current != null) {
+      if (element.current !== null) {
         observer.unobserve(element.current)
       }
     }

@@ -11,10 +11,12 @@ export const getArtists = async (): Promise<Artist[]> => {
 }
 
 export const getResidentArtists = async (): Promise<Artist[]> => {
-  return request(`*[_type == "artist" && resident == true] | order(name asc) {
+  return request(`
+  *[_type == "artist" && resident == true] | order(name asc) {
     ...,
     "categories": categories[]->.genre,
-    picture{"url": asset->url, alt}
+    picture{"url": asset->url, alt},
+    "slug": slug.current
   }`)
 }
 
@@ -24,4 +26,17 @@ export const getStaff = async (): Promise<Staff[]> => {
     "categories": categories[]->.genre,
     picture{"url": asset->url, alt}
   }`)
+}
+
+export const getOneArtist = async (id: string): Promise<Artist> => {
+  return request(`*[_type == "artist" && _id == '${id}'][0] {
+    ...,
+    "categories": categories[]->.genre,
+    "videos": coalesce(videos, []),
+    picture{"url": coalesce(asset->url, ''), alt}
+  }`)
+}
+
+export const getResidentArtistIds = async (): Promise<string[]> => {
+  return request(`*[_type == "artist" && resident == true]._id`)
 }

@@ -1,39 +1,149 @@
 module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: './tsconfig.project.json',
-    tsconfigRootDir: __dirname,
-  },
-  plugins: ['@typescript-eslint', 'prettier', 'unused-imports'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
+    'plugin:jsx-a11y/recommended',
     'plugin:@next/next/recommended',
-    'prettier',
   ],
-  settings: {
-    react: {
-      version: 'detect',
-    },
+  parser: '@typescript-eslint/parser',
+  env: {
+    browser: true,
+    node: true,
+    jest: true,
+  },
+  parserOptions: {
+    project: './tsconfig.project.json',
+    tsconfigRootDir: __dirname,
   },
   ignorePatterns: ['.eslintrc.js'],
+  plugins: ['@typescript-eslint', 'prettier', 'jsx-a11y'],
   rules: {
-    // Add your own project-specific rules here, or override the rules from the extended configs
     'prettier/prettier': 'off',
     'react/react-in-jsx-scope': 'off',
-    // 'react/prop-types': 'off', // Disable prop-types check as we're using TypeScript
-    // '@typescript-eslint/explicit-module-boundary-types': 'off', // Disable explicit return types
-    // 'unused-imports/no-unused-imports': 'error', // Enable detection of unused imports
-    // 'unused-imports/no-unused-vars': 'error', // Enable detection of unused variables
   },
   overrides: [
     {
-      files: ['**/*.stories.tsx'], // Apply specific rules to Storybook files
+      files: ['**/*.ts', '**/*.tsx'],
       rules: {
-        'react/prop-types': 'off', // Disable prop-types check in Storybook stories
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/adjacent-overload-signatures': 'warn',
+        '@typescript-eslint/array-type': [
+          'warn',
+          {
+            default: 'array-simple',
+          },
+        ],
+        '@typescript-eslint/explicit-member-accessibility': 'off',
+        '@typescript-eslint/no-empty-interface': 'warn',
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-misused-new': 'error',
+        '@typescript-eslint/no-namespace': 'error',
+        '@typescript-eslint/no-non-null-assertion': 'error',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          {
+            vars: 'all',
+            args: 'all',
+            ignoreRestSiblings: false,
+            argsIgnorePattern: '^_',
+            varsIgnorePattern: '^_',
+            caughtErrors: 'all',
+            caughtErrorsIgnorePattern: '^_',
+          },
+        ],
+        '@typescript-eslint/no-use-before-define': [
+          'error',
+          {
+            functions: false,
+            classes: true,
+            variables: false,
+            typedefs: true,
+          },
+        ],
+        '@typescript-eslint/no-useless-constructor': 'warn',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/unbound-method': 'off',
+        '@typescript-eslint/no-base-to-string': 'error',
+        '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+        '@typescript-eslint/no-unnecessary-condition': 'error',
+        '@typescript-eslint/prefer-nullish-coalescing': [
+          'error',
+          {
+            ignoreConditionalTests: false,
+            ignoreMixedLogicalExpressions: false,
+          },
+        ],
+        eqeqeq: ['error', 'always'],
+      },
+    },
+    {
+      files: ['**/*.stories.ts', '**/*.stories.tsx'],
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        'import/no-anonymous-default-export': 'off',
+      },
+    },
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            paths: [
+              {
+                name: 'next',
+                importNames: ['GetStaticProps', 'GetStaticPropsContext'],
+                message: 'Use `@lib/next/getStaticProps` instead.',
+              },
+              {
+                name: 'next',
+                importNames: ['GetServerSideProps', 'GetServerSidePropsContext'],
+                message: 'Use `@lib/next/getServerSideProps` instead.',
+              },
+              {
+                name: 'next/dist/client/router',
+                message: 'Use `next/router` instead.',
+              },
+              {
+                name: 'next-i18next/serverSideTranslations',
+                importNames: ['serverSideTranslations'],
+                message: 'Use `@core/i18n/serverSideTranslations`',
+              },
+              {
+                name: 'next-i18next',
+                importNames: ['useTranslation'],
+                message: 'Use `@core/i18n/useTranslation`',
+              },
+              {
+                name: 'next/image',
+                importNames: ['Image', 'NextImage'],
+                message: 'Use `@core/common/components/NextImage/NextImage` instead',
+              },
+              {
+                name: 'next/image',
+                importNames: ['ImageProps', 'NextImageProps'],
+                message:
+                  'Use NextImageProps from `@core/common/components/NextImage/NextImage` instead',
+              },
+              {
+                name: 'next/image',
+                importNames: ['ImageLoader', 'NextImageLoader'],
+                message:
+                  'Use NextImage component from `@core/common/components/NextImage/NextImage` instead',
+              },
+              {
+                name: 'next/error',
+                importNames: ['default'],
+                message: 'Use custom Error in pages/_error.tsx instead',
+              },
+            ],
+            patterns: ['next/dist/*'],
+          },
+        ],
       },
     },
   ],

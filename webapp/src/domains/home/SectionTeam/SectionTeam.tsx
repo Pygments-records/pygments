@@ -23,7 +23,7 @@ export const SectionTeam = ({ staff, className }: SectionTeamProps) => {
         {staff.map((staff) => (
           <li key={staff._id} className="w-[280px]">
             <article className={cx('flex-col h-[400px] relative rounded-sm overflow-hidden')}>
-              <NextImage layout="fill" objectFit="cover" src={staff.picture?.url} />
+              <NextImage layout="fill" objectFit="cover" src={staff.picture.url} />
             </article>
             <footer className="py-4 px-2">
               <Heading as="p" size={4} className="text-white">

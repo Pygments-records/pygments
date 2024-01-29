@@ -9,3 +9,8 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.card-description {
+  @apply absolute bottom-0 left-0 right-0 px-4 p-4 flex items-end;
+  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 60%, rgba(2, 0, 36, 0) 100%);
+}

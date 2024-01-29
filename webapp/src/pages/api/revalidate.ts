@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await res.revalidate('/fr/timeline')
     }
     return res.json({ revalidated: true })
-  } catch (err) {
+  } catch (_) {
     // Could not revalidate. The stale page will continue to be shown until
     // this issue is fixed.
     return res.status(500).send('Error while revalidating')

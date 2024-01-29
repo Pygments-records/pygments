@@ -22,25 +22,23 @@ const SWITCH_BACKGROUND_COLOR_Y_POS = 64
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
   const [menuBgColor, setMenuBgColor] = useState<'black' | 'darkPurple' | 'none'>('none')
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-      if (window.scrollY > SWITCH_BACKGROUND_COLOR_Y_POS) {
-        setMenuBgColor('darkPurple')
-      } else {
-        setMenuBgColor('none')
-      }
+  const handleScroll = () => {
+    if (window.scrollY > SWITCH_BACKGROUND_COLOR_Y_POS) {
+      setMenuBgColor('darkPurple')
+    } else {
+      setMenuBgColor('none')
     }
+  }
+
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
-  console.log({ scrollY, menuBgColor })
   return (
     <>
       <motion.header
@@ -66,7 +64,9 @@ export const Header = () => {
               <IconButton icon={<YoutubeIcon />} className="w-14 h-14" />
             </ExternalLink>
           </div>
-          <PygmentsIcon className="w-[150px] lg:w-[200px]" />
+          <NextLink href="/">
+            <PygmentsIcon className="w-[150px] lg:w-[200px] cursor-pointer" />
+          </NextLink>
           <div className="absolute right-0 flex items-center">
             <IconButton
               onClick={() => {
@@ -80,7 +80,7 @@ export const Header = () => {
             />
           </div>
         </div>
-        <AnimatePresence onExitComplete={() => setMenuBgColor('darkPurple')}>
+        <AnimatePresence onExitComplete={handleScroll}>
           {showMenu && <HeaderMenu className="h-menu" onClose={() => setShowMenu(false)} />}
         </AnimatePresence>
       </motion.header>

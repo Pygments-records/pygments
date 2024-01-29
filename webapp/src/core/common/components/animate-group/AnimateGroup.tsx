@@ -52,7 +52,7 @@ export const AnimateGroup: React.FC<AnimateGroupProps> & AnimateGroupComposition
           React.isValidElement(child) &&
           typeof child !== 'string' &&
           // cheat to avoid ts error
-          (child.type as { _name?: string })?._name === INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER
+          (child.type as { _name?: string })._name === INTERNAL_ANIMATE_ITEM_NAME_IDENTIFIER
         ) {
           return child
         } else if (child === null) {

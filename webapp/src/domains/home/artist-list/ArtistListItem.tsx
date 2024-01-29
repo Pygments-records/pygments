@@ -11,6 +11,10 @@ import { ExternalLink } from '@ui-kit/components/external-link/ExternalLink'
 import { IconButton } from '@ui-kit/components/buttons/IconButton'
 import { useTranslation } from '@core/i18n/useTranslation'
 import { homeNamespaces } from '../homeNamespaces'
+import NextLink from 'next/link'
+import React from 'react'
+import { OuterArrow } from '@ui-kit/icons/OuterArrow'
+import { Link } from '@ui-kit/components/link/Link'
 
 export type ArtistItemProps = {
   artist: Artist
@@ -65,7 +69,7 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
       })}
     >
       <ArtistImage
-        url={artist.picture?.url ?? ''}
+        url={artist.picture.url ?? ''}
         index={index}
         className="h-[400px] w-[400px] lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]"
       />
@@ -77,9 +81,18 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
           },
         )}
       >
-        <Heading as="h3" size={3} className="text-white tracking-[0.05em]">
-          {artist.name}
-        </Heading>
+        <NextLink href={`/artists/${artist._id}`} passHref>
+          <Link
+            className={cx('flex gap-3 items-center justify-center md:justify-start', {
+              ['md:justify-end']: flip,
+            })}
+          >
+            <Heading as="h3" size={3} className="text-white tracking-[0.05em]">
+              {artist.name}
+            </Heading>
+            <OuterArrow width={32} height={32} />
+          </Link>
+        </NextLink>
         <ul
           className={cx(
             'flex flex-row flex-wrap justify-center md:justify-start items-center gap-2',

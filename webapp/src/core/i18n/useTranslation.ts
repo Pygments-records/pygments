@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-restricted-imports
 import { useTranslation as _useTranslation } from 'next-i18next'
 import type { Namespace as AppNamespace } from './i18nConfig'
 
