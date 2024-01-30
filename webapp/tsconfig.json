@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "types": ["cypress"],
     "baseUrl": "src",
     "paths": {
       "@ui-kit/*": ["ui-kit/*"],
