@@ -18,7 +18,7 @@ type HomeScreenProps = {
 
 export const HomeScreen = ({ artists, events, staff, content }: HomeScreenProps) => {
   return (
-    <PageLayout className="bg-darkPurple">
+    <PageLayout className="bg-darkPurple" withScrollHint={true}>
       <div className="flex flex-col gap-y-[120px]">
         {content !== undefined && <HomeMovie movie={content.movie} />}
         <UpcomingEventBoard events={events} className="min-h-[80vh]" />

@@ -29,7 +29,7 @@ export const Heading = ({
 function getHeadingStyles(size: HeadingSize): string {
   switch (size) {
     case 1: {
-      return 'text-6xl leading-11 xl:text-7xl xl:leading-12'
+      return 'text-5xl leading-10 md:text-6xl md:leading-11 xl:text-7xl xl:leading-12'
     }
     case 2: {
       return 'text-5xl leading-10 xl:text-6xl xl:leading-11'

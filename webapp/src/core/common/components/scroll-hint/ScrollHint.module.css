@@ -1,0 +1,25 @@
+.scroll-hint-mouse-icon {
+  @apply relative border border-white rounded-2xl h-12 w-6;
+}
+
+.scroll-hint-mouse-icon::before {
+  @apply bg-white w-1 h-2 absolute top-2 left-1/2 rounded-lg;
+  content: '';
+  transform: translateX(-50%);
+  animation: mouse-scroll 2s infinite;
+  -webkit-animation: mouse-scroll 2s infinite;
+}
+
+@keyframes mouse-scroll {
+  to {
+    opacity: 0;
+    top: 24px;
+  }
+}
+
+@-webkit-keyframes mouse-scroll {
+  to {
+    opacity: 0;
+    top: 24px;
+  }
+}

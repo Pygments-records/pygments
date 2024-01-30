@@ -20,7 +20,7 @@ export const UpcomingEventBoard = ({ events, className }: UpcomingEventBoardProp
   return (
     <div className={className}>
       <Title className="mb-16">{t('home:upcoming-event-section.title')}</Title>
-      <ul className="mx-12 flex flex-col">
+      <ul className="mx-4 md:mx-12 flex flex-col">
         {events.length === 0 ? (
           <li className="p-6 border-b-[0.5px] border-white border-opacity-50">
             <Text size="xl" weight="light" className="text-white text-center tracking-[.10em]">
@@ -30,7 +30,10 @@ export const UpcomingEventBoard = ({ events, className }: UpcomingEventBoardProp
         ) : (
           events.slice(0, MAX_EVENTS_DISPLAYED).map((event) => {
             return (
-              <li key={event._id} className="p-6 border-b-[0.5px] border-white border-opacity-50">
+              <li
+                key={event._id}
+                className="p-2 md:p-6 border-b-[0.5px] border-white border-opacity-50"
+              >
                 <UpcomingEvent
                   name={event.name}
                   description={event.location.label}
@@ -58,8 +61,8 @@ const UpcomingEvent = ({ name, description, date, ticketUrl }: UpcomingEventProp
   const { t } = useTranslation(homeNamespaces)
 
   return (
-    <div className="flex flex-row items-center">
-      <div className="flex flex-col items-center font-text font-light text-[28px] text-white tracking-[0.3em] mr-12">
+    <div className="flex flex-col gap-4 md:gap-0 md:flex-row text-center md:text-left items-center">
+      <div className="flex flex-col items-center font-text font-light text-[28px] text-white tracking-[0.3em] md:mr-12">
         <Text size="2xl" weight="light" className="text-white tracking-[0.25em]">
           {_date.format('D')}
         </Text>
@@ -75,7 +78,7 @@ const UpcomingEvent = ({ name, description, date, ticketUrl }: UpcomingEventProp
           {description}
         </Text>
       </div>
-      <div className="ml-auto">
+      <div className="md:ml-auto p-4 md:p-0">
         <ExternalLink href={ticketUrl}>
           <button className="cursor-pointer">
             <Text size="base" className="text-white tracking-[0.25em]">

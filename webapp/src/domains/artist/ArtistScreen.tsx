@@ -20,7 +20,7 @@ type ArtistScreenProps = {
 
 export const ArtistScreen = ({ artist }: ArtistScreenProps) => {
   return (
-    <PageLayout className="bg-darkPurple">
+    <PageLayout className="bg-darkPurple" withScrollHint={true}>
       <article className="h-screen w-screen relative">
         <Image
           src={artist.picture.url ?? ''}
@@ -28,14 +28,15 @@ export const ArtistScreen = ({ artist }: ArtistScreenProps) => {
           width="100%"
           layout="fill"
           objectFit="cover"
+          priority={true}
         />
-        <div className="absolute bottom-0 left-0 p-16">
+        <div className="absolute bottom-0 left-0 px-4 py-6 md:p-16">
           <Heading as="h1" size={1} className="text-white tracking-[0.05em]">
             {artist.name}
           </Heading>
         </div>
       </article>
-      <section className="min-h-screen flex flex-col px-16 py-12">
+      <section className="min-h-screen flex flex-col px-6 py-8 md:px-16 md:py-12">
         <div className="text-white mb-8">
           <NextLink href={'/'} passHref={true}>
             <Link>
@@ -43,8 +44,8 @@ export const ArtistScreen = ({ artist }: ArtistScreenProps) => {
             </Link>
           </NextLink>
         </div>
-        <div className="flex-1 flex gap-4">
-          <div className="flex flex-col min-w-[350px]">
+        <div className="flex-1 flex flex-col md:flex-row gap-8 md:gap-4">
+          <div className="flex flex-col md:min-w-[350px]">
             <Heading as="h3" className="text-white mb-8" size={5}>
               Last Content
             </Heading>
@@ -62,16 +63,16 @@ export const ArtistScreen = ({ artist }: ArtistScreenProps) => {
               )}
             </ul>
           </div>
-          <div className="w-[0.5px] h-[600px] bg-gray mx-[48px] self-center" />
+          <div className="hidden md:block w-[0.5px] h-[600px] bg-gray mx-[48px] self-center" />
           <div className="flex-1">
-            <div className="flex flex-col gap-8 max-w-[80%]">
+            <div className="flex flex-col gap-8 md:max-w-[80%]">
               <Heading as="h3" className="text-white" size={5}>
                 Biography
               </Heading>
               <Text as="p" size="lg" className="text-white">
                 {artist.description}
               </Text>
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
                 <div className="flex items-center">
                   {artist.social_media.instagram && (
                     <ExternalLink href={artist.social_media.instagram}>
@@ -89,12 +90,12 @@ export const ArtistScreen = ({ artist }: ArtistScreenProps) => {
                     </ExternalLink>
                   )}
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex justify-between md:justify-start items-center gap-2">
                   {artist.url_presskit && (
                     <Link
                       target="_blank"
                       href={artist.url_presskit}
-                      className="bg-electricBlue text-white py-2 px-4 cursor-pointer"
+                      className="bg-electricBlue text-white py-4 px-8 md:py-3 md:px-6 cursor-pointer"
                     >
                       <Text>Press Kit</Text>
                     </Link>
@@ -102,7 +103,7 @@ export const ArtistScreen = ({ artist }: ArtistScreenProps) => {
                   {artist.email_book && (
                     <Link
                       href={`mailto:${artist.email_book}`}
-                      className="bg-electricBlue text-white py-2 px-4 cursor-pointer"
+                      className="bg-electricBlue text-white py-4 px-8 md:py-3 md:px-6 cursor-pointer"
                     >
                       <Text>Book Now</Text>
                     </Link>
