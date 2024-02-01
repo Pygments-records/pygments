@@ -25,9 +25,7 @@ export const ProjectDescription = ({ className }: ProjectDescriptionProps) => {
             (Lab)el
           </Heading>
           <Text as="p" className="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec elementum mauris, in
-            fermentum lacus. Nunc non risus facilisis augue condimentum dignissim vitae eu orci.
-            Donec neque libero, porta nec lectus vitae, venenatis faucibus dui. Fusce sed.
+            Un Jeu de mots, entre notre incubateur d’artistes sous le concept de Pygments Lab et notre label qui sera lancé en 2024.
           </Text>
         </article>
         <article className="max-w-[400px] border border-white p-8 flex flex-col gap-6">
@@ -39,9 +37,7 @@ export const ProjectDescription = ({ className }: ProjectDescriptionProps) => {
             Party Crew
           </Heading>
           <Text as="p" className="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec elementum mauris, in
-            fermentum lacus. Nunc non risus facilisis augue condimentum dignissim vitae eu orci.
-            Donec neque libero, porta nec lectus vitae, venenatis faucibus dui. Fusce sed.
+            Organisations et création de concept d’événements.
           </Text>
         </article>
         <article className="max-w-[400px] border border-white p-8 flex flex-col gap-6">
@@ -53,9 +49,7 @@ export const ProjectDescription = ({ className }: ProjectDescriptionProps) => {
             Live Stream
           </Heading>
           <Text as="p" className="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec elementum mauris, in
-            fermentum lacus. Nunc non risus facilisis augue condimentum dignissim vitae eu orci.
-            Donec neque libero, porta nec lectus vitae, venenatis faucibus dui. Fusce sed.
+            L’élément audiovisuel qui inscrit notre projet dans la dimension digitale du monde d’aujourd’hui.
           </Text>
         </article>
       </section>
