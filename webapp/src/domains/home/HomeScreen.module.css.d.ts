@@ -3,17 +3,17 @@
 
 declare namespace HomeScreenModuleCssNamespace {
   export interface IHomeScreenModuleCss {
-    card: string;
-    code: string;
-    description: string;
-    grid: string;
-    title: string;
+    card: string
+    code: string
+    description: string
+    grid: string
+    title: string
   }
 }
 
 declare const HomeScreenModuleCssModule: HomeScreenModuleCssNamespace.IHomeScreenModuleCss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: HomeScreenModuleCssNamespace.IHomeScreenModuleCss;
-};
+  locals: HomeScreenModuleCssNamespace.IHomeScreenModuleCss
+}
 
-export = HomeScreenModuleCssModule;
+export = HomeScreenModuleCssModule

@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { SwiperSlide, useSwiper } from "swiper/react";
-import { SliderEvent } from "../slider-event/SliderEvent";
-import { events } from "../constants/events";
-import { EventModal, EventSlide as EventSlideMobile } from "../event-slide/EventSlide";
-import { Footer } from "@core/common/layouts/RootLayout/Footer";
-import styles from "./TimelineMobileScreen.module.css";
-import { EventSlideDetails } from "../event-slide/EventSlideDetails";
-import type { TimelineEvent } from "../models/TimelineEvent";
-import type { Event } from "@core/event/data/EventModel";
+import React, { useEffect, useState } from 'react'
+import { SwiperSlide, useSwiper } from 'swiper/react'
+import { SliderEvent } from '../slider-event/SliderEvent'
+import { events } from '../constants/events'
+import { EventModal, EventSlide as EventSlideMobile } from '../event-slide/EventSlide'
+import { Footer } from '@core/common/layouts/RootLayout/Footer'
+import styles from './TimelineMobileScreen.module.css'
+import { EventSlideDetails } from '../event-slide/EventSlideDetails'
+import type { TimelineEvent } from '../models/TimelineEvent'
+import type { Event } from '@core/event/data/EventModel'
 
 type TimelineMobileScreenProps = {
-  events: Event[];
-};
+  events: Event[]
+}
 
 export const TimelineMobileScreen = ({ events }: TimelineMobileScreenProps) => {
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false)
 
   return (
     <>
-      <div className={styles["mobile-swiper"]}>
+      <div className={styles['mobile-swiper']}>
         <SliderEvent
           isMobile={true}
           hideNavigation={showMore}
@@ -34,30 +34,30 @@ export const TimelineMobileScreen = ({ events }: TimelineMobileScreenProps) => {
       </div>
       <Footer />
     </>
-  );
-};
+  )
+}
 
 const EventSlideDetailsModal = ({
   showMore,
   setShowMore,
 }: {
-  showMore: boolean;
-  setShowMore: React.Dispatch<React.SetStateAction<boolean>>;
+  showMore: boolean
+  setShowMore: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
-  const swiper = useSwiper();
-  const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | undefined>(undefined);
+  const swiper = useSwiper()
+  const [selectedEvent, setSelectedEvent] = useState<TimelineEvent | undefined>(undefined)
 
   useEffect(() => {
-    setSelectedEvent(showMore ? events[swiper.activeIndex] : undefined);
-  }, [showMore, swiper]);
+    setSelectedEvent(showMore ? events[swiper.activeIndex] : undefined)
+  }, [showMore, swiper])
 
   return (
     <>
-      <EventModal key={showMore ? "showEventModal" : "closeEventModal"} show={showMore}>
+      <EventModal key={showMore ? 'showEventModal' : 'closeEventModal'} show={showMore}>
         {selectedEvent !== undefined && (
           <EventSlideDetails event={selectedEvent} onClose={() => setShowMore(false)} />
         )}
       </EventModal>
     </>
-  );
-};
+  )
+}

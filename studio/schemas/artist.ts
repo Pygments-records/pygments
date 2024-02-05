@@ -1,16 +1,24 @@
 import {defineField} from 'sanity'
+import {documents} from './document'
 
 export default defineField({
-  name: 'artist',
+  name: documents.artist.name,
   type: 'document',
-  title: 'Artist',
+  title: documents.artist.title,
   fields: [
+    defineField({
+      name: 'resident',
+      type: 'boolean',
+      title: 'Resident Pygments',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'name',
       type: 'string',
       title: 'Name',
       validation: (Rule) => Rule.required().min(1),
     }),
+
     defineField({
       name: 'description',
       type: 'text',
@@ -37,6 +45,7 @@ export default defineField({
         {name: 'instagram', type: 'string', title: 'Instagram'},
         {name: 'facebook', type: 'string', title: 'Facebook'},
         {name: 'youtube', type: 'string', title: 'Youtube'},
+        {name: 'soundcloud', type: 'string', title: 'SoundCloud'},
       ],
     }),
     defineField({
@@ -54,6 +63,29 @@ export default defineField({
         },
       ],
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      title: 'Videos',
+      name: 'videos',
+      type: 'array',
+      of: [
+        {
+          type: 'url',
+          title: 'Video URL',
+          description: 'Enter the URL of a video',
+        },
+      ],
+      validation: (Rule) => Rule.max(3),
+    }),
+    defineField({
+      type: 'string',
+      name: 'email_book',
+      title: 'Email booker',
+    }),
+    defineField({
+      type: 'url',
+      name: 'url_presskit',
+      title: 'Url PressKit',
     }),
   ],
 })

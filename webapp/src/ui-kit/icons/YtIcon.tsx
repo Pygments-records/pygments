@@ -1,5 +1,7 @@
+import React from 'react'
+
 export const YoutubeIcon = ({
-  color = "white",
+  color = 'white',
   ...props
 }: React.SVGProps<SVGSVGElement> & { color?: string }) => (
   <svg
@@ -23,4 +25,4 @@ export const YoutubeIcon = ({
       strokeLinejoin="round"
     />
   </svg>
-);
+)

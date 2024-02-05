@@ -1,5 +1,5 @@
 .menu {
-  @apply z-10 fixed inset-0 bg-black flex items-center;
+  @apply flex items-center;
   padding-top: var(--header-mobile-height);
 }
 
@@ -9,7 +9,7 @@
 }
 
 .menu-link:after {
-  content: "";
+  content: '';
   @apply bg-white h-[2px] w-full absolute left-0 -bottom-1;
   transform: scaleX(0);
   transform-origin: bottom right;

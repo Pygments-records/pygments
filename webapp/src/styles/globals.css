@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,32 +17,32 @@
 
 @font-face {
   font-display: swap;
-  font-family: "Agrandir";
-  src: url("/fonts/Agrandir-Regular.otf") format("opentype");
+  font-family: 'Agrandir';
+  src: url('/fonts/Agrandir-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Agrandir";
-  src: url("/fonts/Agrandir-GrandLight.otf") format("opentype");
+  font-family: 'Agrandir';
+  src: url('/fonts/Agrandir-GrandLight.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Agrandir";
-  src: url("/fonts/Agrandir-TextBold.otf") format("opentype");
+  font-family: 'Agrandir';
+  src: url('/fonts/Agrandir-TextBold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-display: swap;
-  font-family: "Agrandir";
-  src: url("/fonts/Agrandir-GrandHeavy.otf") format("opentype");
+  font-family: 'Agrandir';
+  src: url('/fonts/Agrandir-GrandHeavy.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
 }
@@ -65,6 +66,13 @@ a {
   height: var(--header-mobile-height);
   @screen lg {
     height: var(--header-desktop-height);
+  }
+}
+
+.h-menu {
+  height: calc(100vh - var(--header-mobile-height));
+  @screen lg {
+    height: calc(100vh - var(--header-desktop-height));
   }
 }
 

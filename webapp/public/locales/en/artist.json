@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "back": "Back to home"
+  },
+  "videos": {
+    "title": "Popular content",
+    "noContent": "No content available"
+  },
+  "bio": {
+    "title": "Biography",
+    "pressKit": "Press Kit",
+    "book": "Book now"
+  }
+}
