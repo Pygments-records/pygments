@@ -7,6 +7,7 @@ export type SocialMedia = {
   instagram: string
   facebook: string
   youtube: string
+  soundcloud: string
 }
 
 export type Artist = {

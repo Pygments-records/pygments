@@ -36,7 +36,7 @@ export const HomeMovie = ({ movie, className }: HomeMovieProps) => {
   }, [])
 
   return (
-    <div className={cx('grid-cols-12 h-screen relative overflow-hidden', className)}>
+    <div className={cx('h-screen relative overflow-hidden', className)}>
       <ReactPlayer
         height={(videoWidth / 16) * 9}
         width={videoWidth}

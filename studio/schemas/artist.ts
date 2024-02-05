@@ -45,6 +45,7 @@ export default defineField({
         {name: 'instagram', type: 'string', title: 'Instagram'},
         {name: 'facebook', type: 'string', title: 'Facebook'},
         {name: 'youtube', type: 'string', title: 'Youtube'},
+        {name: 'soundcloud', type: 'string', title: 'SoundCloud'},
       ],
     }),
     defineField({

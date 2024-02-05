@@ -26,6 +26,7 @@
   "upcoming-event-section": {
     "title": "Upcoming Events",
     "notFound": "No upcoming events for now. Stay tuned!",
-    "tickets": "Ticket"
+    "tickets": "Ticket",
+    "more": "& more to come..."
   }
 }

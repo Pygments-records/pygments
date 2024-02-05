@@ -7,14 +7,6 @@
           "default"
         ],
         "message": "Use `ky-universal`."
-      },
-      {
-        "name": "swr",
-        "importNames": [
-          "default",
-          "useSWRInfinite"
-        ],
-        "message": "Use `@lib/http-client/useHttp` or `@lib/http-client/useHttpInfinite` for better typings."
       }
     ],
     "patterns": []

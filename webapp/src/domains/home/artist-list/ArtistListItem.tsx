@@ -64,27 +64,24 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
 
   return (
     <div
-      className={cx('flex flex-col md:flex-row justify-center items-center', className, {
-        ['md:flex-row-reverse']: flip,
+      className={cx('flex flex-col lg:flex-row justify-center items-center', className, {
+        ['lg:flex-row-reverse']: flip,
       })}
     >
       <ArtistImage
         url={artist.picture.url ?? ''}
         index={index}
-        className="h-[400px] w-[400px] lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]"
+        className="md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]"
       />
       <div
-        className={cx(
-          'w-[350px] lg:w-[400px] xl:w-[500px] flex flex-col gap-y-4 text-center md:text-left',
-          {
-            ['md:text-right']: flip,
-          },
-        )}
+        className={cx('lg:w-[400px] xl:w-[500px] flex flex-col gap-y-4 text-center lg:text-left', {
+          ['lg:text-right']: flip,
+        })}
       >
         <NextLink href={`/artists/${artist._id}`} passHref>
           <Link
-            className={cx('flex gap-3 items-center justify-center md:justify-start', {
-              ['md:justify-end']: flip,
+            className={cx('flex gap-3 items-center justify-center lg:justify-start', {
+              ['lg:justify-end']: flip,
             })}
           >
             <Heading as="h3" size={3} className="text-white tracking-[0.05em]">
@@ -95,9 +92,9 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
         </NextLink>
         <ul
           className={cx(
-            'flex flex-row flex-wrap justify-center md:justify-start items-center gap-2',
+            'flex flex-row flex-wrap justify-center lg:justify-start items-center gap-2',
             {
-              ['md:justify-end']: flip,
+              ['lg:justify-end']: flip,
             },
           )}
         >
@@ -116,8 +113,8 @@ export const ArtistListItem = ({ index, artist, className, flip = false }: Artis
         </Text>
         {medias.length > 0 && (
           <div
-            className={cx('flex justify-center md:justify-start items-center gap-4', className, {
-              ['md:justify-end']: flip,
+            className={cx('flex justify-center lg:justify-start items-center gap-4', className, {
+              ['lg:justify-end']: flip,
             })}
           >
             <Text as="p" size="sm" className="text-white tracking-[0.05em]" weight="light">

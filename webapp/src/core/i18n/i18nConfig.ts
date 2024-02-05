@@ -6,7 +6,7 @@ export type SupportedLocale = (typeof supportedLocales)[number]
 
 export const defaultLocale: SupportedLocale = 'en'
 
-export const namespaces = ['common', 'home', 'timeline'] as const
+export const namespaces = ['common', 'home', 'timeline', 'artist'] as const
 export type Namespace = (typeof namespaces)[number]
 
 const i18nConfig: UserConfig = {
