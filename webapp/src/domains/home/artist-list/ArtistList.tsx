@@ -15,10 +15,10 @@ export const ArtistList = ({ artists, className }: ArtistListProps) => {
 
   return (
     <div className={className}>
-      <Title className="mb-16">{t('home:artists-section.title')}</Title>
-      <ul className="flex flex-col items-center gap-y-20 md:gap-y-0">
+      <Title className="mb-12">{t('home:artists-section.title')}</Title>
+      <ul className="flex flex-col items-center gap-y-[64px]">
         {artists.map((artist, index) => (
-          <li key={artist._id} className="min-h-[80vh] flex justify-center items-center">
+          <li key={artist._id} className="flex justify-center items-center">
             <ArtistListItem index={index + 1} artist={artist} flip={index % 2 === 0} />
           </li>
         ))}

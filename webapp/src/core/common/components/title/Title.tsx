@@ -24,7 +24,7 @@ export const Title = ({ children, className }: TitleProps) => {
 
   return (
     <div className={cx('flex justify-center items-center', className)}>
-      <div className="mx-8 flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         <motion.h3
           ref={ref}
           animate={textControls}
@@ -40,7 +40,7 @@ export const Title = ({ children, className }: TitleProps) => {
             },
           }}
           transition={{ type: 'spring', damping: 12, stiffness: 100 }}
-          className="font-heading font-light tracking-[0.25em] text-white text-4xl leading-11"
+          className="font-heading font-light tracking-[0.25em] text-center text-white text-3xl leading-10 lg:text-4xl lg:leading-11"
         >
           {children}
         </motion.h3>
@@ -48,7 +48,7 @@ export const Title = ({ children, className }: TitleProps) => {
           animate={lineControls}
           variants={{
             visible: {
-              width: '120%',
+              width: '100%',
               left: '0%',
             },
             hidden: {

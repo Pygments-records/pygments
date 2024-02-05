@@ -5,7 +5,10 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .team-container {
-  @apply grid grid-flow-col px-20 gap-20 overflow-y-auto py-8;
+  @apply grid grid-flow-col gap-8 overflow-y-auto;
+  @screen lg {
+    @apply gap-20;
+  }
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

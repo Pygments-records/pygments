@@ -10,7 +10,7 @@ type ArtistImageProps = {
 
 export const ArtistImage = ({ className, url }: ArtistImageProps) => {
   return (
-    <svg viewBox="0 0 100 100" className={cx('h-[450px] w-[450px]', className)}>
+    <svg viewBox="0 0 100 100" className={cx(className)}>
       <clipPath id="clip">
         <path className={styles['shape-anim']} transform="translate(50 50)"></path>
       </clipPath>

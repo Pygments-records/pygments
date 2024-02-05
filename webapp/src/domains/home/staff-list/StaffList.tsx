@@ -7,18 +7,18 @@ import { Text } from '@ui-kit/components/text/Text'
 import type { Staff } from '@core/staff/data/StaffModel'
 import { NextImage } from '@core/common/components/image/Image'
 import { Heading } from '@ui-kit/components/heading/Heading'
-import styles from './SectionTeam.module.css'
+import styles from './StaffList.module.css'
 
-type SectionTeamProps = {
+type StaffListProps = {
   className?: string
   staff: Staff[]
 }
 
-export const SectionTeam = ({ staff, className }: SectionTeamProps) => {
+export const StaffList = ({ staff, className }: StaffListProps) => {
   const { t } = useTranslation(homeNamespaces)
   return (
     <section className={cx('flex flex-col', className)}>
-      <Title className="mb-[120px]">{t('home:team-section.title')}</Title>
+      <Title className="mb-12 lg:mb-[120px]">{t('home:team-section.title')}</Title>
       <ul className={styles['team-container']}>
         {staff.map((staff) => (
           <li key={staff._id} className="w-[280px]">

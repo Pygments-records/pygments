@@ -1,12 +1,12 @@
 import type { Artist } from '@core/artist/data/ArtistModel'
 import { getOneArtist, getResidentArtistIds } from '@core/artist/data/ArtistRepository'
 import { serverSideTranslations } from '@core/i18n/serverSideTranslations'
-import { homeNamespaces } from '@domains/home/homeNamespaces'
 import { handleClientError } from '@lib/http-client/http'
 import type { GetStaticPaths } from '@lib/next/getStaticPaths'
 import type { GetStaticProps } from '@lib/next/getStaticProps'
 import { ArtistScreen } from '@domains/artist/ArtistScreen'
 import { RootLayout } from '@core/common/layouts/RootLayout/RootLayout'
+import { artistNamespaces } from '@domains/artist/artistNamespaces'
 
 type ArtistPageProps = {
   artist?: Artist
@@ -51,7 +51,7 @@ export const getStaticPaths: GetStaticPaths<PathParameters> = async () => {
 export const getStaticProps: GetStaticProps<ArtistPageProps, PathParameters> = async ({
   params,
 }) => {
-  const translations = serverSideTranslations(homeNamespaces)
+  const translations = serverSideTranslations(artistNamespaces)
   try {
     if (params?.id === undefined) {
       return {

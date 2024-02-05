@@ -19,8 +19,8 @@ export const UpcomingEventBoard = ({ events, className }: UpcomingEventBoardProp
 
   return (
     <div className={className}>
-      <Title className="mb-16">{t('home:upcoming-event-section.title')}</Title>
-      <ul className="mx-4 md:mx-12 flex flex-col">
+      <Title className="mb-12">{t('home:upcoming-event-section.title')}</Title>
+      <ul className="flex flex-col">
         {events.length === 0 ? (
           <li className="p-6 border-b-[0.5px] border-white border-opacity-50">
             <Text size="xl" weight="light" className="text-white text-center tracking-[.10em]">
@@ -28,21 +28,31 @@ export const UpcomingEventBoard = ({ events, className }: UpcomingEventBoardProp
             </Text>
           </li>
         ) : (
-          events.slice(0, MAX_EVENTS_DISPLAYED).map((event) => {
-            return (
-              <li
-                key={event._id}
-                className="p-2 md:p-6 border-b-[0.5px] border-white border-opacity-50"
-              >
-                <UpcomingEvent
-                  name={event.name}
-                  description={event.location.label}
-                  date={event.startDate}
-                  ticketUrl={event.ticket}
-                />
-              </li>
-            )
-          })
+          <>
+            {events.slice(0, MAX_EVENTS_DISPLAYED).map((event) => {
+              return (
+                <li
+                  key={event._id}
+                  className="p-2 md:p-6 border-b-[0.5px] border-white border-opacity-50"
+                >
+                  <UpcomingEvent
+                    name={event.name}
+                    description={event.location.label}
+                    date={event.startDate}
+                    ticketUrl={event.ticket}
+                  />
+                </li>
+              )
+            })}
+            <Text
+              as="p"
+              weight="light"
+              size="xl"
+              className="text-white text-center tracking-[.10em] mt-8"
+            >
+              {t('home:upcoming-event-section.more')}
+            </Text>
+          </>
         )}
       </ul>
     </div>
@@ -71,7 +81,7 @@ const UpcomingEvent = ({ name, description, date, ticketUrl }: UpcomingEventProp
         </Text>
       </div>
       <div className="flex flex-col tracking-[0.3em] font-text text-white">
-        <Text size="2xl" className="text-white tracking-[.25em]">
+        <Text size="2xl" className="text-white tracking-[.25em]" weight="light">
           {name}
         </Text>
         <Text size="base" className="text-purple tracking-[.10em]" weight="light">
@@ -81,7 +91,7 @@ const UpcomingEvent = ({ name, description, date, ticketUrl }: UpcomingEventProp
       <div className="md:ml-auto p-4 md:p-0">
         <ExternalLink href={ticketUrl}>
           <button className="cursor-pointer">
-            <Text size="base" className="text-white tracking-[0.25em]">
+            <Text size="base" className="text-white tracking-[0.25em]" weight="light">
               {t('home:upcoming-event-section.tickets')}
             </Text>
           </button>
