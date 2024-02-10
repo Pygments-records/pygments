@@ -2,7 +2,6 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Lazy, Navigation } from 'swiper'
 import styles from './TimelineDesktopScreen.module.css'
-import { Footer } from '@core/common/layouts/RootLayout/Footer'
 import { EventDesktopSlide } from '../event-desktop-slide/EventDesktopSlide'
 import { SliderEventNavigation } from '../slider-event/SliderEvent'
 import arrowStyles from '../slider-arrow/SliderArrow.module.css'
@@ -42,7 +41,6 @@ export const TimelineDesktopScreen = ({ events }: TimelineDesktopScreenProps) =>
           </SwiperSlide>
         ))}
       </Swiper>
-      <Footer />
     </div>
   )
 }

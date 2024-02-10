@@ -65,33 +65,35 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
           animate={{ top: showDetails ? '-5%' : '50%' }}
           transition={{ duration: 0.2, type: 'spring', damping: 30, stiffness: 80 }}
         >
-          <EventSlideTitle
-            title={event.name}
-            date={event.startDate}
-            actionLabel={showDetails ? t('timeline:showLess') : t('timeline:showMore')}
-            onActionClick={() => setShowDetails((prevState) => !prevState)}
-          />
+          <EventSlideTitle title={event.name} date={event.startDate} />
+          <button
+            onClick={() => setShowDetails((prevState) => !prevState)}
+            className="py-1.5 px-6 border border-white rounded-full flex-shrink-0"
+          >
+            {showDetails ? t('timeline:showLess') : t('timeline:showMore')}
+          </button>
           <AnimatePresence>
             {showDetails && (
               <motion.div
                 initial={{ opacity: 0, transform: 'translateY(20px)' }}
                 animate={{ opacity: 1, transform: 'translateY(0px)' }}
                 transition={{ duration: 0.5, delay: 0.4 }}
+                className="flex flex-col gap-y-2"
               >
-                <div className="flex flex-col my-4">
+                <div className="flex flex-col mt-2">
                   <Text size="lg">
                     {dayjs(event.startDate).locale(i18n.language).format('dddd D MMMM YYYY')}
                   </Text>
                   <Text size="lg">{event.location.label}</Text>
                   <Text size="lg">{event.location.address}</Text>
                 </div>
-                <Heading as="p" size={7} className="mb-2">
+                <Heading as="p" size={7}>
                   {t('timeline:eventDetails.about')}
                 </Heading>
-                <Text size="lg" className="mb-4">
+                <Text size="lg" className="max-h-[150px] overflow-y-scroll">
                   {event.description}
                 </Text>
-                <div className="flex flex-wrap items-center gap-2 mb-4">
+                <div className="flex flex-wrap items-center gap-2">
                   {event.categories.map((category) => (
                     <Badge
                       key={category}
@@ -141,28 +143,20 @@ export const EventDesktopSlide = ({ event }: EventDesktopSlideProps) => {
 export type EventSlideTitleProps = {
   title: string
   date: Date
-  actionLabel?: string
-  onActionClick?: () => void
 }
 
-const EventSlideTitle = ({ title, date, actionLabel, onActionClick }: EventSlideTitleProps) => {
+const EventSlideTitle = ({ title, date }: EventSlideTitleProps) => {
   const heading = dayjs(date).format('DD/MM/YYYY')
   return (
     <div className="relative">
       <Heading as="p" size={3} className="absolute -translate-x-[110%]">
         #
       </Heading>
-      <div>
+      <div className="flex flex-col gap-y-2">
         <div className="flex items-center gap-x-4">
           <Heading as="h2" size={3}>
             {heading}
           </Heading>
-          <button
-            onClick={onActionClick}
-            className="py-1.5 px-6 border border-white rounded-full flex-shrink-0"
-          >
-            {actionLabel}
-          </button>
         </div>
         <Heading as="h3" size={6}>
           {title}
