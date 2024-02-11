@@ -1,1 +1,8 @@
-{}
+{
+  "showMore": "Show more",
+  "showLess": "Show less",
+  "eventDetails": {
+    "about": "Info",
+    "lineUp": "Line-up"
+  }
+}

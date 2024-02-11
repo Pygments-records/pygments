@@ -4,7 +4,6 @@ import React from 'react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { TimelineMobileScreen } from './mobile/TimelineMobileScreen'
 import { TimelineDesktopScreen } from './desktop/TimelineDesktopScreen'
 import { useResponsive } from '@core/common/hooks/useResponsive'
 import type { Event } from '@core/event/data/EventModel'
@@ -20,13 +19,7 @@ export const TimelineScreen = ({ events }: TimelineScreenProps) => {
   }
   return (
     <PageLayout className="bg-darkPurple">
-      {isMobileSize ? (
-        <div className="lg:hidden h-full">
-          <TimelineMobileScreen events={events} />
-        </div>
-      ) : (
-        <TimelineDesktopScreen events={events} />
-      )}
+      <TimelineDesktopScreen events={events} />
     </PageLayout>
   )
 }

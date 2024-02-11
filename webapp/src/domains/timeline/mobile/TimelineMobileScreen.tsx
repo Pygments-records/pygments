@@ -3,7 +3,6 @@ import { SwiperSlide, useSwiper } from 'swiper/react'
 import { SliderEvent } from '../slider-event/SliderEvent'
 import { events } from '../constants/events'
 import { EventModal, EventSlide as EventSlideMobile } from '../event-slide/EventSlide'
-import { Footer } from '@core/common/layouts/RootLayout/Footer'
 import styles from './TimelineMobileScreen.module.css'
 import { EventSlideDetails } from '../event-slide/EventSlideDetails'
 import type { TimelineEvent } from '../models/TimelineEvent'
@@ -32,7 +31,6 @@ export const TimelineMobileScreen = ({ events }: TimelineMobileScreenProps) => {
           <EventSlideDetailsModal showMore={showMore} setShowMore={setShowMore} />
         </SliderEvent>
       </div>
-      <Footer />
     </>
   )
 }
