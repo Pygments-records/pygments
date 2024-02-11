@@ -37,13 +37,13 @@ export const getStaticPaths: GetStaticPaths<PathParameters> = async () => {
     }))
     return {
       paths,
-      fallback: false,
+      fallback: 'blocking',
     }
   } catch (e) {
     console.error(e)
     return {
       paths: [],
-      fallback: false,
+      fallback: 'blocking',
     }
   }
 }
