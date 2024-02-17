@@ -1,0 +1,35 @@
+.footer {
+  @apply bg-footerBg py-8 px-8;
+  @screen lg {
+    @apply px-16;
+  }
+  @screen xl {
+    @apply px-[200px];
+  }
+}
+
+.navigation {
+  @apply flex justify-between text-white gap-8;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @screen lg {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+.navigation > div {
+  grid-column: span 2;
+}
+
+.navigation-list {
+  @apply mt-2 flex flex-col gap-1;
+}
+
+.navigation-list > li > a:hover:not(.disabled) {
+  @apply underline;
+}
+
+.disabled {
+  @apply cursor-not-allowed no-underline;
+}
