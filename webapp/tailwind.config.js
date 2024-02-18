@@ -3,6 +3,7 @@ const colors = {
   black: '#1a1a1a',
   dark: '#000000',
   purple: '#9D63C6',
+  footerBg: '#856ef7',
   darkPurple: '#1D1830',
   blue: '#65B8C4',
   skyBlue: '#00E6FF',

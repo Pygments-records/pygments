@@ -4,7 +4,32 @@
     "mail": "pygments.records@gmail.com"
   },
   "footer": {
-    "made": "Made with <emoji>❤️</emoji> by Fabernovel's frontend team",
-    "powered": "Powered by "
+    "nav": {
+      "network": {
+        "label": "Network",
+        "instagram": "Instagram",
+        "youtube": "Youtube",
+        "facebook": "Facebook",
+        "soundcloud": "SoundCloud",
+        "tiktok": "Tiktok"
+      },
+      "party-crew": {
+        "label": "Party Crew",
+        "shotgun": "Shotgun",
+        "ra": "RA",
+        "timeline": "Timeline"
+      },
+      "artists": {
+        "label": "Artists",
+        "residents": "Residents",
+        "agency": "Agency"
+      },
+      "label": {
+        "label": "(Lab)el"
+      }
+    },
+    "coming-soon": "Coming soon...",
+    "contact-us": "Contact us !",
+    "copyright": "© 2024 All rights reserved to Pygments Records. Website by @Ruben de Andrade"
   }
 }
