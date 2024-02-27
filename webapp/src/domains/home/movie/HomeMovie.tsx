@@ -44,6 +44,8 @@ export const HomeMovie = ({ movie, className }: HomeMovieProps) => {
         playing
         muted
         loop
+        playsinline
+        controls={false}
         style={{
           position: 'absolute',
           top: '50%',
