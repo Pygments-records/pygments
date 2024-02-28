@@ -36,7 +36,7 @@ export const HomeMovie = ({ movie, className }: HomeMovieProps) => {
   }, [])
 
   return (
-    <div className={cx('h-screen relative overflow-hidden', className)}>
+    <div className={cx('h-dvh relative overflow-hidden', className)}>
       <ReactPlayer
         height={(videoWidth / 16) * 9}
         width={videoWidth}
@@ -44,6 +44,8 @@ export const HomeMovie = ({ movie, className }: HomeMovieProps) => {
         playing
         muted
         loop
+        playsinline
+        controls={false}
         style={{
           position: 'absolute',
           top: '50%',
