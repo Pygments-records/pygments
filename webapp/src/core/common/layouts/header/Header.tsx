@@ -116,6 +116,15 @@ const HeaderMenu = ({ onClose, className }: HeaderMenuProps) => {
               <MenuLink href="/timeline" label="Timeline" onClick={onClose} />
             </NextLink>
           </AnimateGroup.Item>
+          <AnimateGroup.Item
+            as="li"
+            variants={headerMenuItemVariants}
+            className="font-text text-4xl lg:text-6xl font-light tracking-[0.2em]"
+          >
+            <NextLink href="https://shop.pygments.fr/" passHref={true}>
+              <MenuLink href="https://shop.pygments.fr/" label="Shop" onClick={onClose} />
+            </NextLink>
+          </AnimateGroup.Item>
           <AnimateGroup.Item as="li" variants={headerMenuItemVariants} className="grid grid-cols-2">
             <p className="font-text text-xs lg:text-base">{t('contact.mail')}</p>
             <p className="font-text text-xs lg:text-base">{t('contact.location')}</p>

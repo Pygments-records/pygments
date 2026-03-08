@@ -65,6 +65,13 @@ export const Footer = () => {
                 </Link>
               </NextLink>
             </li>
+            <li>
+              <NextLink passHref={true} href="https://shop.pygments.fr/">
+                <Link>
+                  <Text>{t('footer.nav.party-crew.shop')}</Text>
+                </Link>
+              </NextLink>
+            </li>
           </ul>
         </div>
         <div>
@@ -95,7 +102,7 @@ export const Footer = () => {
           </ul>
         </div>
         <div className="lg:ml-auto">
-          <ExternalLink href="mailto:pygments.records@gmail.com">
+          <ExternalLink href="mailto:contact@pygments.fr">
             <Text size="lg" weight="bold" className="text-darkPurple hover:underline text-white">
               {t('footer.contact-us')}
             </Text>
