@@ -1,12 +1,12 @@
 {
   "contact": {
     "location": "Paris, France",
-    "mail": "pygments.records@gmail.com"
+    "mail": "contact@pygments.fr"
   },
   "footer": {
     "nav": {
       "network": {
-        "label": "Network",
+        "label": "Socials",
         "instagram": "Instagram",
         "youtube": "Youtube",
         "facebook": "Facebook",
@@ -17,7 +17,8 @@
         "label": "Party Crew",
         "shotgun": "Shotgun",
         "ra": "RA",
-        "timeline": "Timeline"
+        "timeline": "Timeline",
+        "shop": "Shop"
       },
       "artists": {
         "label": "Artists",

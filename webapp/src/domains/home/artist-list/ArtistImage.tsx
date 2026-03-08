@@ -17,7 +17,7 @@ export const ArtistImage = ({ className, url }: ArtistImageProps) => {
       <image
         height="100%"
         width="100%"
-        preserveAspectRatio="xMinYMin slice"
+        preserveAspectRatio="xMidYMid slice"
         href={url}
         clipPath="url(#clip)"
       />
