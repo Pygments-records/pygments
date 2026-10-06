@@ -1,5 +1,5 @@
 import {defineConfig} from 'sanity'
-import {ListItemBuilder, StructureBuilder, deskTool} from 'sanity/desk'
+import {ListItemBuilder, StructureBuilder, structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemas'
@@ -22,7 +22,7 @@ export default defineConfig({
   dataset,
 
   plugins: [
-    deskTool({
+    structureTool({
       structure: (S) => S.list().title('Content').items(getDeskItems(S)),
     }),
     visionTool(),
