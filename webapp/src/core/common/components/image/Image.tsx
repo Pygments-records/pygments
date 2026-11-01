@@ -8,7 +8,8 @@ const builder = imageUrlBuilder(apiClient)
 const IMAGE_QUALITY_DEFAULT = 75
 const imageLoader = ({ src, width, quality }: ImageLoaderProps) => {
   const imageQuality = quality ?? IMAGE_QUALITY_DEFAULT
-  return builder.image(src).width(width).quality(imageQuality).url()
+  // auto('format') lets Sanity serve WebP/AVIF to browsers that support it (much lighter than JPEG)
+  return builder.image(src).width(width).quality(imageQuality).auto('format').url()
 }
 
 export type NextImageProps = Omit<ImageProps, 'loader'>
