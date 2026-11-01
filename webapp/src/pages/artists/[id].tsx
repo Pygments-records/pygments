@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import type { Artist } from '@core/artist/data/ArtistModel'
 import { getOneArtist, getResidentArtistIds } from '@core/artist/data/ArtistRepository'
 import { serverSideTranslations } from '@core/i18n/serverSideTranslations'
@@ -20,6 +21,9 @@ export default function ArtistPage({ artist, error }: ArtistPageProps) {
 
   return (
     <RootLayout className={'overflow-x-hidden'}>
+      <Head>
+        <title>{`${artist.name} | Pygments Records`}</title>
+      </Head>
       <ArtistScreen artist={artist} />
     </RootLayout>
   )

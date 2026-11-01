@@ -1,8 +1,12 @@
 {
-  "showMore": "Show more",
-  "showLess": "Show less",
+  "count_one": "{{count}} Event",
+  "count_other": "{{count}} Events",
+  "photos_one": "{{count}} photo",
+  "photos_other": "{{count}} photos",
+  "scrubHint": "Drag, scroll or scratch to travel back in time",
+  "scrubLabel": "Travel through time",
+  "close": "Close",
   "eventDetails": {
-    "about": "Info",
-    "lineUp": "Line-up"
+    "about": "Info"
   }
 }

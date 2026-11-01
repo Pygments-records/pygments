@@ -1,0 +1,279 @@
+/*
+ * Mobile first: the track is a vertical list read top to bottom from the latest night
+ * (column-reverse, the DOM is ordered oldest first). From lg it becomes a horizontal
+ * track scrolled with the wheel, a drag or the scrubber.
+ */
+
+.piste {
+  @apply relative text-white;
+  padding-top: var(--header-mobile-height);
+  @screen lg {
+    padding-top: var(--header-desktop-height);
+  }
+}
+
+.toolbar {
+  @apply sticky z-20 flex items-center gap-2 overflow-x-auto px-4 py-3 bg-darkPurple;
+  /* The site header is fixed: stick just below it */
+  top: var(--header-mobile-height);
+  scrollbar-width: none;
+  @screen lg {
+    @apply static px-16 py-4 bg-transp;
+  }
+}
+
+.toolbar::-webkit-scrollbar {
+  display: none;
+}
+
+.year-chip {
+  @apply flex-shrink-0 rounded-full border border-white px-4 py-1 font-text text-sm transition-colors duration-300;
+}
+
+.year-chip-active {
+  @apply bg-yellow border-yellow text-darkPurple;
+}
+
+.scroller {
+  @screen lg {
+    @apply overflow-x-auto overflow-y-hidden cursor-grab;
+    height: calc(100vh - var(--header-desktop-height) - 140px);
+    min-height: 520px;
+    scrollbar-width: none;
+  }
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.dragging {
+  @apply cursor-grabbing select-none;
+}
+
+.track {
+  @apply flex flex-col-reverse;
+  @screen lg {
+    @apply flex-row h-full w-max;
+    padding: 0 30vw 0 10vw;
+  }
+}
+
+.year {
+  @apply relative flex flex-col-reverse;
+  /* Year shortcuts land below the fixed header and the sticky year bar */
+  scroll-margin-top: calc(var(--header-mobile-height) + 54px);
+  @screen lg {
+    @apply flex-row;
+  }
+}
+
+/*
+ * Giant outlined year, sticky while its nights scroll by. The backdrop covers exactly its
+ * year and clips the label (overflow: clip keeps `sticky` working, unlike hidden), so a year
+ * slides away when the next one starts instead of overlapping it.
+ */
+.year-backdrop {
+  @apply absolute inset-0 z-0 pointer-events-none select-none;
+  overflow: clip;
+  /* Mobile cross-fade: the outgoing year fades out near the end of its nights, the next fades in */
+  --year-fade: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 140px,
+    black calc(100% - 220px),
+    transparent 100%
+  );
+  -webkit-mask-image: var(--year-fade);
+  mask-image: var(--year-fade);
+  /* Desktop fades are driven by the scroll position in TimelinePiste.tsx */
+  @screen lg {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+.year-label {
+  @apply sticky block font-heading font-extrabold leading-none;
+  top: calc(var(--header-mobile-height) + 64px);
+  width: max-content;
+  padding-left: 16px;
+  font-size: 96px;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(252, 246, 242, 0.22);
+  @screen lg {
+    top: auto;
+    left: 0;
+    padding-left: 0;
+    padding-top: 48px;
+    font-size: 220px;
+  }
+}
+
+.slot {
+  @apply relative flex-shrink-0;
+  height: 300px;
+  @screen lg {
+    width: 250px;
+    height: 100%;
+  }
+}
+
+/* Waveform segment drawn on the centre line of each slot */
+.wave {
+  @apply absolute flex flex-col justify-between items-center z-0;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  @screen lg {
+    @apply flex-row;
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: auto;
+    width: auto;
+    height: 0;
+  }
+}
+
+.bar {
+  @apply flex-shrink-0 rounded-full;
+  height: 3px;
+  width: calc(var(--amp) * 140px);
+  @screen lg {
+    width: 3px;
+    height: calc(var(--amp) * 180px);
+  }
+}
+
+.pin {
+  @apply absolute z-10 rounded-full bg-yellow;
+  width: 11px;
+  height: 11px;
+  left: calc(50% - 5.5px);
+  top: calc(50% - 5.5px);
+}
+
+.stem {
+  @apply absolute z-0 bg-yellow;
+  opacity: 0.6;
+  top: calc(50% - 0.5px);
+  height: 1px;
+  width: 28px;
+  @screen lg {
+    top: auto;
+    width: 1px;
+    height: 48px;
+    left: calc(50% - 0.5px);
+  }
+}
+
+.stem[data-side='start'] {
+  right: 50%;
+  @screen lg {
+    right: auto;
+    bottom: 50%;
+  }
+}
+
+.stem[data-side='end'] {
+  left: 50%;
+  @screen lg {
+    left: calc(50% - 0.5px);
+    top: 50%;
+  }
+}
+
+/* Poster card: on mobile left/right of the line, on desktop above/below it */
+.poster {
+  @apply absolute z-10 block text-left;
+  width: calc(50% - 44px);
+  max-width: 200px;
+  top: 50%;
+  transform: translateY(-50%) rotate(var(--tilt));
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  @screen lg {
+    width: 190px;
+    max-width: none;
+    left: calc(50% - 95px);
+    transform: rotate(var(--tilt));
+  }
+}
+
+.poster[data-side='start'] {
+  right: calc(50% + 28px);
+  @screen lg {
+    right: auto;
+    top: auto;
+    bottom: calc(50% + 48px);
+  }
+}
+
+.poster[data-side='end'] {
+  left: calc(50% + 28px);
+  @screen lg {
+    left: calc(50% - 95px);
+    top: calc(50% + 48px);
+  }
+}
+
+.poster:hover,
+.poster:focus-visible {
+  transform: translateY(-50%) rotate(0deg) scale(1.06);
+  z-index: 30;
+  outline: none;
+  @screen lg {
+    transform: rotate(0deg) scale(1.12);
+  }
+}
+
+/* The tilted purple / yellow frames already used across the site */
+.frame {
+  @apply relative aspect-square w-full;
+}
+
+.frame:before,
+.frame:after {
+  content: '';
+  @apply absolute inset-0;
+}
+
+.frame:before {
+  @apply bg-purple;
+  transform: rotate(-5deg);
+}
+
+.frame:after {
+  @apply bg-yellow;
+  transform: rotate(-2.5deg);
+}
+
+.picture {
+  @apply absolute inset-0 z-10 overflow-hidden;
+}
+
+.photo-count {
+  @apply absolute z-20 bottom-2 right-2 rounded px-2 py-0.5 font-text text-xs text-white;
+  background: rgba(29, 24, 48, 0.8);
+}
+
+.caption {
+  @apply mt-3 block font-text text-sm leading-snug;
+}
+
+.caption-date {
+  @apply block text-yellow;
+}
+
+.scrubber {
+  @apply hidden;
+  @screen lg {
+    @apply flex items-center gap-4 px-16 py-6;
+  }
+}
+
+.scrubber input {
+  @apply flex-1 cursor-pointer;
+  accent-color: #ffbe0b;
+}

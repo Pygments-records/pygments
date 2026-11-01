@@ -1,8 +1,0 @@
-.desktop-swiper {
-  @apply relative;
-  padding-top: var(--header-desktop-height);
-  height: 100vh;
-  & :global(.swiper-slide:last-child) {
-    height: auto;
-  }
-}

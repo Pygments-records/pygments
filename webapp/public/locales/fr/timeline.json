@@ -1,8 +1,12 @@
 {
-  "showMore": "Voir plus",
-  "showLess": "Voir moins",
+  "count_one": "{{count}} soirée",
+  "count_other": "{{count}} soirées",
+  "photos_one": "{{count}} photo",
+  "photos_other": "{{count}} photos",
+  "scrubHint": "Glisse, scrolle ou scratche pour remonter le temps",
+  "scrubLabel": "Défiler dans le temps",
+  "close": "Fermer",
   "eventDetails": {
-    "about": "À propos",
-    "lineUp": "Line-up"
+    "about": "À propos"
   }
 }
