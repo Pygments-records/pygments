@@ -76,6 +76,25 @@
 .year-backdrop {
   @apply absolute inset-0 z-0 pointer-events-none select-none;
   overflow: clip;
+  /* Cross-fade: the outgoing year fades out near the end of its nights, the next one fades in */
+  --year-fade: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 140px,
+    black calc(100% - 220px),
+    transparent 100%
+  );
+  -webkit-mask-image: var(--year-fade);
+  mask-image: var(--year-fade);
+  @screen lg {
+    --year-fade: linear-gradient(
+      to right,
+      transparent 0,
+      black 320px,
+      black calc(100% - 520px),
+      transparent 100%
+    );
+  }
 }
 
 .year-label {
