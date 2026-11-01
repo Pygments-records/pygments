@@ -13,12 +13,15 @@ import styles from './TimelinePiste.module.css'
 const DESKTOP_QUERY = '(min-width: 1024px)'
 const SCRUB_MAX = 1000
 const DRAG_THRESHOLD = 5
+// Desktop: a giant year starts fading this many px before the next year pushes it out
+const YEAR_FADE_OUT = 600
 
 type TimelinePisteProps = {
   events: Event[]
 }
 
 const isDesktop = () => window.matchMedia(DESKTOP_QUERY).matches
+const clamp01 = (value: number) => Math.min(1, Math.max(0, value))
 
 export const TimelinePiste = ({ events }: TimelinePisteProps) => {
   const { t } = useTranslation(timelineNamespaces)
@@ -26,6 +29,7 @@ export const TimelinePiste = ({ events }: TimelinePisteProps) => {
   const years = useMemo(() => buildPiste(events), [events])
   const scrollerRef = useRef<HTMLDivElement>(null)
   const yearRefs = useRef(new Map<number, HTMLElement>())
+  const labelRefs = useRef(new Map<number, HTMLElement>())
   const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: false })
   const [isDragging, setIsDragging] = useState(false)
   const [scrub, setScrub] = useState(SCRUB_MAX)
@@ -75,6 +79,25 @@ export const TimelinePiste = ({ events }: TimelinePisteProps) => {
     }
   }, [years])
 
+  // Desktop: the outgoing year fades out before the next one reaches it, and the incoming
+  // year only fully shows once it sticks to the left edge (mobile uses a CSS mask instead)
+  const fadeYearLabels = useCallback(() => {
+    const scroller = scrollerRef.current
+    if (!scroller) return
+    const desktop = isDesktop()
+    const scrollerLeft = scroller.getBoundingClientRect().left
+    for (const label of labelRefs.current.values()) {
+      const backdrop = label.parentElement?.getBoundingClientRect()
+      if (!desktop || !backdrop) {
+        label.style.opacity = ''
+        continue
+      }
+      const fadeOut = (backdrop.right - label.getBoundingClientRect().right) / YEAR_FADE_OUT
+      const fadeIn = 1 - (backdrop.left - scrollerLeft) / (scroller.clientWidth * 0.8)
+      label.style.opacity = String(clamp01(Math.min(fadeOut, fadeIn)))
+    }
+  }, [])
+
   // Desktop: start at the latest night, on the right end of the track
   useEffect(() => {
     const scroller = scrollerRef.current
@@ -96,17 +119,21 @@ export const TimelinePiste = ({ events }: TimelinePisteProps) => {
             setScrub(Math.round((scroller.scrollLeft / max) * SCRUB_MAX))
           }
           updateActiveYear()
+          fadeYearLabels()
         })
       }
+      onScroll()
       scroller.addEventListener('scroll', onScroll, { passive: true })
       window.addEventListener('scroll', onScroll, { passive: true })
+      window.addEventListener('resize', onScroll)
       return () => {
         cancelAnimationFrame(frame)
         scroller.removeEventListener('scroll', onScroll)
         window.removeEventListener('scroll', onScroll)
+        window.removeEventListener('resize', onScroll)
       }
     },
-    [updateActiveYear],
+    [updateActiveYear, fadeYearLabels],
   )
 
   useEffect(function wheelScrollsTheTrack() {
@@ -218,7 +245,15 @@ export const TimelinePiste = ({ events }: TimelinePisteProps) => {
               }}
             >
               <div className={styles['year-backdrop']} aria-hidden="true">
-                <span className={styles['year-label']}>{year}</span>
+                <span
+                  className={styles['year-label']}
+                  ref={(el) => {
+                    if (el) labelRefs.current.set(year, el)
+                    else labelRefs.current.delete(year)
+                  }}
+                >
+                  {year}
+                </span>
               </div>
               {yearEvents.map((item, index) => (
                 <PisteSlot

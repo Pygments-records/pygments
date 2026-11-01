@@ -76,7 +76,7 @@
 .year-backdrop {
   @apply absolute inset-0 z-0 pointer-events-none select-none;
   overflow: clip;
-  /* Cross-fade: the outgoing year fades out near the end of its nights, the next one fades in */
+  /* Mobile cross-fade: the outgoing year fades out near the end of its nights, the next fades in */
   --year-fade: linear-gradient(
     to bottom,
     transparent 0,
@@ -86,14 +86,10 @@
   );
   -webkit-mask-image: var(--year-fade);
   mask-image: var(--year-fade);
+  /* Desktop fades are driven by the scroll position in TimelinePiste.tsx */
   @screen lg {
-    --year-fade: linear-gradient(
-      to right,
-      transparent 0,
-      black 320px,
-      black calc(100% - 520px),
-      transparent 100%
-    );
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }
 
