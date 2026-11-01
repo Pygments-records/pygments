@@ -1,11 +1,9 @@
 import { PageLayout } from '@core/common/layouts/PageLayout/PageLayout'
 import React from 'react'
 
-// Import Swiper styles
+// Import Swiper styles (used by the photo gallery of an opened event)
 import 'swiper/css'
-import 'swiper/css/pagination'
-import { TimelineDesktopScreen } from './desktop/TimelineDesktopScreen'
-import { useResponsive } from '@core/common/hooks/useResponsive'
+import { TimelinePiste } from './piste/TimelinePiste'
 import type { Event } from '@core/event/data/EventModel'
 
 type TimelineScreenProps = {
@@ -13,13 +11,9 @@ type TimelineScreenProps = {
 }
 
 export const TimelineScreen = ({ events }: TimelineScreenProps) => {
-  const { isMobileSize } = useResponsive()
-  if (isMobileSize === undefined) {
-    return null
-  }
   return (
     <PageLayout className="bg-darkPurple">
-      <TimelineDesktopScreen events={events} />
+      <TimelinePiste events={events} />
     </PageLayout>
   )
 }

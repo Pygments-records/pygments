@@ -1,0 +1,39 @@
+.backdrop {
+  @apply fixed inset-0 z-50 flex items-stretch justify-center lg:items-center lg:p-10;
+  background: rgba(29, 24, 48, 0.92);
+}
+
+.panel {
+  @apply relative flex w-full flex-col overflow-y-auto bg-darkPurple text-white;
+  @screen lg {
+    @apply flex-row overflow-hidden border-2;
+    max-width: 1200px;
+    height: min(720px, 85vh);
+  }
+}
+
+.close {
+  @apply absolute right-3 top-2 z-30 font-text text-4xl leading-none text-white;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.gallery {
+  @apply relative flex-shrink-0 w-full aspect-square;
+  @screen lg {
+    @apply aspect-auto h-full;
+    width: 58%;
+  }
+}
+
+.details {
+  @apply flex flex-col p-6;
+  @screen lg {
+    @apply overflow-y-auto p-10;
+    width: 42%;
+  }
+}
+
+.description {
+  @apply mt-2 whitespace-pre-line text-white;
+  overflow-wrap: anywhere;
+}
