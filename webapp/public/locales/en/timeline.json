@@ -1,6 +1,6 @@
 {
-  "count_one": "{{count}} night",
-  "count_other": "{{count}} nights",
+  "count_one": "{{count}} Event",
+  "count_other": "{{count}} Events",
   "photos_one": "{{count}} photo",
   "photos_other": "{{count}} photos",
   "scrubHint": "Drag, scroll or scratch to travel back in time",
