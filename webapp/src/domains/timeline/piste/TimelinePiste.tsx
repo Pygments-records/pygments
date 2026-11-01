@@ -217,9 +217,9 @@ export const TimelinePiste = ({ events }: TimelinePisteProps) => {
                 else yearRefs.current.delete(year)
               }}
             >
-              <span className={styles['year-label']} aria-hidden="true">
-                {year}
-              </span>
+              <div className={styles['year-backdrop']} aria-hidden="true">
+                <span className={styles['year-label']}>{year}</span>
+              </div>
               {yearEvents.map((item, index) => (
                 <PisteSlot
                   key={item.event._id}

@@ -14,7 +14,8 @@
 
 .toolbar {
   @apply sticky z-20 flex items-center gap-2 overflow-x-auto px-4 py-3 bg-darkPurple;
-  top: 0;
+  /* The site header is fixed: stick just below it */
+  top: var(--header-mobile-height);
   scrollbar-width: none;
   @screen lg {
     @apply static px-16 py-4 bg-transp;
@@ -60,32 +61,37 @@
 
 .year {
   @apply relative flex flex-col-reverse;
+  /* Year shortcuts land below the fixed header and the sticky year bar */
+  scroll-margin-top: calc(var(--header-mobile-height) + 54px);
   @screen lg {
     @apply flex-row;
   }
 }
 
-/* Giant outlined year, sticky while its nights scroll by */
+/*
+ * Giant outlined year, sticky while its nights scroll by. The backdrop covers exactly its
+ * year and clips the label (overflow: clip keeps `sticky` working, unlike hidden), so a year
+ * slides away when the next one starts instead of overlapping it.
+ */
+.year-backdrop {
+  @apply absolute inset-0 z-0 pointer-events-none select-none;
+  overflow: clip;
+}
+
 .year-label {
-  @apply sticky z-0 font-heading font-extrabold leading-none pointer-events-none select-none;
-  order: 1;
-  top: 64px;
-  height: 0;
+  @apply sticky block font-heading font-extrabold leading-none;
+  top: calc(var(--header-mobile-height) + 64px);
+  width: max-content;
   padding-left: 16px;
   font-size: 96px;
   color: transparent;
   -webkit-text-stroke: 1px rgba(252, 246, 242, 0.22);
-  scroll-margin-top: 64px;
   @screen lg {
-    order: 0;
     top: auto;
     left: 0;
-    width: 0;
-    height: auto;
     padding-left: 0;
     padding-top: 48px;
     font-size: 220px;
-    white-space: nowrap;
   }
 }
 
