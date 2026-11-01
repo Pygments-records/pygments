@@ -48,7 +48,6 @@ export default function Home({ artists, events, staff, homeContent }: HomeProps)
         <meta name="twitter:title" content="Pygments Records"/>
         <meta name="twitter:description" content="Pygments explore les dimensions de la musique électronique"/>
         <meta name="twitter:image" content="https://drive.google.com/file/d/1V2lN-NG2pTCGH160UwiYQMJR_sJOMPgU/view?usp=sharing"/>
-        <link rel="icon" href="/Format Facebook.png" />
       </Head>
       <HomeScreen
         content={homeContent}
