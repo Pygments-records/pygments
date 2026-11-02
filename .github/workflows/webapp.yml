@@ -1,0 +1,25 @@
+name: webapp
+
+on:
+  pull_request:
+    paths: ['webapp/**', '.github/workflows/webapp.yml']
+  push:
+    branches: [main]
+    paths: ['webapp/**', '.github/workflows/webapp.yml']
+
+defaults:
+  run:
+    working-directory: webapp
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: yarn install --immutable
+      - run: yarn check-types
+      - run: yarn check-lint
+      - run: yarn test

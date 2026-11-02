@@ -80,6 +80,19 @@ module.exports = {
       },
     },
     {
+      // TypeScript 4.3 cannot read Vitest's type definitions: its helpers are typed as `any`
+      files: ['**/*.test.ts', '**/*.test.tsx'],
+      parserOptions: {
+        project: './tsconfig.test.json',
+      },
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
+      },
+    },
+    {
       files: ['**/*.stories.ts', '**/*.stories.tsx'],
       rules: {
         '@typescript-eslint/no-unsafe-assignment': 'off',

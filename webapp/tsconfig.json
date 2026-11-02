@@ -28,6 +28,8 @@
     ".yarn",
     "public",
     "node_modules",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
     "src/**/*.stories.tsx",
     "src/**/*.stories.ts"
   ]
