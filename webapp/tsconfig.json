@@ -19,7 +19,11 @@
     "importHelpers": false,
     "isolatedModules": true,
     "noEmit": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    // Only load @types from the webapp: TypeScript also scans parent folders, and a stray
+    // node_modules at the repo root brought a second @types/react (6 "cannot be used as a JSX
+    // component" errors)
+    "typeRoots": ["./node_modules/@types"]
   },
   "include": ["next-env.d.ts", "src"],
   "exclude": [

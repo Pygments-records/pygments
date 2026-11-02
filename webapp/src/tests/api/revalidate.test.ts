@@ -2,9 +2,10 @@ import { encodeSignatureHeader, SIGNATURE_HEADER_NAME } from '@sanity/webhook'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+// Lives outside src/pages: Next.js would publish any file there as a route, tests included
 const SECRET = 'test-secret'
 
-const loadHandler = async () => (await import('./revalidate')).default
+const loadHandler = async () => (await import('../../pages/api/revalidate')).default
 
 const makeRequest = (body: unknown, signature?: string) =>
   ({
