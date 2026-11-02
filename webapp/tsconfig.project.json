@@ -1,5 +1,13 @@
 {
   "extends": "./tsconfig.json",
   "include": ["next-env.d.ts", "src", "types"],
-  "exclude": [".github", ".next", ".yarn", "public", "node_modules"]
+  "exclude": [
+    ".github",
+    ".next",
+    ".yarn",
+    "public",
+    "node_modules",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx"
+  ]
 }
