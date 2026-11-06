@@ -5104,6 +5104,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vercel/analytics@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@vercel/analytics@npm:1.3.1"
+  dependencies:
+    server-only: ^0.0.1
+  peerDependencies:
+    next: ">= 13"
+    react: ^18 || ^19
+  peerDependenciesMeta:
+    next:
+      optional: true
+    react:
+      optional: true
+  checksum: 36d4256fac6c1b22a00bafc7c76b05beead74fd397d18fb3506ac5ca3b13b7d218019e653d8aa90116a1ba912990ac90f55f6944bde8462011119a9237de27a1
+  languageName: node
+  linkType: hard
+
 "@vitest/expect@npm:3.2.4":
   version: 3.2.4
   resolution: "@vitest/expect@npm:3.2.4"
@@ -15839,6 +15856,7 @@ fsevents@~2.3.3:
     "@types/react-dom": latest
     "@typescript-eslint/eslint-plugin": 6.19.1
     "@typescript-eslint/parser": 6.19.1
+    "@vercel/analytics": 1.3.1
     autoprefixer: ^10.4.0
     babel-loader: 8.2.2
     classnames: 2.3.1
@@ -17298,6 +17316,13 @@ resolve@^2.0.0-next.4:
     parseurl: ~1.3.3
     send: 0.18.0
   checksum: 5bf154f7ddecdbb2c3710fcda40a6947c370150856a709f464adbdde9f2d87c31ca4869054b696cd7736a6a6a04e3d4532acc353dc67a8fdbcc866471cb250c7
+  languageName: node
+  linkType: hard
+
+"server-only@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "server-only@npm:0.0.1"
+  checksum: ae7b1d735153311126d26f5f794c3cbde0e37435966c80fa3ab03cf717bc90dc55219e5557bb6c65cedd8cb03216fabc1f2acf432d399763e7b407a08c1aeaeb
   languageName: node
   linkType: hard
 
