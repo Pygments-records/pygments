@@ -2631,6 +2631,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright/test@npm:1.64.1":
+  version: 1.64.1
+  resolution: "@playwright/test@npm:1.64.1"
+  dependencies:
+    playwright: 1.64.1
+  bin:
+    playwright: cli.js
+  checksum: fd621ea7812250c3b6087bc29f9073fdf2cad9d3e32b1c9d18174f6c9aad40086c74e9c59198023f4d1b4ca0e1d466cdef882e9e71fbc0d97114742487b177c3
+  languageName: node
+  linkType: hard
+
 "@pmmmwh/react-refresh-webpack-plugin@npm:^0.5.1":
   version: 0.5.10
   resolution: "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.10"
@@ -5101,6 +5112,23 @@ __metadata:
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
   checksum: c49ca98a899144be5d1ab9bebf6d2a3a77956f7ad17e9d71959eb2568ab511ff253e1c1e65d7927b114366bc945fc5dd54e59d99a48895236f63e1f36e7bc35d
+  languageName: node
+  linkType: hard
+
+"@vercel/analytics@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@vercel/analytics@npm:1.3.1"
+  dependencies:
+    server-only: ^0.0.1
+  peerDependencies:
+    next: ">= 13"
+    react: ^18 || ^19
+  peerDependenciesMeta:
+    next:
+      optional: true
+    react:
+      optional: true
+  checksum: 36d4256fac6c1b22a00bafc7c76b05beead74fd397d18fb3506ac5ca3b13b7d218019e653d8aa90116a1ba912990ac90f55f6944bde8462011119a9237de27a1
   languageName: node
   linkType: hard
 
@@ -14884,6 +14912,26 @@ fsevents@~2.3.3:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.64.1":
+  version: 1.64.1
+  resolution: "playwright-core@npm:1.64.1"
+  bin:
+    playwright-core: cli.js
+  checksum: cb1ec119777deb1b0ace03a2c7fa84102adb1d6a7ea607dfa2a846dcffb6b0257c43cc947a6037566eabb81c5cc02e76f7fa6a8a1382247ec98d30f2532cb99b
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.64.1":
+  version: 1.64.1
+  resolution: "playwright@npm:1.64.1"
+  dependencies:
+    playwright-core: 1.64.1
+  bin:
+    playwright: cli.js
+  checksum: 3608672c42b6bdcffa6c95296f6ba967b9a47f8b8955e17782721fe27356eae5388199ee4b844f3882d486be6953e5991a6daf8ed86086043ba4679814ddfc7c
+  languageName: node
+  linkType: hard
+
 "please-upgrade-node@npm:^3.2.0":
   version: 3.2.0
   resolution: "please-upgrade-node@npm:3.2.0"
@@ -15822,6 +15870,7 @@ fsevents@~2.3.3:
   dependencies:
     "@babel/core": 7.14.6
     "@mdx-js/react": 1.6.22
+    "@playwright/test": 1.64.1
     "@sanity/client": 5.4.1
     "@sanity/image-url": 1.0.2
     "@sanity/webhook": 2.0.0
@@ -15839,6 +15888,7 @@ fsevents@~2.3.3:
     "@types/react-dom": latest
     "@typescript-eslint/eslint-plugin": 6.19.1
     "@typescript-eslint/parser": 6.19.1
+    "@vercel/analytics": 1.3.1
     autoprefixer: ^10.4.0
     babel-loader: 8.2.2
     classnames: 2.3.1
@@ -17298,6 +17348,13 @@ resolve@^2.0.0-next.4:
     parseurl: ~1.3.3
     send: 0.18.0
   checksum: 5bf154f7ddecdbb2c3710fcda40a6947c370150856a709f464adbdde9f2d87c31ca4869054b696cd7736a6a6a04e3d4532acc353dc67a8fdbcc866471cb250c7
+  languageName: node
+  linkType: hard
+
+"server-only@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "server-only@npm:0.0.1"
+  checksum: ae7b1d735153311126d26f5f794c3cbde0e37435966c80fa3ab03cf717bc90dc55219e5557bb6c65cedd8cb03216fabc1f2acf432d399763e7b407a08c1aeaeb
   languageName: node
   linkType: hard
 
