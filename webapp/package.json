@@ -14,6 +14,7 @@
     "check-format": "prettier --check src/*",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "format": "prettier --write src",
     "git:getReleasesAndTags": "git tag --points-at HEAD | tr '\\r\\n' ' '",
     "git:getCommitSHA": "git rev-parse HEAD",
@@ -58,6 +59,7 @@
   "devDependencies": {
     "@babel/core": "7.14.6",
     "@mdx-js/react": "1.6.22",
+    "@playwright/test": "1.64.1",
     "@storybook/addon-a11y": "6.4.4",
     "@storybook/addon-actions": "6.4.4",
     "@storybook/addon-docs": "6.4.4",

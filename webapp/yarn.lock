@@ -2631,6 +2631,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright/test@npm:1.64.1":
+  version: 1.64.1
+  resolution: "@playwright/test@npm:1.64.1"
+  dependencies:
+    playwright: 1.64.1
+  bin:
+    playwright: cli.js
+  checksum: fd621ea7812250c3b6087bc29f9073fdf2cad9d3e32b1c9d18174f6c9aad40086c74e9c59198023f4d1b4ca0e1d466cdef882e9e71fbc0d97114742487b177c3
+  languageName: node
+  linkType: hard
+
 "@pmmmwh/react-refresh-webpack-plugin@npm:^0.5.1":
   version: 0.5.10
   resolution: "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.10"
@@ -14901,6 +14912,26 @@ fsevents@~2.3.3:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.64.1":
+  version: 1.64.1
+  resolution: "playwright-core@npm:1.64.1"
+  bin:
+    playwright-core: cli.js
+  checksum: cb1ec119777deb1b0ace03a2c7fa84102adb1d6a7ea607dfa2a846dcffb6b0257c43cc947a6037566eabb81c5cc02e76f7fa6a8a1382247ec98d30f2532cb99b
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.64.1":
+  version: 1.64.1
+  resolution: "playwright@npm:1.64.1"
+  dependencies:
+    playwright-core: 1.64.1
+  bin:
+    playwright: cli.js
+  checksum: 3608672c42b6bdcffa6c95296f6ba967b9a47f8b8955e17782721fe27356eae5388199ee4b844f3882d486be6953e5991a6daf8ed86086043ba4679814ddfc7c
+  languageName: node
+  linkType: hard
+
 "please-upgrade-node@npm:^3.2.0":
   version: 3.2.0
   resolution: "please-upgrade-node@npm:3.2.0"
@@ -15839,6 +15870,7 @@ fsevents@~2.3.3:
   dependencies:
     "@babel/core": 7.14.6
     "@mdx-js/react": 1.6.22
+    "@playwright/test": 1.64.1
     "@sanity/client": 5.4.1
     "@sanity/image-url": 1.0.2
     "@sanity/webhook": 2.0.0
